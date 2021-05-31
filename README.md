@@ -1,6 +1,6 @@
 # ¡Bienvenidos al local de ropa 'Domino'!
 
-Somos un local de ropa urbana y deportiva llamada **Domino** apuntada a hombres y mújeres, contando con marcas reconocidas como ropa original de la marca "Dominó".
+Somos un local de ropa urbana y deportiva llamada **Domino** apuntada a hombres y mujeres, contando con marcas reconocidas como ropa original de la marca "Dominó".
 Domino está formado por cuatro hermanos con una familia de generaciones dedicada al área textil. El nombre 'Domino' surge como un homenaje a nuestro abuelo (también enlazado con el mundo de la ropa) el cual cuando eramos pequeños jugaba con nosotros al famoso juego de mesa 'Domino'.
 
 # Integrantes (Encargados de hacer la página): 
