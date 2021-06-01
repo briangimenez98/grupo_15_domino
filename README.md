@@ -35,21 +35,3 @@ Curiosamente la mayoría de páginas en la que nos inspiramos, suelen tener una 
 ## Funciones: 
 
 Éste es el punto donde mas hubo debate: la forma de los submits, que función poner en el header de la versión móvil, que contenido iba en el medio; si poner productos o categorías, mayormente están basadas en Dafiti, Adidas y Lady Stork, ya que tenían (a nuestro gusto) mejor organizadas las funcionalidades y nos parecía también usual verlas en una página de este estilo. El resultado final no fue más que una combinación de nuestras preferencias favoritas de lo que debería contener una página de ropa. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Nos basamos en ellos porque contienen una estructura definida como denominador común entre todos, luego fuimos desglosando lo que nos parecía mejor para cada uno: iconos, los cuadros de opciones, ubicación del logo, fuentes y principalmente el contenido del home; con esto nos referimos en poner categorias o mostrar directamente los productos, cuantos deslizadores, etc, para esto fue clave hacer la versión de cada uno de su home y decidir cual es que nos más gustaba. En cuestión de servicios decidimos volcarnos a ofrecer ropa casual y deportiva a hombres y mujeres, eso fue en parte por influencia de las páginas que elegímos como también decisión grupal. En estética vimos que la mayoría de las páginas contenían una paleta de colores de tonos fríos es decir blanco con algunas variantes o combinado con grises, decidimos aprovechar esto con el nombre de la página. 
