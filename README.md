@@ -13,9 +13,10 @@ Te invitamos a que recorras nuestra página y que disfrutes de la gran variedad 
     - Licenciada en Producción de Biomagenes. Estudiante de programación web.
     - Me gusta aprender cosas nuevas, como también desarrollarme profesionalmente. Soy detallista, pero no obsesiva. Suelo adaptarme rapidamente a los cambios. Y trato de superarme día a día.
 - Nicolás Gonzalez
-    - 20 años
-    - San Miguel, Buenos Aires
+    - 20 años.
+    - San Miguel, Buenos Aires.
     - Estudiante de Programación web.
+    - Soy una persona bastante dedicada, que saca un buen provecho de todo lo que aprende. Me gusta la música, la ciencia, los animales, las emociones y las formas.
 - Martin Alvarado
 - Brian Giménez: 
     - 23 años
