@@ -11,6 +11,7 @@ Te invitamos a que recorras nuestra página y que disfrutes de la gran variedad 
     - 33 años
     - Lanús, Buenos Aires
     - Licenciada en Producción de Biomagenes. Estudiante de programación web.
+    - Me gusta aprender cosas nuevas, como también desarrollarme profesionalmente. Soy detallista, pero no obsesiva. Suelo adaptarme rapidamente a los cambios. Y trato de superarme día a día.
 - Nicolas Gonzales
 - Martin Alvarado
 - Brian Giménez: 
@@ -29,11 +30,12 @@ La página está basada en webs como:
 ## ¿Por qué nos basamos en estas páginas? 
 ###  Por los productos y el público: 
 
-Los productos y el tópico que los rodea (casual y deportivo) surge de páginas como Adidas y Reebook del lado deportivo y Lady Stork y Tascani como el lado de la ropa urbana. Éste tipo de ropa es al que más estamos expuestos como usuarios y clientes, por lo cual sentimos que es mucho más comodo lidiar tanto con los colores, como con el tipo de ropa, las marcas mas usuales, las categorias, el precio y al público al cual nos dirigimos ya que son similares a lo que nosotros vemos todos los días. 
-## Estética: 
+Los productos y el tópico que los rodea (casual y deportivo) surge de páginas como Adidas y Reebook del lado deportivo y, Lady Stork y Tascani, como el lado de la ropa urbana. Éste tipo de ropa es al que más estamos expuestos como usuarios, por lo cual, sentimos que es mucho más comodo lidiar tanto con los colores, como con el tipo de ropa, las marcas mas usuales, las categorias, el precio y el público al cual nos dirigimos ya que son similares a lo que nosotros vemos todos los días.
+
+### Estética: 
 
 Curiosamente la mayoría de páginas en la que nos inspiramos, suelen tener una paleta de colores en tonos fríos o directamente monocromático y sentimos que coincidía con el nombre de la página, haciendo alusión a la ficha del dominó, asi que no fue tema de debate, fue algo mas como una votación unanime. 
 
-## Funciones: 
+### Funciones: 
 
 Éste es el punto donde mas hubo debate: la forma de los submits, que función poner en el header de la versión móvil, que contenido iba en el medio; si poner productos o categorías, mayormente están basadas en Dafiti, Adidas y Lady Stork, ya que tenían (a nuestro gusto) mejor organizadas las funcionalidades y nos parecía también usual verlas en una página de este estilo. El resultado final no fue más que una combinación de nuestras preferencias favoritas de lo que debería contener una página de ropa. 
