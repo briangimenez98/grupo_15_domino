@@ -12,7 +12,10 @@ Te invitamos a que recorras nuestra página y que disfrutes de la gran variedad 
     - Lanús, Buenos Aires
     - Licenciada en Producción de Biomagenes. Estudiante de programación web.
     - Me gusta aprender cosas nuevas, como también desarrollarme profesionalmente. Soy detallista, pero no obsesiva. Suelo adaptarme rapidamente a los cambios. Y trato de superarme día a día.
-- Nicolas Gonzales
+- Nicolás Gonzalez
+    - 20 años
+    - San Miguel, Buenos Aires
+    - Estudiante de Programación web.
 - Martin Alvarado
 - Brian Giménez: 
     - 23 años
