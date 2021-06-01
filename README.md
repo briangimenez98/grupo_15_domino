@@ -11,7 +11,10 @@ Te invitamos a que recorras nuestra página y que disfrutes de la gran variedad 
     - 33 años
     - Lanús, Buenos Aires
     - Licenciada en Producción de Biomagenes. Estudiante de programación web.
-- Nicolas Gonzales
+- Nicolás Gonzalez
+    - 20 años
+    - San Miguel, Buenos Aires
+    - Estudiante de Programación web.
 - Martin Alvarado
 - Brian Giménez: 
     - 23 años
