@@ -21,7 +21,7 @@ Te invitamos a que recorras nuestra página y que disfrutes de la gran variedad 
     - 18 años.
     - Floresta, Buenos Aires.
     - Estudiante de programación web. 
-    - Amante del fútbol, la buena música (cualquier genero), gimnasio y la tecnología. Me considero una persona tranquila, con perfil bajo, y una personalidad fuerte. El compañerismo y sobre todo las ganas de aprender y tratar de superarme día a día, son algunas de mis cualidades.
+    - Amante del fútbol, la buena música (cualquier genero) y la tecnología. Me considero una persona tranquila, con perfil bajo, y una personalidad fuerte. El compañerismo y sobre todo las ganas de aprender y tratar de superarme día a día, son algunas de mis cualidades.
 - Brian Giménez: 
     - 23 años
     - Merlo, Buenos Aires
