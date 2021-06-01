@@ -21,6 +21,7 @@ Te invitamos a que recorras nuestra página y que disfrutes de la gran variedad 
     - 23 años
     - Merlo, Buenos Aires
     - Estudiante de Lic. en Ciencias de la computación. Estudiante de Programación web.
+    - Me gusta mucho la programación, la música (soy multi-instrumentalista) y la física. Me gusta aprender las cosas por sí solo aunque cambie de tópico muy rápido. Dos palabras que me corresponderian serían espontáneo y cambiante, ya que soy de volver a empezar de cero para poder intentar otro camino u otra cosa en cualquier momento. 
 
 # Referentes: 
 La página está basada en webs como: 
