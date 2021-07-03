@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/281a37e06e.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="general">
     <header>
         <section class="header-sup">
             <div class="logo"><img src="./img/domino8.png" alt="Logo"></div>
@@ -47,7 +47,7 @@
             </nav>
         </section>
     </header>
-    <main>
+    <main class="detail-box">
         <div class="view">
             <aside class="view-2">
                 <img src="./img/buzo-azul-front.webp" alt="">
@@ -97,35 +97,36 @@
                 </section>
                 <div class="talle">
                     <span>Talles</span>
-                            <form action="">
-                                <select name="size" method="" class="size">
-                                    <option value="s">S</option>
-                                    <option value="m">M</option>
-                                    <option value="l">L</option>
-                                    <option value="xl">XL</option>
-                                    <option value="xxl">XXL</option>
-                                </select>
-                            </form>
-                        <div class="form-2">
-                            <form action="">
-                                <select name="" class="cantidad">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                </select>
-                            </form>
-                            <form action="">
-                                <button class="boton">
-                                    <a href="carrito.html">agregar al carrito</a></button>
-                            </form>
-                        </div>
+                    <form action="">
+                        <select name="size" method="" class="size">
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                            <option value="xxl">XXL</option>
+                            </select>
+                    </form>
+                    <div class="form-2">
+                        <form action="">
+                            <select name="" class="cantidad">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                                <option value="">8</option>
+                                <option value="">9</option>
+                                <option value="">10</option>
+                            </select>
+                        </form>
+                        <form action="" class="form-3">
+                            <button class="boton">
+                                <a href="carrito.html">agregar al carrito</a>
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 <div class="discount-box">
                     <div class="icondiv">
@@ -138,74 +139,73 @@
                 </div>
             </div>
         </div>
-        </main>
-            <div class="padding-box">
-                <div class="filter">
-                    <p>XXX comentarios</p>
-                        <label for="">
-                            Ordernar por
-                                <select name="">
-                                    <option value="filter" hidden selected>Filtrar</option>
-                                    <option value="popular">Más popular</option>
-                                    <option value="recent">Más reciente</option>
-                                    <option value="oldest">Más antiguo</option>
-                                </select>
-                        </label>
+    </main>
+        <div class="padding-box">
+            <div class="filter">
+                <p>XXX comentarios</p>
+                <label for=""> Ordernar por
+                    <select name="">
+                        <option value="filter" hidden selected>Filtrar</option>
+                        <option value="popular">Más popular</option>
+                        <option value="recent">Más reciente</option>
+                        <option value="oldest">Más antiguo</option>
+                    </select>
+                </label>
+            </div>
+            <div class="comment-box">
+                <div class="text-area-box">
+                    <div class="profile-icon">
+                        <i class="fas fa-user-circle"></i>
                     </div>
-                    <div class="comment-box">
-                        <div class="text-area-box">
-                            <div class="profile-icon">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <textarea name="" id="" cols="40" rows="5" placeholder="Comentá sobre este producto..."></textarea>
-                        </div>
-                        <div class="submit">
-                            <button> <input type="submit" hidden>¡Enviar!</button>
-                        </div>
+                    <textarea name="" id="" cols="40" rows="5" placeholder="Comentá sobre este producto">
+                    </textarea>
+                </div>
+                <div class="submit">
+                    <button> <input type="submit" hidden>¡Enviar!</button>
+                </div>
+            </div>
+            <div class="h2-box">
+                <h2>Productos relacionados</h2>
+            </div>
+            <div class="recommended">
+                <div class="div-box-3">
+                    <div class="img-product">
+                        <img src="./img/buzo-negro.webp" alt="">
                     </div>
-                    <div class="h2-box">
-                        <h2>Productos relacionados</h2>
+                    <div class="div-box-details">
+                        <p>Nombre del Producto</p>
+                        <span>$99.999</span>
+                        <span>[COLOR]</span>
+                        <i class="far fa-heart"></i>
+                        <p>¡Envío gratis!</p>
                     </div>
-                    <div class="recommended">
-                        <div class="div-box-3">
-                            <div class="img-product">
-                                <img src="./img/buzo-negro.webp" alt="">
-                            </div>
-                            <div class="div-box-details">
-                                <p>Nombre del Producto</p>
-                                <span>$99.999</span>
-                                <span>[COLOR]</span>
-                                <i class="far fa-heart"></i>
-                                <p>¡Envío gratis!</p>
-                            </div>
-                        </div>
-                        <div class="div-box-4">
-                            <div class="img-product">
-                                <img src="./img/zapatilla-2.webp" alt="">
-                            </div>
-                            <div class="div-box-details">
-                                <p>Nombre del Producto</p>
-                                <span>$99.999</span>
-                                <span>[COLOR]</span>
-                                <i class="far fa-heart"></i>
-                                <p>¡Envío gratis!</p>
-                            </div>
-                        </div>
-                        <div class="div-box-5">
-                            <div class="img-product">
-                                <img src="./img/zapatilla-3.webp" alt="">
-                            </div>
-                            <div class="div-box-details">
-                                <p>Nombre del Producto</p>
-                                <span>$99.999</span>
-                                <span>[COLOR]</span>
-                                <i class="far fa-heart"></i>
-                                <p>¡Envío gratis!</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="div-box-4">
+                    <div class="img-product">
+                        <img src="./img/zapatilla-2.webp" alt="">
+                    </div>
+                    <div class="div-box-details">
+                        <p>Nombre del Producto</p>
+                        <span>$99.999</span>
+                        <span>[COLOR]</span>
+                        <i class="far fa-heart"></i>
+                        <p>¡Envío gratis!</p>
+                    </div>
+                </div>
+                <div class="div-box-5">
+                    <div class="img-product">
+                        <img src="./img/zapatilla-3.webp" alt="">
+                    </div>
+                    <div class="div-box-details">
+                        <p>Nombre del Producto</p>
+                        <span>$99.999</span>
+                        <span>[COLOR]</span>
+                        <i class="far fa-heart"></i>
+                        <p>¡Envío gratis!</p>
                     </div>
                 </div>
             </div>
+        </div>
     <footer>
         <section>
             <div class="logo"><img class="domino" src="/img/domino8.png" alt="Logo" width="220"></div>
