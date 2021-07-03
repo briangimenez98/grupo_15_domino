@@ -17,3 +17,10 @@ a{
     --negro:#1E2022;
 }
 
+body{
+    background-color: #242424;
+}
+
+header, footer{
+    background-color: rgb(255, 255, 255);
+}
