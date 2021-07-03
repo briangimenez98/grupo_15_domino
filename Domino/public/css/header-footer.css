@@ -1,0 +1,277 @@
+/*---------- header ----------*/
+header .header-sup{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: solid 1px rgb(167, 165, 165);
+    box-shadow: 0px 0px 10px 0px #333 inset;
+}
+
+header .logo{
+    display: flex;
+    align-self:center;
+}
+
+header .logo img{
+    width: 34vw;
+}
+
+header .buscador{
+    display: none;
+    align-self: center;
+}
+
+header .buscar{
+    width: 30vw;
+    height: 30px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+}
+
+header button{
+    width: 25px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 8px 8px 0;
+}
+
+header .burger-buscar{
+    order: -1;
+}
+
+header nav{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+header .nav1, header .nav2{
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0rem;
+    padding-left: 0rem;
+}
+
+header .nav1 i, header .nav2 i{
+    padding: 6px 8px;
+}
+
+header .nav2 li:last-child{
+    display: none;
+}
+
+header .nav-principal{
+    flex-direction: row;  
+    justify-content: center;
+    padding: 10px;
+    border-bottom: solid 1px rgb(167, 165, 165);
+    display: none;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 0em;
+ }
+
+header .nav-principal li{
+    display: flex;
+    justify-content: center;
+    flex-grow: 0.05;
+    padding: 0 5px;
+}
+
+header .nav-principal li a{
+    font-weight: lighter;
+    font-size: 15px;
+    color: white;
+}
+
+
+/*---------- main ----------*/
+main{
+    height: 100px;
+}
+
+
+/*---------- footer ----------*/
+footer{
+    box-shadow: 0px 0px 10px 0px #333 inset;
+}
+
+footer section{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 20px;
+    border-top: solid 1px rgb(167, 165, 165);
+}
+
+footer .logo{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+footer .logo img{
+    width: 32vw;
+}
+
+footer section article{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.15;
+    font-weight: lighter;
+    font-size: 13px;
+    padding: 15px 0;
+    margin: 0 10%;
+}
+
+footer section article ul{
+    margin-bottom: 0rem;
+    padding-left: 0rem;
+}
+
+footer section article ul h4{
+    border-bottom: solid 1px rgb(167, 165, 165);
+    margin-bottom: 0rem;
+    padding-left: 0rem;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+footer .redes{
+    display: flex;  
+    justify-content:flex-end;
+    padding-bottom: 20px;
+}
+
+footer .redes p{
+    font-weight: lighter;
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+footer .redes ul{
+    display: flex;
+    margin-bottom: 0rem;
+    padding-left: 0rem;
+}
+
+footer .redes ul i{
+    padding: 0 6px;
+}
+
+footer .redes ul li:last-child{
+    padding-right: 20px;
+}
+
+
+@media (min-width: 426px){
+
+    /*---------- header ----------*/
+    header .header-sup{
+        height: 80px;
+    }
+    header .logo img{
+        width: 20vw;
+    }
+    header .buscador, header .nav-principal{
+        display: flex;
+    }
+    header .burger-buscar{
+        display: none;
+    }
+    header .nav2{
+        justify-content:flex-end;
+    }
+    header .nav2 i{
+        padding: 6px 12px;
+       
+    }
+    header .nav2 li:last-child{
+        display: flex;
+    }
+
+    /*---------- footer ----------*/
+    footer section{
+        justify-content: space-around;
+        flex-grow: 0.5;
+        padding: 30px 0 10px;
+    }
+    footer .logo{
+        align-self: center;
+        padding: 0;
+    }
+    footer .logo img{
+        width: 15vw;
+    }
+    footer .info{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    footer section article{
+        font-size: 12px;
+        flex-grow: 0.15;
+        margin: 0;
+        padding: 20px 0;
+        align-items: center;
+    }
+
+    footer section article ul h4{
+        border-bottom: none;
+    }
+
+    footer .redes p{
+        font-size: 12px;
+    }
+}
+
+
+
+@media (min-width: 769px){
+
+    /*---------- header ----------*/
+    header .logo img{
+        width: 15vw;
+    }
+
+    /*---------- footer ----------*/
+    footer section{
+        flex-direction: row;
+        padding: 35px 0 10px;
+    }
+    footer .logo img{
+        width: 15vw; 
+        margin-left: 30px;
+    }
+    footer .logo{
+        flex-grow: 0.3;
+    }
+    footer .info{
+        flex-grow: 1;
+    }
+    footer section article{
+        padding: 0;
+        align-items:flex-start;
+    }
+
+    footer .redes {
+        padding-bottom: 10px;
+    }
+    
+    footer section article, footer .redes p{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1025px){
+    /*---------- header ----------*/
+    header .logo img{
+        width: 15vw;
+    }
+
+    /*---------- footer ----------*/
+    footer .logo img{
+        width: 13vw;
+    
+    }
+}
