@@ -5,6 +5,6 @@ const port = 3030;
 app.use(express.static('public'));
 
 app.get('/',(req,res)=> res.sendFile(path.join(__dirname, 'views' ,'home.html')));
-
+app.get('/detalle',(req,res) => res.sendFile(path.join(__dirname, 'views', 'detalle.html')));
 app.listen(port, ()=> console.log(`Server running in port ${port}`));
 
