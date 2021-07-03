@@ -40,6 +40,10 @@ header a:hover, footer a:hover, .fa-heart:hover{
     color: violet
 }
 
-main{
+body{
     background-color: #242424;
+}
+
+header, footer{
+    background-color: rgb(255, 255, 255);
 }
