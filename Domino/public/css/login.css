@@ -1,0 +1,81 @@
+.login{
+    font-family: 'Roboto', 'Open Sans';
+}
+.login a{
+    color: grey;
+}
+/* header */
+.login header{
+    margin:20px 0
+}
+/* tengo-cuenta */
+.login .tengo-cuenta{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 10px;
+}
+.login .tengo-cuenta h3{
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.login .tengo-cuenta article{
+    margin: 15px 0 0;
+}
+.login .tengo-cuenta input{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.login .tengo-cuenta article p{
+    margin: 10px 0;
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: bold;
+}
+.login .tengo-cuenta .remember{
+    text-transform: capitalize;
+    font-style: italic;
+    margin: 0 0 15px 0;
+    color: grey;
+}
+.login .tengo-cuenta .forgot-me{
+    text-align: right;
+}
+.login .tengo-cuenta button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+}
+/* ingresar */
+.login .ingresar{
+    text-align: center;
+}
+.login .ingresar p{
+    font-weight: bold;
+    font-style: italic;
+}
+.login .ingresar article{
+    margin-bottom: 20px;
+}
+.login .ingresar button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+    text-transform: uppercase;
+    color: grey;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.login .ingresar .craft{
+    color: white;
+    background-color: black;
+}
