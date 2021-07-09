@@ -1,12 +1,9 @@
 .login{
     font-family: 'Roboto', 'Open Sans';
+    background-color: var(--blanco);
 }
 .login a{
     color: grey;
-}
-/* header */
-.login header{
-    margin:20px 0
 }
 /* tengo-cuenta */
 .login .tengo-cuenta{
@@ -24,7 +21,6 @@
 }
 .login .tengo-cuenta input{
     padding-top: 10px;
-    padding-bottom: 10px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid grey;

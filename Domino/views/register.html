@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body class="register">
+    <header>
+        <section class="header-sup">
+            <div class="logo"><img src="./img/domino8.png" alt="Logo"></div>
+            <div class="buscador">
+                <form action=""><input class="buscar" type="text" placeholder="¿Qué estás buscando?"><button
+                        type="submit"><i class="fas fa-search"></i></button></form>
+            </div>
+            <nav class="burger-buscar">
+                <ul class="nav1">
+                    <li><a href=""><i class="fas fa-bars"></i></i></a></li>
+                    <li><a href=""><i class="fas fa-search"></i></a></i></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul class="nav2">
+                    <li><a href="/register"><i class="fas fa-user-circle"></i></a></li>
+                    <li><a href="/carrito"><i class="fas fa-shopping-cart"></i></a></i></li>
+                    <li><a href="/favorito"><i class="fas fa-heart"></i></i></a></li>
+                </ul>
+            </nav>
+
+        </section>
+        <section>
+            <nav>
+                <ul class="nav-principal">
+                    <li><a href="/hombre">HOMBRE</a></li>
+                    <li><a href="/mujer">MUJER</a></li>
+                    <li><a href="/saler">SALE!</a></li>
+                    <li><a href="/originales">ORIGINALES</a></li>
+                    <li><a href="/locales">Locales</a></li>
+                    <li><a href="/cambios">Cambios</a></li>
+                    <li><a href="/ayuda">Ayuda</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section class="datos-personales">
+            <h3>datos personales</h3>
+            <form action="" method="POST">
+                <section class="datos">
+                <p>
+                  <label for="nombre">Nombre y Apellido:</label>
+                <input type="text" id="nombre" name="nombre">
+            </p>
+            <p>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email">
+            </p>
+            <p>
+              <label for="contraseña">Contraseña</label>
+              <input type="password" id="contraseña" name="password">
+            </p>
+            <p>
+                <label for="telefono">Teléfono/Celular</label>
+                <input type="tel" id="telefono" name="telefono">
+            </p>
+            <p class="birthday">
+                <label for="birthday">Fecha de Nacimiento:</label>
+                <input type="tel" name="dia" id="birthday" placeholder="Día">
+                <input type="text" name="mes" id="birthday" placeholder="Mes">
+                <input type="tel" name="anio" id="birthday" placeholder="Año">
+            </p>
+            <p>
+                <label for="dni">DNI:</label>
+                <input type="tel" name="dni" id="dni">
+            </p>
+        </section>
+            <p class="checkbox">
+            <input type="checkbox" name="newsletters">
+            <label for="newsletters">Quiero recibir Newsletter con noticias e información sobre los nuevos productos</label>
+            </p>
+            <p class="checkbox">
+            <input type="checkbox" name="terminos">
+            <label for="terminos">Acepto los términos y condiciones de uso</label>
+        </p>
+            <p class="boton-registro">
+                <button class="registrame">
+                    <input value="registrame" type="submit">
+                  </button>
+            </p>
+        </form>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <div class="logo"><img class="domino" src="/img/domino8.png" alt="Logo" width="220"></div>
+            <div class="info">
+            <article>
+                <ul>
+                    <h4>Atención al cliente</h4>
+                    <li><a href="">Contactanos</a></li>
+                    <li><a href="">Preguntas frecuentes</a></li>
+                    <li><a href="">Envios</a></li>
+                    <li><a href="">¿Cómo comprar? </a></li>
+                </ul>
+            </article>
+            <article>
+                <ul>
+                    <h4>Empresa</h4>
+                    <li><a href="">¿Quiénes somos?</a></li>
+                    <li><a href="">Nuestros locales</a></li>
+                    <li><a href="">Terminos y condiciones</a></li>
+                </ul>
+            </article>
+            <article>
+                <ul>
+                    <h4>Mi cuenta</h4>
+                    <li><a href="">Registrarse</a></li>
+                    <li><a href="">Iniciar sesión</a></li>
+                    <li><a href="">Carrito</a></li>
+                </ul>
+            </article>
+        </div>
+        </section>
+        <div class="redes">
+            <p>Seguinos</p>
+            <ul>
+                <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></i></a></li>
+                <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+    </footer>
+</body>
+</html>
