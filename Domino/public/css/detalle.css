@@ -92,7 +92,7 @@ div.detail-box .aside-box .color{
     font-weight: bold;
     font-size: 24px;
 }
-.talle form select.size{
+.talle select.size{
     width: 100%;
     height: 40px;
     margin-top: 10px;
@@ -100,7 +100,7 @@ div.detail-box .aside-box .color{
 }
 .aside-box div.talle .form-2{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 5px 0px;
 }
 .talle .form-2 .cantidad{
