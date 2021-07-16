@@ -1,0 +1,61 @@
+.register{
+    font-family: 'Roboto', 'Open Sans';
+    background-color: var(--blanco);
+}
+.register main a{
+    color: white;
+}
+/* datos personales */
+.register .datos-personales{
+    background-color: var(--blanco);
+    border: 1px solid var(--negro);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 10px;
+}
+.register .datos-personales h3{
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.register .datos-personales .datos input{
+    padding-top: 5px;
+    padding-bottom: 6px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid grey;
+}
+.register .datos-personales p{
+    margin: 10px 0;
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: bold;
+}
+.register .datos-personales .birthday input{
+    width: 32.3%;
+    font-style: italic;
+    text-align: left;
+}
+.register .datos-personales .birthday label{
+    display: block;
+}
+
+.register .datos-personales .checkbox label{
+    color: var(--negro);
+    font-weight: normal;
+    text-transform: initial;
+}
+.register .boton-registro{
+    text-align: center;
+}
+.register .registrame{
+    padding: 5px 10px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+    
+}
+@media (min-width: 768px){
+    
+}

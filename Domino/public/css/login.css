@@ -1,0 +1,97 @@
+.login{
+    font-family: 'Roboto', 'Open Sans';
+    background-color: var(--blanco);
+}
+.login .white{
+    color: var(--blanco);
+}
+/* tengo-cuenta */
+.login .tengo-cuenta{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 10px;
+}
+.login .tengo-cuenta h3{
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.login .tengo-cuenta p{
+    margin: 15px 0 0;
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: bold;
+}
+.login .tengo-cuenta .cien{
+    padding-top: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 100%;
+}
+.login .remember label, input{
+    display: inline-block;
+    color: gray;
+    font-weight: normal;
+}
+
+.login .tengo-cuenta .forgot-me{
+    text-align: right;
+    font-weight: normal;
+    font-style: normal;
+}
+.login .tengo-cuenta button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+}
+/* ingresar */
+.login .ingresar{
+    text-align: center;
+}
+.login .ingresar p{
+    font-weight: bold;
+    font-style: italic;
+}
+.login .ingresar article{
+    margin-bottom: 20px;
+}
+.login .ingresar button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+    text-transform: uppercase;
+    color: grey;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.login .ingresar .craft{
+    color: white;
+    background-color: black;
+}
+@media (min-width: 768px){
+    .login .tengo-cuenta{
+        padding: 30px;
+        margin: 20px 190px;
+    }
+    .login .ingresar{
+        margin-right: 180px;
+        margin-left: 180px;
+    }
+    .login .ingresar button{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+    }
+}
+@media (min-width: 1024px){
+    /* .login .tengo-cuenta{
+    }
+    .login .ingresar{
+    } */
+}
