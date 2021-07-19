@@ -31,8 +31,8 @@
                     <li><a href="/favorito"><i class="fas fa-heart"></i></i></a></li>
                 </ul>
             </nav>
-
         </section>
+
         <section>
             <nav>
                 <ul class="nav-principal">
@@ -46,41 +46,42 @@
                 </ul>
             </nav>
         </section>
+
     </header>
     <main>
-        <section class="tengo-cuenta">
-            <h3>ya tengo cuenta</h3>
-            <form action="" method="">
-            <p>
-                <label for="email">Email:</label>
-                <input class="cien" type="email" id="email" name="email">
-              </p>
-            </form>
-            <p>
-                <label for="contraseña">Contraseña</label>
-                <input class="cien" type="password" id="contraseña" name="password">
-              </p>
-            <p class="remember">
-                <input type="checkbox" name="remember">
-                <label for="remember">Recordarme</label>
-            </p>
-            <p class="forgot-me"><a href="" >¿Olvidaste tu contraseña?</a></p>
-            <button><a href="/" class="white">ingresar</a></button>
-        </section>
-        <section class="ingresar">
-            <article>
-            <p>Utilizar mi cuenta de Facebook</p>
-            <button>ingresar desde facebook</button>
-        </article>
-        <article>
-            <p>Utilizar mi cuenta de Google</p>
-            <button>ingresar desde google</button>
-        </article>
-        <article>
-            <p>Soy usuario nuevo</p>
-            <button class="craft"><a href="/register" class="white">crear cuenta</a></button>
-        </article>
-        </section>
+        <form action="" method="">
+            <section class="tengo-cuenta">
+                <h3>ya tengo cuenta</h3>
+                    <div class="tengo-cuenta__div">
+                        <label for="email">Email:</label>
+                        <input class="cien" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="tengo-cuenta__div">
+                        <label for="contraseña">Contraseña</label>
+                        <input class="cien" type="password" id="contraseña" name="password" required>
+                    </div>
+                    <div class="remember">
+                        <input type="checkbox" name="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+                    <p class="forgot-me"><a href="" >¿Olvidaste tu contraseña?</a></p>
+                    <button type="submit"><a href="/" class="white">ingresar</a></button>
+            </section>
+            <section class="ingresar">
+                <article>
+                    <p>Utilizar mi cuenta de Facebook</p>
+                    <button type="submit">ingresar desde facebook</button>
+                </article>
+                <article>
+                    <p>Utilizar mi cuenta de Google</p>
+                    <button type="submit">ingresar desde google</button>
+                </article>
+                <article>
+                    <p>Soy usuario nuevo</p>
+                    <button class="craft" type="submit"><a href="/register" class="white">crear cuenta</a></button>
+                </article>
+            </section>
+        </form>
     </main>
     <footer>
         <section>
