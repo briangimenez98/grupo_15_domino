@@ -6,6 +6,10 @@
     color: white;
 }
 /* datos personales */
+.register .primero{
+    display: flex;
+    flex-direction: column;
+}
 .register .datos-personales{
     background-color: var(--blanco);
     border: 1px solid var(--negro);
@@ -64,6 +68,31 @@
     margin: 0 15px 20px 15px;
     font-size: 13px;
 }
+/* Iniciar sesion */
+.register .ingresar{
+    margin: 0 15px 15px 15px;
+    padding: 0 30px;
+}
+.register .ingresar article p{
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 14px;
+}
+.register .ingresar article button{
+    width: 100%;
+    padding: 4px;
+    border: solid 1px black;
+    margin-bottom: 15px;
+    background-color: var(--blanco);
+    color: grey;
+    border-radius: 6px;
+}
+.register .ingresar .iniciar-sesion button{
+    width: 100%;
+    background-color: var(--negro);
+    color: var(--blanco);
+    border: none;
+}
 @media (min-width: 426px){
     .register main{
         display: flex;
@@ -76,12 +105,42 @@
     }
 }
 @media (min-width: 769px){
+    .register main{
+        display: flex;
+        flex-direction: row;
+    }
+    .register .primero {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: 0 15px 15px 15px;
+    }
     .register .datos-personales{
-        width: 45%;
+        width: 90%;
         margin: 40px 0;
     }
     .register .info-importante{
         font-size: 14px;
-        padding: 0 0 20px 25px;
+        padding: 0 25px 20px 25px;
     }
+    .register .ingresar{
+        order: -1;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        width: 40%;
+    }
+    
+
+}
+@media (min-width: 1025px){
+    .register .ingresar article{
+        padding: 0 80px;
+    }
+    .register .ingresar article p {
+        font-size: 18px;
+    }
+    .register .ingresar article button{
+        font-size: 16px;
+
 }

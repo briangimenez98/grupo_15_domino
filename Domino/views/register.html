@@ -50,63 +50,85 @@
             </nav>
         </section>
     </header>
+
     <main>
-        <section class="datos-personales">
-            <h3>datos personales</h3>
-            <form action="" method="POST">
-                <section class="datos">
-                    <div>
-                        <label for="nombre">Nombre y Apellido:</label>
-                        <input type="text" id="nombre" name="nombre" required>
+        <div class="primero">
+            <section class="datos-personales">
+                <h3>datos personales</h3>
+                <form action="" method="POST">
+                    <section class="datos">
+                        <div>
+                            <label for="nombre">Nombre y Apellido:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="contraseña">Contraseña</label>
+                            <input type="password" id="contraseña" name="password" required>
+                        </div>
+                        <div>
+                            <label for="telefono">Teléfono/Celular</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="birthday">
+                            <label for="birthday">Fecha de Nacimiento:</label>
+                            <input type="date" name="birthday" id="birthday" required>
+                        </div>
+                        <div>
+                            <label for="dni">DNI:</label>
+                            <input type="number" name="dni" id="dni" required>
+                        </div>
+                    </section>
+                    <div class="checkbox">
+                        <input type="checkbox" name="newsletters">
+                        <label for="newsletters">Quiero recibir Newsletter con noticias e información sobre los nuevos
+                            productos</label>
                     </div>
-                    <div>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="checkbox">
+                        <input type="checkbox" name="terminos">
+                        <label for="terminos">Acepto los términos y condiciones de uso</label>
                     </div>
-                    <div>
-                        <label for="contraseña">Contraseña</label>
-                        <input type="password" id="contraseña" name="password" required>
+                    <div class="boton-registro">
+                        <button type="submit" class="registrame">
+                            <a href="/login">registrarme</a>
+                        </button>
                     </div>
-                    <div>
-                        <label for="telefono">Teléfono/Celular</label>
-                        <input type="tel" id="telefono" name="telefono" required>
-                    </div>
-                    <div class="birthday">
-                        <label for="birthday">Fecha de Nacimiento:</label>
-                        <input type="date" name="birthday" id="birthday" required>
-                    </div>
-                    <div>
-                        <label for="dni">DNI:</label>
-                        <input type="number" name="dni" id="dni" required>
-                    </div>
-                </section>
-                <div class="checkbox">
-                    <input type="checkbox" name="newsletters">
-                    <label for="newsletters">Quiero recibir Newsletter con noticias e información sobre los nuevos
-                        productos</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" name="terminos">
-                    <label for="terminos">Acepto los términos y condiciones de uso</label>
-                </div>
-                <div class="boton-registro">
-                    <button type="submit" class="registrame">
-                        <a href="/login">registrarme</a>
-                    </button>
-                </div>
-            </form>
-        </section>
-        <section class="info-importante">
-            <h4>INFORMACIÓN IMPORTANTE</h4>
-            <p>
-                Por favor ingrese una dirección de mail válida y a la que usted tenga acceso. esta dirección es
-                fundamental para la comunicación posventa, envío de factura electrónica y coordinación de entrega de
-                pedido.
-            </p>
-            <p>
-                Ante cualquier duda o consulta comuníquese al <br> +54 (011) 5555-555 <br> de lunes a viernes de 8hs a 17hs.
-            </p>
-        </section>
+                </form>
+            </section>
+            <section class="info-importante">
+                <h4>INFORMACIÓN IMPORTANTE</h4>
+                <p>
+                    Por favor ingrese una dirección de mail válida y a la que usted tenga acceso. esta dirección es
+                    fundamental para la comunicación posventa, envío de factura electrónica y coordinación de entrega de
+                    pedido.
+                </p>
+                <p>
+                    Ante cualquier duda o consulta comuníquese al <br> +54 (011) 5555-555 <br> de lunes a viernes de 8hs a 17hs.
+                </p>
+            </section>
+        </div>
+
+        <section class="ingresar">
+            <article class="iniciar-sesion">
+                <p>Ya tengo cuenta</p>
+                <button type="button">INICIAR SESION</button>
+
+            </article>
+
+            <article>
+                <p>Utilizar mi cuenta de Facebook</p>
+                <button type="button">INGRESAR DESDE FACEBOOK</button>
+
+            </article>
+
+            <article>
+                <p>Utilizar mi cuenta de Google</p>
+                <button type="button">INGRESAR DESDE GOOGLE</button>
+
+            </article>
     </main>
     <footer>
         <section>
