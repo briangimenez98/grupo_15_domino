@@ -16,6 +16,7 @@
 .register .datos-personales h3{
     text-transform: uppercase;
     font-weight: normal;
+    padding-bottom: 15px;
 }
 .register .datos-personales .datos input{
     padding-top: 5px;
@@ -23,6 +24,7 @@
     width: 100%;
     border-radius: 6px;
     border: 1px solid grey;
+    margin-bottom: 15px;
 }
 .register .datos-personales p{
     margin: 10px 0;
@@ -31,21 +33,24 @@
     font-weight: bold;
 }
 .register .datos-personales .birthday input{
-    width: 32.3%;
     font-style: italic;
     text-align: left;
 }
 .register .datos-personales .birthday label{
     display: block;
 }
-
+.register .datos-personales .checkbox{
+    margin-bottom: 10px;
+}
 .register .datos-personales .checkbox label{
     color: var(--negro);
     font-weight: normal;
     text-transform: initial;
+
 }
 .register .boton-registro{
     text-align: center;
+    margin: 25px 0 10px;
 }
 .register .registrame{
     padding: 5px 10px;
@@ -54,8 +59,29 @@
     border-radius: 5px;
     border: none;
     text-transform: uppercase;
-    
 }
-@media (min-width: 768px){
-    
+.register .info-importante{
+    margin: 0 15px 20px 15px;
+    font-size: 13px;
+}
+@media (min-width: 426px){
+    .register main{
+        display: flex;
+        flex-direction: column;
+    }
+    .register .datos-personales{
+        width: 60%;
+        align-self: center;
+        margin: 35px 0;
+    }
+}
+@media (min-width: 769px){
+    .register .datos-personales{
+        width: 45%;
+        margin: 40px 0;
+    }
+    .register .info-importante{
+        font-size: 14px;
+        padding: 0 0 20px 25px;
+    }
 }
