@@ -7,24 +7,26 @@
 }
 /* tengo-cuenta */
 .login .tengo-cuenta{
-    border: 1px solid black;
+    border: 2px solid grey;
     border-radius: 5px;
     padding: 20px;
     margin: 20px 10px;
 }
 .login .tengo-cuenta h3{
+    font-family: 'Open Sans';
     text-transform: uppercase;
+    font-size: 16px;
     font-weight: normal;
 }
 .login .tengo-cuenta .tengo-cuenta__div{
-    margin: 15px 0 0;
+    margin: 15px 0 10px;
     text-transform: capitalize;
     font-style: italic;
     font-weight: bold;
 }
 .login .tengo-cuenta .cien{
     padding-top: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 0;
     width: 100%;
     border: 1px solid grey;
@@ -49,9 +51,13 @@
     background-color: black;
     border-radius: 5px;
     border: none;
+    margin: 5px 0;
 }
 /* ingresar */
 .login .ingresar{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
 }
 .login .ingresar p{
@@ -91,8 +97,23 @@
     }
 }
 @media (min-width: 1024px){
-    /* .login .tengo-cuenta{
+    .login-main form{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    .login .tengo-cuenta{
+        width: 30%;
+        margin: 20px 40px;
     }
     .login .ingresar{
-    } */
+        width: 30%;
+        margin: 20px 40px;
+    }
+    .login .ingresar{
+        border: 2px solid grey;
+        border-radius: 10px;
+    }
 }
