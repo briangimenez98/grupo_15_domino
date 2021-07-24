@@ -1,0 +1,119 @@
+.login{
+    font-family: 'Roboto', 'Open Sans';
+    background-color: var(--blanco);
+}
+.login .white{
+    color: var(--blanco);
+}
+/* tengo-cuenta */
+.login .tengo-cuenta{
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 10px;
+}
+.login .tengo-cuenta h3{
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: normal;
+}
+.login .tengo-cuenta .tengo-cuenta__div{
+    margin: 15px 0 10px;
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: bold;
+}
+.login .tengo-cuenta .cien{
+    padding-top: 10px;
+    border-radius: 10px;
+    border: 0;
+    width: 100%;
+    border: 1px solid grey;
+}
+.login .remember label, input{
+    display: inline-block;
+    color: gray;
+    font-weight: normal;
+}
+
+.login .tengo-cuenta .forgot-me{
+    text-align: right;
+    font-weight: normal;
+    font-style: normal;
+}
+.login .tengo-cuenta button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+    margin: 5px 0;
+}
+/* ingresar */
+.login .ingresar{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.login .ingresar p{
+    font-weight: bold;
+    font-style: italic;
+}
+.login .ingresar article{
+    margin-bottom: 20px;
+}
+.login .ingresar button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+    text-transform: uppercase;
+    color: grey;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.login .ingresar .craft{
+    color: white;
+    background-color: black;
+}
+@media (min-width: 768px){
+    .login .tengo-cuenta{
+        padding: 30px;
+        margin: 20px 190px;
+    }
+    .login .ingresar{
+        margin-right: 180px;
+        margin-left: 180px;
+    }
+    .login .ingresar button{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+    }
+}
+@media (min-width: 1024px){
+    .login-main form{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    .login .tengo-cuenta{
+        width: 30%;
+        margin: 20px 40px;
+    }
+    .login .ingresar{
+        width: 30%;
+        margin: 20px 40px;
+    }
+    .login .ingresar{
+        border: 2px solid grey;
+        border-radius: 10px;
+    }
+}
