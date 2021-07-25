@@ -1,174 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarme</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-</head>
-
+<!--Esto es el Head-->
+    <%- include('./partials/head') %>
+<!--Esto es el Head-->
 <body class="register">
-    <header>
-        <section class="header-sup">
-            <div class="logo">
-                <a href="/"><img src="/img/domino8.png" alt="Logo"></a>
+<!--Esto es el header-->
+	<%-include('./partials/header')%>
+<!--Esto es el header-->
+        <main>
+            <div class="primero">
+                <section class="datos-personales">
+                    <h3>datos personales</h3>
+                    <form action="" method="POST">
+                        <section class="datos">
+                            <div>
+                                <label for="nombre">Nombre y Apellido:</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div>
+                                <label for="contraseña">Contraseña</label>
+                                <input type="password" id="contraseña" name="password" required>
+                            </div>
+                            <div>
+                                <label for="telefono">Teléfono/Celular</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="birthday">
+                                <label for="birthday">Fecha de Nacimiento:</label>
+                                <input type="date" name="birthday" id="birthday" required>
+                            </div>
+                            <div>
+                                <label for="dni">DNI:</label>
+                                <input type="number" name="dni" id="dni" required>
+                            </div>
+                        </section>
+                        <div class="checkbox">
+                            <input type="checkbox" name="newsletters">
+                            <label for="newsletters">Quiero recibir Newsletter con noticias e información sobre los nuevos
+                                productos</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" name="terminos">
+                            <label for="terminos">Acepto los términos y condiciones de uso</label>
+                        </div>
+                        <div class="boton-registro">
+                            <button type="submit" class="registrame">
+                                <a href="/login">registrarme</a>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+                <section class="info-importante">
+                    <h4>INFORMACIÓN IMPORTANTE</h4>
+                    <p>
+                        Por favor ingrese una dirección de mail válida y a la que usted tenga acceso. esta dirección es
+                        fundamental para la comunicación posventa, envío de factura electrónica y coordinación de entrega de
+                        pedido.
+                    </p>
+                    <p>
+                        Ante cualquier duda o consulta comuníquese al <br> +54 (011) 5555-555 <br> de lunes a viernes de 8hs a 17hs.
+                    </p>
+                </section>
             </div>
-            <div class="buscador">
-                <form action=""><input class="buscar" type="text" placeholder="¿Qué estás buscando?"><button
-                        type="submit"><i class="fas fa-search"></i></button></form>
-            </div>
-            <nav class="burger-buscar">
-                <ul class="nav1">
-                    <li><a href=""><i class="fas fa-bars"></i></i></a></li>
-                    <li><a href=""><i class="fas fa-search"></i></a></i></li>
-                </ul>
-            </nav>
-            <nav>
-                <ul class="nav2">
-                    <li><a href="/login"><i class="fas fa-user-circle"></i></a></li>
-                    <li><a href="/carrito"><i class="fas fa-shopping-cart"></i></a></i></li>
-                    <li><a href="/favorito"><i class="fas fa-heart"></i></i></a></li>
-                </ul>
-            </nav>
 
-        </section>
-        <section>
-            <nav>
-                <ul class="nav-principal">
-                    <li><a href="/hombre">HOMBRE</a></li>
-                    <li><a href="/mujer">MUJER</a></li>
-                    <li><a href="/saler">SALE!</a></li>
-                    <li><a href="/originales">ORIGINALES</a></li>
-                    <li><a href="/locales">Locales</a></li>
-                    <li><a href="/cambios">Cambios</a></li>
-                    <li><a href="/ayuda">Ayuda</a></li>
-                </ul>
-            </nav>
-        </section>
-    </header>
+            <section class="ingresar">
+                <article class="iniciar-sesion">
+                    <p>Ya tengo cuenta</p>
+                    <button type="button">INICIAR SESION</button>
 
-    <main>
-        <div class="primero">
-            <section class="datos-personales">
-                <h3>datos personales</h3>
-                <form action="" method="POST">
-                    <section class="datos">
-                        <div>
-                            <label for="nombre">Nombre y Apellido:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div>
-                            <label for="contraseña">Contraseña</label>
-                            <input type="password" id="contraseña" name="password" required>
-                        </div>
-                        <div>
-                            <label for="telefono">Teléfono/Celular</label>
-                            <input type="tel" id="telefono" name="telefono" required>
-                        </div>
-                        <div class="birthday">
-                            <label for="birthday">Fecha de Nacimiento:</label>
-                            <input type="date" name="birthday" id="birthday" required>
-                        </div>
-                        <div>
-                            <label for="dni">DNI:</label>
-                            <input type="number" name="dni" id="dni" required>
-                        </div>
-                    </section>
-                    <div class="checkbox">
-                        <input type="checkbox" name="newsletters">
-                        <label for="newsletters">Quiero recibir Newsletter con noticias e información sobre los nuevos
-                            productos</label>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="terminos">
-                        <label for="terminos">Acepto los términos y condiciones de uso</label>
-                    </div>
-                    <div class="boton-registro">
-                        <button type="submit" class="registrame">
-                            <a href="/login">registrarme</a>
-                        </button>
-                    </div>
-                </form>
-            </section>
-            <section class="info-importante">
-                <h4>INFORMACIÓN IMPORTANTE</h4>
-                <p>
-                    Por favor ingrese una dirección de mail válida y a la que usted tenga acceso. esta dirección es
-                    fundamental para la comunicación posventa, envío de factura electrónica y coordinación de entrega de
-                    pedido.
-                </p>
-                <p>
-                    Ante cualquier duda o consulta comuníquese al <br> +54 (011) 5555-555 <br> de lunes a viernes de 8hs a 17hs.
-                </p>
-            </section>
-        </div>
-
-        <section class="ingresar">
-            <article class="iniciar-sesion">
-                <p>Ya tengo cuenta</p>
-                <button type="button">INICIAR SESION</button>
-
-            </article>
-
-            <article>
-                <p>Utilizar mi cuenta de Facebook</p>
-                <button type="button">INGRESAR DESDE FACEBOOK</button>
-
-            </article>
-
-            <article>
-                <p>Utilizar mi cuenta de Google</p>
-                <button type="button">INGRESAR DESDE GOOGLE</button>
-
-            </article>
-    </main>
-    <footer>
-        <section>
-            <div class="logo"><img class="domino" src="/img/domino8.png" alt="Logo" width="220"></div>
-            <div class="info">
-                <article>
-                    <ul>
-                        <h4>Atención al cliente</h4>
-                        <li><a href="">Contactanos</a></li>
-                        <li><a href="">Preguntas frecuentes</a></li>
-                        <li><a href="">Envios</a></li>
-                        <li><a href="">¿Cómo comprar? </a></li>
-                    </ul>
                 </article>
-                <article>
-                    <ul>
-                        <h4>Empresa</h4>
-                        <li><a href="">¿Quiénes somos?</a></li>
-                        <li><a href="">Nuestros locales</a></li>
-                        <li><a href="">Terminos y condiciones</a></li>
-                    </ul>
-                </article>
-                <article>
-                    <ul>
-                        <h4>Mi cuenta</h4>
-                        <li><a href="">Registrarse</a></li>
-                        <li><a href="">Iniciar sesión</a></li>
-                        <li><a href="">Carrito</a></li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-        <div class="redes">
-            <p>Seguinos</p>
-            <ul>
-                <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></i></a></li>
-                <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-    </footer>
-</body>
 
+                <article>
+                    <p>Utilizar mi cuenta de Facebook</p>
+                    <button type="button">INGRESAR DESDE FACEBOOK</button>
+
+                </article>
+
+                <article>
+                    <p>Utilizar mi cuenta de Google</p>
+                    <button type="button">INGRESAR DESDE GOOGLE</button>
+                </article>
+        </main>
+<!--Scripts & Footer-->
+        <%- include('./partials/scripts') %> 
+    <%- include('./partials/footer') %> 
+<!--Scripts & Footer-->
+    </body>
 </html>

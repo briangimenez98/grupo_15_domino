@@ -1,54 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Producto</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/281a37e06e.js" crossorigin="anonymous"></script>
-</head>
+<!--Esto es el Head-->
+    <%- include('./partials/head') %>
+    <head><title>Detalle de tu producto</title></head>
+<!--Esto es el Head-->
 
 <body class="general">
-    <header>
-        <section class="header-sup">
-            <div class="logo">
-                <a href="/"><img src="/img/domino8.png" alt="Logo"></a>
-            </div>
-            <div class="buscador">
-                <form action=""><input class="buscar" type="text" placeholder="¿Qué estás buscando?"><button
-                        type="submit"><i class="fas fa-search"></i></button></form>
-            </div>
-            <nav class="burger-buscar">
-                <ul class="nav1">
-                    <li><a href=""><i class="fas fa-bars"></i></i></a></li>
-                    <li><a href=""><i class="fas fa-search"></i></a></i></li>
-                </ul>
-            </nav>
-            <nav>
-                <ul class="nav2">
-                    <li><a href="/register"><i class="fas fa-user-circle"></i></a></li>
-                    <li><a href="/carrito"><i class="fas fa-shopping-cart"></i></a></i></li>
-                    <li><a href="/favorito"><i class="fas fa-heart"></i></i></a></li>
-                </ul>
-            </nav>
 
-        </section>
-        <section>
-            <nav>
-                <ul class="nav-principal">
-                    <li><a href="/hombre">HOMBRE</a></li>
-                    <li><a href="/mujer">MUJER</a></li>
-                    <li><a href="/saler">SALE!</a></li>
-                    <li><a href="/originales">ORIGINALES</a></li>
-                    <li><a href="/locales">Locales</a></li>
-                    <li><a href="/cambios">Cambios</a></li>
-                    <li><a href="/ayuda">Ayuda</a></li>
-                </ul>
-            </nav>
-        </section>
-    </header>
+    <!--Esto es el header-->
+        <%-include('./partials/header')%>
+    <!--Esto es el header-->
+
     <main class="detail-box">
         <div class="view">
             <aside class="view-2">
@@ -208,44 +171,9 @@
                 </div>
             </div>
         </div>
-    <footer>
-        <section>
-            <div class="logo"><img class="domino" src="/img/domino8.png" alt="Logo" width="220"></div>
-            <div class="info">
-            <article>
-                <ul>
-                    <h4>Atención al cliente</h4>
-                    <li><a href="">Contactanos</a></li>
-                    <li><a href="">Preguntas frecuentes</a></li>
-                    <li><a href="">Envios</a></li>
-                    <li><a href="">¿Cómo comprar? </a></li>
-                </ul>
-            </article>
-            <article>
-                <ul>
-                    <h4>Empresa</h4>
-                    <li><a href="">¿Quiénes somos?</a></li>
-                    <li><a href="">Nuestros locales</a></li>
-                    <li><a href="">Terminos y condiciones</a></li>
-                </ul>
-            </article>
-            <article>
-                <ul>
-                    <h4>Mi cuenta</h4>
-                    <li><a href="">Registrarse</a></li>
-                    <li><a href="">Iniciar sesión</a></li>
-                    <li><a href="">Carrito</a></li>
-                </ul>
-            </article>
-        </div>
-        </section>
-        <div class="redes">
-            <p>Seguinos</p>
-            <ul>
-                <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></i></a></li>
-                <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-    </footer>
+        <!--Scripts & Footer-->
+        <%- include('./partials/scripts') %> 
+    <%- include('./partials/footer') %> 
+<!--Scripts & Footer-->
 </body>
 </html>
