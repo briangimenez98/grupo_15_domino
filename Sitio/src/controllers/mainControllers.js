@@ -6,6 +6,9 @@ module.exports = {
         res.render('detalle');
     }, 
     carrito : (req, res) => {
-        res.render('carrito.ejs')
+        res.render('carrito')
+    },
+    createProduct : (req, res) => {
+        res.render('createProduct')
     }
 }
