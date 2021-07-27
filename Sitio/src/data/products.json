@@ -1,0 +1,243 @@
+[
+    {
+        "id" : 1,
+        "seccion" : "principal",
+        "name": "Chaleco Row",
+        "price" : 5.600,
+        "colors" : ["#000000", "#9c9c93", "#fdfffd"],
+        "image": "chaleco-negro.jpg"
+    },
+    {
+        "id" : 2,
+        "seccion" : "principal",
+        "name": "Conjunto Switch",
+        "price" : 8.900,
+        "colors" : ["#656666", "#0c0c0c", "#641717"],
+        "image": "conjunto-negro-mujer.png"
+    },
+    {
+        "id" : 3,
+        "seccion" : "principal",
+        "name": "Camiseta size",
+        "price" : 1.800,
+        "colors" : ["#000000", "#fcf9fb", "#a33724"],
+        "image": "camiseta-negra-mujer.jpg"
+    },
+    {
+        "id" : 4,
+        "seccion" : "seleccionado1",
+        "clase" : "art1",
+        "name": "Mochila Power",
+        "price" : 5.500,
+        "colors" : ["#000000", "#494a50", "#13173d"],
+        "image": "Mochila_Power_5.jpg"
+    },
+    {
+        "id" : 5,
+        "seccion" : "seleccionado1",
+        "clase" : "art2",
+        "name": "Zapatillas Nike",
+        "price" : 14.900,
+        "colors" : ["#fafcfc", "#070707", "#81747f"],
+        "image": "zapas.jpg"
+    },
+    {
+        "id" : 6,
+        "seccion" : "seleccionado1",
+        "clase" : "art3",
+        "name": "Riñonera Adidas",
+        "price" : 3.200,
+        "colors" : ["#000000", "#fcf9fb", "#611f50"],
+        "image": "Rinonera_Negro.jpg"
+    },
+    {
+        "id" : 7,
+        "seccion" : "seleccionado1",
+        "clase" : "art5",
+        "name": "Mochila Unix",
+        "price" : 5.200,
+        "colors" : ["#000000", "#fcf9fb", "#3b380e"],
+        "image": "mochila-negra-unix.jpg"
+    },
+    {
+        "id" : 8,
+        "seccion" : "seleccionado2",
+        "clase" : "art1",
+        "name": "Bolso Active",
+        "price" : 4.500,
+        "colors" : ["#000000", "#494a50", "#13173d"],
+        "image": "bolso-active-reebok.jpg"
+    },
+    {
+        "id" : 9,
+        "seccion" : "seleccionado2",
+        "clase" : "art2",
+        "name": "Gorra Adidas",
+        "price" : 2.800,
+        "colors" : ["#fafcfc", "#070707", "#550f24"],
+        "image": "gorra-adidas.jpg"
+    },
+    {
+        "id" : 10,
+        "seccion" : "seleccionado2",
+        "clase" : "art3",
+        "name": "Barbijo Stoper",
+        "price" : 1.200,
+        "colors" : ["#000000", "#24049b", "#838282"],
+        "image": "barbijo-gris.jpg"
+    },
+    {
+        "id" : 11,
+        "seccion" : "seleccionado2",
+        "clase" : "art5",
+        "name": "Zapatillas Galaxy",
+        "price" : 10.200,
+        "colors" : ["#000000", "#1f1553", "#524d50"],
+        "image": "zapatillas-galaxy-adidas.jpg"
+    },
+    {
+        "id" : 12,
+        "seccion" : "seleccionado3",
+        "clase" : "art1",
+        "name": "Zapatilla True",
+        "price" : 7.500,
+        "colors" : ["#fdfcfc", "#494a50", "#0a0a0a"],
+        "image": "zapatillas-azul.jpg"
+    },
+    {
+        "id" : 13,
+        "seccion" : "seleccionado3",
+        "clase" : "art2",
+        "name": "Mochila One",
+        "price" : 5.900,
+        "colors" : ["#fafcfc", "#070707", "#9ea371"],
+        "image": "mochila-gris-nike.jpg"
+    },
+    {
+        "id" : 14,
+        "seccion" : "seleccionado3",
+        "clase" : "art3",
+        "name": "Bolso Adicolor",
+        "price" : 4.900,
+        "colors" : ["#000000", "#fcf9fb", "#611f50"],
+        "image": "bolso_cruzado_adicolor.jpg"
+    },
+    {
+        "id" : 15,
+        "seccion" : "seleccionado3",
+        "clase" : "art5",
+        "name": "Mochila Mou",
+        "price" : 4.800,
+        "colors" : ["#000000", "#fcf9fb", "#753f68"],
+        "image": "mochila-doughnut.jpg"
+    },
+    {
+        "id" : 16,
+        "seccion" : "destacado1",
+        "clase" : "art1",
+        "name": "Campera Michigan",
+        "price" : 7.200,
+        "colors" : ["#000000", "#757274", "#0c0849"],
+        "image": "campera-negre-michigan.jpg"
+    },
+    {
+        "id" : 17,
+        "seccion" : "destacado1",
+        "clase" : "art2",
+        "name": "Palazzo Frizado",
+        "price" : 4.800,
+        "colors" : ["#000000", "#cf7fb7", "#a1a1a1"],
+        "image": "palazzo-frizado.jpg"
+    },
+    {
+        "id" : 18,
+        "seccion" : "destacado1",
+        "clase" : "art3",
+        "name": "Pantalón Tamesis",
+        "price" : 5.200,
+        "colors" : ["#8d623a", "#305e66", "#ca9912"],
+        "image": "pantalon-jogger-tamesis.jpg"
+    },
+    {
+        "id" : 19,
+        "seccion" : "destacado1",
+        "clase" : "art4",
+        "name": "Conjunto Slouchy",
+        "price" : 9.200,
+        "colors" : ["#5a5c07", "#5c555a", "#6d5410"],
+        "image": "conjunto-verde.jpg"
+    },
+    {
+        "id" : 20,
+        "seccion" : "destacado2",
+        "clase" : "art1",
+        "name": "Conjunto Function",
+        "price" : 8.400,
+        "colors" : ["#000000", "#757274", "#861252"],
+        "image": "conjunto-gris-function.jpg"
+    },
+    {
+        "id" : 21,
+        "seccion" : "destacado2",
+        "clase" : "art2",
+        "name": "Buzo Tisza",
+        "price" : 4.800,
+        "colors" : ["#000000", "#fdfdfc", "#a1a1a1"],
+        "image": "buzo-mont-blanc.jpg"
+    },
+    {
+        "id" : 22,
+        "seccion" : "destacado2",
+        "clase" : "art3",
+        "name": "Conjunto Else",
+        "price" : 7.600,
+        "colors" : ["#af6464", "#5c555a", "#c2b969"],
+        "image": "conjunto-marron.jpg"
+    },
+    {
+        "id" : 23,
+        "seccion" : "destacado2",
+        "clase" : "art4",
+        "name": "Remera Saona",
+        "price" : 1.500,
+        "colors" : ["#080808", "#5c555a", "#fdfdfc"],
+        "image": "remera-blanca-hombre.jpg"
+    },
+    {
+        "id" : 24,
+        "seccion" : "destacado3",
+        "clase" : "art1",
+        "name": "Sweater Holme",
+        "price" : 5.200,
+        "colors" : ["#632e2e", "#494a50", "#0a0a0a"],
+        "image": "sweater-holme.jpg"
+    },
+    {
+        "id" : 25,
+        "seccion" : "destacado3",
+        "clase" : "art2",
+        "name": "Pantalón Let",
+        "price" : 5.800,
+        "colors" : ["#fafcfc", "#070707", "#a82f11"],
+        "image": "pantalon-marron.jpg"
+    },
+    {
+        "id" : 26,
+        "seccion" : "destacado3",
+        "clase" : "art3",
+        "name": "Remera Arrow",
+        "price" : 1.800,
+        "colors" : ["#000000", "#fcf9fb", "#6e686d"],
+        "image": "remera-gris.jpg"
+    },
+    {
+        "id" : 27,
+        "seccion" : "destacado3",
+        "clase" : "art4",
+        "name": "Camiseta Angora",
+        "price" : 2.800,
+        "colors" : ["#adbd66", "#fcf9fb", "#b38aac"],
+        "image": "camiseta-angora.jpg"
+    }
+]
+
