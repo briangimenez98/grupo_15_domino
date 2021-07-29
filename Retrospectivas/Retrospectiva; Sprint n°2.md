@@ -1,6 +1,6 @@
-##Retrospectiva Sprint 2:
+## Retrospectiva Sprint 2:
 
-##Seguir haciendo: 
+## Seguir haciendo: 
 * Consumir ideas para acabados o diseños finalizados del producto (sugerencias de tipos de ropa, diseños de sitios, etc).
 
 * Reuniones organizadas para discutir asuntos sobre el proyecto.
