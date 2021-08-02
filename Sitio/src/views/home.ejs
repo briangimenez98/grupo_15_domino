@@ -10,8 +10,8 @@
     <main>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                     aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
@@ -23,12 +23,12 @@
                         alt="imagen2">
                 </div>
                 <div class="carousel-item">
-                    <img src="/img/circulo-a.jpg" class="imagen1" alt="circulo"><img src="/img/3.jpg" class="imagen2"
-                        alt="circulo">
+                    <img src="/img/circulo-a.jpg" class="imagen1" alt="circulo"><img src="/img/3.jpg"
+                        class="imagen2" alt="circulo">
                 </div>
                 <div class="carousel-item">
-                    <img src="/img/super-sale.jpg" class="imagen1" alt="humo-azul"><img src="/img/super-sale2.jpg"
-                        class="imagen2" alt="humo-azul">
+                    <img src="/img/super-sale.jpg" class="imagen1" alt="humo-azul"><img
+                        src="/img/super-sale2.jpg" class="imagen2" alt="humo-azul">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -46,60 +46,33 @@
         <div class="container-fluid">
             <div class="primero">
                 <section>
-                    <article>
-                        <img src="/img/chaleco-negro.jpg" alt="chaleco-negro">
-                        <div class="datos">
-                            <div class="caja1">
-                                <h4>Chaleco Row</h4>
-                                <p>$5.600</p>
-                            </div>
-                            <div class="caja2">
-                                <div>
-                                    <div class="color-circle" style="background-color:#000000;"></div>
-                                    <div class="color-circle" style="background-color:#9c9c93;"></div>
-                                    <div class="color-circle" style="background-color:#fdfffd;"></div>
+                    <% principales.forEach(producto=> { %>
+                        <article>
+                            <img src="/img/<%= producto.image %>" alt="">
+                            <div class="datos">
+                                <div class="caja1">
+                                    <h4>
+                                        <%= producto.name %>
+                                    </h4>
+                                    <p>$ <%= producto.price.toFixed(3)%>
+                                    </p>
                                 </div>
-                                <div class="heart"><i class="far fa-heart"></i></div>
-                            </div>
-                            <span>¡Envio Gratis!</span>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/img/conjunto-negro-mujer.png" alt="conjunto-negro-mujer.png">
-                        <div class="datos">
-                            <div class="caja1">
-                                <h4>Conjunto Switch</h4>
-                                <p>$8.900</p>
-                            </div>
-                            <div class="caja2">
-                                <div>
-                                    <div class="color-circle" style="background-color:#656666;"></div>
-                                    <div class="color-circle" style="background-color:#0c0c0c;"></div>
-                                    <div class="color-circle" style="background-color:#641717;"></div>
+                                <div class="caja2">
+                                    <div>
+                                        <div class="color-circle" style=<%='background-color:' +
+                                            producto.colors[0] %>></div>
+                                        <div class="color-circle" style=<%='background-color:' +
+                                            producto.colors[1] %>></div>
+                                        <div class="color-circle" style=<%='background-color:' +
+                                            producto.colors[2] %>></div>
+                                    </div>
+                                    <div class="heart"><i class="far fa-heart"></i></div>
                                 </div>
-                                <div class="heart"><i class="far fa-heart"></i></div>
+                                <span>¡Envio Gratis!</span>
                             </div>
-                            <span>¡Envio Gratis!</span>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/img/camiseta-negra-mujer.jpg" alt="camiseta-negra-mujer">
-                        <div class="datos">
-                            <div class="caja1">
-                                <h4>Camiseta size</h4>
-                                <p>$1.800</p>
-                            </div>
-                            <div class="caja2">
-                                <div>
-                                    <div class="color-circle" style="background-color:#000000;"></div>
-                                    <div class="color-circle" style="background-color:#fcf9fb;"></div>
-                                    <div class="color-circle" style="background-color:#a33724;"></div>
-                                </div>
-                                <div class="heart"><i class="far fa-heart"></i></div>
-                            </div>
-                            <span>¡Envio Gratis!</span>
-                        </div>
-                    </article>
+                        </article>
+
+                        <% }) %>
                 </section>
                 <div class="homb-salta">
                     <img class="hombre-salta1" src="/img/hombre-salta.jpg" alt="hombre-salta">
@@ -119,266 +92,110 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <section class="articulos">
-                                        <article>
-                                            <img src="/img/Mochila_Power_5.jpg" alt="buzo-amarillo-hombre">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Mochila Power</h4>
-                                                    <p>$5.500</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#494a50;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#13173d;">
-                                                        </div>
+                                        <% seleccionados1.forEach(producto=> { %>
+                                            <article class="<%= producto.clase %>">
+                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <div class="datos">
+                                                    <div class="caja1">
+                                                        <h4>
+                                                            <%= producto.name %>
+                                                        </h4>
+                                                        <p>
+                                                            <%= producto.price.toFixed(3)%>
+                                                        </p>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art2">
-                                            <img src="/img/zapas.jpg" alt="buzo-amarillo-hombre">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Zapatillas Nike</h4>
-                                                    <p>$14.900</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#fafcfc;">
+                                                    <div class="caja2">
+                                                        <div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[0] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[1] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[2] %>>
+                                                            </div>
                                                         </div>
-                                                        <div class="color-circle" style="background-color:#070707;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#81747f;">
-                                                        </div>
+                                                        <div class="heart"><i class="far fa-heart"></i></div>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
                                                 </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art3">
-                                            <img src="/img/Rinonera_Negro.jpg" alt="buzo-amarillo-hombre">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Riñonera Adidas</h4>
-                                                    <p>$3.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#fcf9fb;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#611f50;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art5">
-                                            <img src="/img/mochila-negra-unix.jpg" alt="mochila-negra-unix">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Mochila Unix</h4>
-                                                    <p>$5.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#3d1902;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#3b380e;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
+                                            </article>
+                                            <% }) %>
                                     </section>
                                 </div>
                                 <div class="carousel-item">
                                     <section class="articulos">
-                                        <article>
-                                            <img src="/img/bolso-active-reebok.jpg" alt="bolso-active-reebok">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Bolso Active</h4>
-                                                    <p>$4.500</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#494a50;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#13173d;">
-                                                        </div>
+                                        <% seleccionados2.forEach(producto=> { %>
+                                            <article class="<%= producto.clase %>">
+                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <div class="datos">
+                                                    <div class="caja1">
+                                                        <h4>
+                                                            <%= producto.name %>
+                                                        </h4>
+                                                        <p>
+                                                            <%= producto.price.toFixed(3)%>
+                                                        </p>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art2">
-                                            <img src="/img/gorra-adidas.jpg" alt="gorra-blanca-adidas">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Gorra Adidas</h4>
-                                                    <p>$2.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#fafcfc;">
+                                                    <div class="caja2">
+                                                        <div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[0] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[1] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[2] %>>
+                                                            </div>
                                                         </div>
-                                                        <div class="color-circle" style="background-color:#070707;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#550f24;">
-                                                        </div>
+                                                        <div class="heart"><i class="far fa-heart"></i></div>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
                                                 </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art3">
-                                            <img src="/img/barbijo-gris.jpg" alt="barbijo-stoper">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Barbijo Stoper</h4>
-                                                    <p>$1.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#24049b;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#838282;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art5">
-                                            <img src="/img/zapatillas-galaxy-adidas.jpg" alt="zapatillas-galaxy-adidas">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Zapatillas Galaxy</h4>
-                                                    <p>$10.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#1f1553;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#524d50;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
+                                            </article>
+                                            <% }) %>
                                     </section>
                                 </div>
                                 <div class="carousel-item">
                                     <section class="articulos">
-                                        <article>
-                                            <img src="/img/zapatillas-azul.jpg" alt="zapatilla-azul">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Zapatilla True</h4>
-                                                    <p>$7.500</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#fdfcfc;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#494a50;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#0a0a0a;">
-                                                        </div>
+                                        <% seleccionados3.forEach(producto=> { %>
+                                            <article class="<%= producto.clase %>">
+                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <div class="datos">
+                                                    <div class="caja1">
+                                                        <h4>
+                                                            <%= producto.name %>
+                                                        </h4>
+                                                        <p>
+                                                            <%= producto.price.toFixed(3)%>
+                                                        </p>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art2">
-                                            <img src="/img/mochila-gris-nike.jpg" alt="mochila-gris-nike">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Mochila One</h4>
-                                                    <p>$5.900</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#fafcfc;">
+                                                    <div class="caja2">
+                                                        <div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[0] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[1] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[2] %>>
+                                                            </div>
                                                         </div>
-                                                        <div class="color-circle" style="background-color:#070707;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#9ea371;">
-                                                        </div>
+                                                        <div class="heart"><i class="far fa-heart"></i></div>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
                                                 </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art3">
-                                            <img src="/img/bolso_cruzado_adicolor.jpg" alt="bolso_cruzado_adicolor">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Bolso Adicolor</h4>
-                                                    <p>$4.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#0a0b55;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#8a0f0f;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art5">
-                                            <img src="/img/mochila-doughnut.jpg" alt="mochila-doughnut">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Mochila Mou</h4>
-                                                    <p>$4.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#fcf9fb;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#753f68;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
+                                            </article>
+                                            <% }) %>
                                     </section>
                                 </div>
                             </div>
@@ -396,6 +213,7 @@
                     </div>
                 </section>
                 <section>
+
                     <div class="carrusel-destacado">
                         <div>
                             <p>Productos destacados</p>
@@ -405,267 +223,110 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <section class="articulos">
-                                        <article>
-                                            <img src="/img/campera-negre-michigan.jpg" alt="campera-negre-michigan">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Campera Michigan</h4>
-                                                    <p>$7.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#757274;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#0c0849;">
-                                                        </div>
+                                        <% destacados1.forEach(producto=> { %>
+                                            <article class="<%= producto.clase %>">
+                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <div class="datos">
+                                                    <div class="caja1">
+                                                        <h4>
+                                                            <%= producto.name %>
+                                                        </h4>
+                                                        <p>
+                                                            <%= producto.price.toFixed(3)%>
+                                                        </p>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art2">
-                                            <img src="/img/palazzo-frizado.jpg" alt="palazzo-frizado">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Palazzo Frizado</h4>
-                                                    <p>$4.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
+                                                    <div class="caja2">
+                                                        <div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[0] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[1] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[2] %>>
+                                                            </div>
                                                         </div>
-                                                        <div class="color-circle" style="background-color:#cf7fb7;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#a1a1a1;">
-                                                        </div>
+                                                        <div class="heart"><i class="far fa-heart"></i></div>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
                                                 </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art3">
-                                            <img src="/img/pantalon-jogger-tamesis.jpg"
-                                                alt="pantalon-jogger-tamesis.jpg">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Pantalón Tamesis</h4>
-                                                    <p>$5.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#8d623a;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#305e66;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#ca9912;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art4">
-                                            <img src="/img/conjunto-verde.jpg" alt="conjunto-verde">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Conjunto Slouchy</h4>
-                                                    <p>$9.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#5a5c07;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#5c555a;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#6d5410;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
+                                            </article>
+                                            <% }) %>
                                     </section>
                                 </div>
                                 <div class="carousel-item">
                                     <section class="articulos">
-                                        <article>
-                                            <img src="/img/conjunto-gris-function.jpg" alt="conjunto-gris-function">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Conjunto Function</h4>
-                                                    <p>$8.400</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#757274;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#861252;">
-                                                        </div>
+                                        <% destacados2.forEach(producto=> { %>
+                                            <article class="<%= producto.clase %>">
+                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <div class="datos">
+                                                    <div class="caja1">
+                                                        <h4>
+                                                            <%= producto.name %>
+                                                        </h4>
+                                                        <p>
+                                                            <%= producto.price.toFixed(3)%>
+                                                        </p>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art2">
-                                            <img src="/img/buzo-mont-blanc.jpg" alt="buzo-mont-blanc">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Buzo Tisza</h4>
-                                                    <p>$4.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
+                                                    <div class="caja2">
+                                                        <div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[0] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[1] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[2] %>>
+                                                            </div>
                                                         </div>
-                                                        <div class="color-circle" style="background-color:#fdfdfc;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#a1a1a1;">
-                                                        </div>
+                                                        <div class="heart"><i class="far fa-heart"></i></div>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
                                                 </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art3">
-                                            <img src="/img/conjunto-marron.jpg" alt="conjunto-marron.jpg">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Conjunto Else</h4>
-                                                    <p>$7.600</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#af6464;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#5c555a;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#c2b969;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art4">
-                                            <img src="/img/remera-blanca-hombre.jpg" alt="remera-blanca-hombre">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Remera Saona</h4>
-                                                    <p>$1.500</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#080808;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#5c555a;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#fdfdfc;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
+                                            </article>
+                                            <% }) %>
                                     </section>
                                 </div>
                                 <div class="carousel-item">
                                     <section class="articulos">
-                                        <article>
-                                            <img src="/img/sweater-holme.jpg" alt="sweater-holme">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Sweater Holme</h4>
-                                                    <p>$5.200</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#632e2e;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#494a50;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#0a0a0a;">
-                                                        </div>
+                                        <% destacados3.forEach(producto=> { %>
+                                            <article class="<%= producto.clase %>">
+                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <div class="datos">
+                                                    <div class="caja1">
+                                                        <h4>
+                                                            <%= producto.name %>
+                                                        </h4>
+                                                        <p>
+                                                            <%= producto.price.toFixed(3)%>
+                                                        </p>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art2">
-                                            <img src="/img/pantalon-marron.jpg" alt="pantalon-marron">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Pantalón Let</h4>
-                                                    <p>$5.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#fafcfc;">
+                                                    <div class="caja2">
+                                                        <div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[0] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[1] %>>
+                                                            </div>
+                                                            <div class="color-circle"
+                                                                style=<%='background-color:' +
+                                                                producto.colors[2] %>>
+                                                            </div>
                                                         </div>
-                                                        <div class="color-circle" style="background-color:#070707;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#a82f11;">
-                                                        </div>
+                                                        <div class="heart"><i class="far fa-heart"></i></div>
                                                     </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
                                                 </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art3">
-                                            <img src="/img/remera-gris.jpg" alt="remera-gris">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Remera Arrow</h4>
-                                                    <p>$1.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#000000;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#fcf9fb;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#6e686d;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
-                                        <article class="art4">
-                                            <img src="/img/camiseta-angora.jpg" alt="camiseta-angora">
-                                            <div class="datos">
-                                                <div class="caja1">
-                                                    <h4>Camiseta Angora</h4>
-                                                    <p>$2.800</p>
-                                                </div>
-                                                <div class="caja2">
-                                                    <div>
-                                                        <div class="color-circle" style="background-color:#adbd66;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#fcf9fb;">
-                                                        </div>
-                                                        <div class="color-circle" style="background-color:#b38aac;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="heart"><i class="far fa-heart"></i></div>
-                                                </div>
-                                                <span>¡Envio Gratis!</span>
-                                            </div>
-                                        </article>
+                                            </article>
+                                            <% }) %>
                                     </section>
                                 </div>
                             </div>
@@ -702,7 +363,8 @@
                 <div class="tiendas">
                     <div>
                         <h3>nuestros locales</h3>
-                        <p>visitanos en nuestros locales con todos los <br> protocolos de seguridad necesarios para vos
+                        <p>visitanos en nuestros locales con todos los <br> protocolos de seguridad necesarios
+                            para vos
                         </p>
                         <button type="button" class="btn btn-secondary btn-sm mx-auto">VER LOCALES</button>
                     </div>
