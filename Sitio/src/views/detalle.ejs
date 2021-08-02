@@ -20,81 +20,95 @@
                 <img src="./img/buzo-azulback.webp" alt="">
             </aside>
             <div class="view-1">
-                <img src="./img/buzo-azul-front.webp" alt="">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="./img/conjunto-verde.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./img/pantalon-marron.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./img/camiseta-angora.jpg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div>
-        </div>
-        <div class="numero-v">
-            <span>1/3</span>
         </div>
         <div class="margen">
             <div class="aside-box">
                 <form action="" method="">
-                    <nav class="seguimiento">
-                        <ul>
-                            <li><a href="/">Inicio ></a></li>
-                            <li><a href="">Categorías ></a></li>
-                            <li><a href="">[Nombre del Producto]</a></li>
-                        </ul>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                          <li class="breadcrumb-item"><a href="#">Categoría</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Producto</li>
+                        </ol>
                     </nav>
                     <section>
-                        <div class="product-details">
-                            <p class="name">[Nombre del producto]</p>
-                            <span>$999.999</span>
-                        </div>
-                        <div class="cuotas">
+                        <div class="product__details">
+                            <p class="product_details__name">[Nombre del producto]</p>
+                            <span class="product__details_money">$999.999</span>
                             <div>
+                                <select name="colors" class="product__details_color">
+                                    <option value="" hidden selected>Color</option>
+                                    <option value="red">Rojo</option>
+                                    <option value="blue">Azul</option>
+                                    <option value="green">Verde</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cuotas__totaldiv">
+                            <div class="cuotas__minidiv">
                                 <i class="far fa-credit-card"></i>
                                 <span>XX cuotas de $99.999</span> 
                             </div>
-                            <div>
+                            <div class="cuotas__minidiv">
                                 <i class="fas fa-dollar-sign"></i>
                                 <span>XX% de descuento pagando a convenir.</span> 
                             </div>
-                            <span><a href="">Ver más detalles</a></span>
+                            <span class="cuotas__span"><a href="">Ver más detalles</a></span>
                         </div>
                     </section>
-                    <div>
-                        <select name="colors" class="color">
-                            <option value="" hidden selected>Color</option>
-                            <option value="red">Rojo</option>
-                            <option value="blue">Azul</option>
-                            <option value="green">Verde</option>
-                        </select>
-                    </div>
-                    <div class="talle">
-                        <span>Talles</span>
-                        <select name="size" class="size">
+                    <section class="talle__div">
+                        <span class="talle__div__titular">Talles disponibles</span>
+                        <select name="size" class="talle__div__size">
                             <option value="s">S</option>
                             <option value="m">M</option>
                             <option value="l">L</option>
                             <option value="xl">XL</option>
                             <option value="xxl">XXL</option>
                         </select>
-                        <div class="form-2">
-                            <select name="cantidad" class="cantidad">
+                        <article class="talle__div__cantidad-box">
+                            <select name="cantidad" class="talle__div__cantidad">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
+                                <option value="morethan"> más de 6 unidades</option>
                             </select>
-                            <div class="form-3">
-                                <button type ="submit" class="boton">
-                                    <a href="carrito.html">agregar al carrito</a>
-                                </button>
-                            </div>
+                            <button type="button" class="btn btn-dark">Agregar al carrito</button>
+                        </article>
+                    </section>
+                    <div class="discount__box">
+                        <div class="discount__box__icon">
+                            <i class="fas fa-percentage"></i>
                         </div>
-                    </div>
-                    <div class="discount-box">
-                        <div class="icondiv">
-                            <i class="fas fa-tags"></i>
-                        </div>
-                        <div class="discount">
+                        <div class="discount__box__lema">
                             <h3>DESCUENTO</h3>
                             <p><b>10% OFF DE DESCUENTO</b> pagando en efectivo.</p>
                         </div>
@@ -105,18 +119,18 @@
     </main>
         <div class="padding-box">
             <form action="">
-                <div class="filter">
+                <div class="contenedor__filter">
                     <p>XXX comentarios</p>
-                    <label for=""> Ordernar por
-                        <select name="">
-                            <option value="filter" hidden selected>Filtrar</option>
+                    <div class="contenedor__filter__div">
+                        <select name="" class="contenedor__filter__select">
+                            <option value="seleccion" hidden selected>Ordenar por...</option>
                             <option value="popular">Más popular</option>
                             <option value="recent">Más reciente</option>
                             <option value="oldest">Más antiguo</option>
                         </select>
-                    </label>
+                    </div>
                 </div>
-                <div class="comment-box">
+                <div class="comment-box bottom">
                     <div class="text-area-box">
                         <div class="profile-icon">
                             <i class="fas fa-user-circle"></i>
@@ -133,40 +147,52 @@
                 <h2>Productos relacionados</h2>
             </div>
             <div class="recommended">
-                <div class="div-box-3">
-                    <div class="img-product">
-                        <img src="./img/buzo-negro.webp" alt="">
-                    </div>
-                    <div class="div-box-details">
-                        <p>Nombre del Producto</p>
-                        <span>$99.999</span>
-                        <span>[COLOR]</span>
-                        <i class="far fa-heart"></i>
-                        <p>¡Envío gratis!</p>
-                    </div>
-                </div>
-                <div class="div-box-4">
-                    <div class="img-product">
-                        <img src="./img/zapatilla-2.webp" alt="">
-                    </div>
-                    <div class="div-box-details">
-                        <p>Nombre del Producto</p>
-                        <span>$99.999</span>
-                        <span>[COLOR]</span>
-                        <i class="far fa-heart"></i>
-                        <p>¡Envío gratis!</p>
+                <div class="recommended__1 card mb-3" style="max-width: 320px;">
+                    <div class="row g-0">
+                      <div class="col-sm-4">
+                        <img src="./img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre de producto</h5>
+                          <span>$99.999</span>
+                          <i class="far fa-heart"></i>
+                          <p class="card-text">¡Envío Gratis!</p>
+                          <p class="card-text"><small class="text-muted">Ult. vez agregado hace 2 meses</small></p>
+                        </div>
+                      </div>
                     </div>
                 </div>
-                <div class="div-box-5">
-                    <div class="img-product">
-                        <img src="./img/zapatilla-3.webp" alt="">
+                <div class="recommended__2 card mb-3" style="max-width: 320px;">
+                    <div class="row g-0">
+                      <div class="col-sm-4">
+                        <img src="./img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre de producto</h5>
+                          <span>$99.999</span>
+                          <i class="far fa-heart"></i>
+                          <p class="card-text">¡Envío Gratis!</p>
+                          <p class="card-text"><small class="text-muted">Ult. vez agregado hace 2 meses</small></p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="div-box-details">
-                        <p>Nombre del Producto</p>
-                        <span>$99.999</span>
-                        <span>[COLOR]</span>
-                        <i class="far fa-heart"></i>
-                        <p>¡Envío gratis!</p>
+                </div>
+                <div class="recommended__3 mb-3" style="max-width: 320px;">
+                    <div class="row g-0">
+                      <div class="col-sm-4">
+                        <img src="./img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre de producto</h5>
+                          <span>$99.999</span>
+                          <i class="far fa-heart"></i>
+                          <p class="card-text">¡Envío Gratis!</p>
+                          <p class="card-text"><small class="text-muted">Ult. vez agregado hace 2 meses</small></p>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
