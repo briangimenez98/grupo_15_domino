@@ -3,7 +3,7 @@
 
 <!--Esto es el Head-->
     <%- include('./partials/head') %>
-    <head><title>Detalle de tu producto</title></head>
+    <title></title>
 <!--Esto es el Head-->
 
 <body class="general">
@@ -12,12 +12,13 @@
         <%-include('./partials/header')%>
     <!--Esto es el header-->
 
+    <!-- Sección 1 -->
     <main class="detail-box">
         <div class="view">
-            <aside class="view-2">
-                <img src="./img/buzo-azul-front.webp" alt="">
-                <img src="./img/buzo-azul-side.webp" alt="">
-                <img src="./img/buzo-azulback.webp" alt="">
+            <aside class="view__multiple">
+                <img src="/img/defaultimage.png" alt="imagen-1" class="view__multiple__img">
+                <img src="/img/defaultimage.png" alt="imagen-2" class="view__multiple__img">
+                <img src="/img/defaultimage.png" alt="imagen-3" class="view__multiple__img">
             </aside>
             <div class="view-1">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -28,13 +29,13 @@
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="./img/conjunto-verde.jpg" class="d-block w-100" alt="...">
+                        <img src="/img/<%= producto.image %>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="./img/pantalon-marron.jpg" class="d-block w-100" alt="...">
+                        <img src="/img/<%= producto.image %>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="./img/camiseta-angora.jpg" class="d-block w-100" alt="...">
+                        <img src="/img/<%= producto.image %>" class="d-block w-100" alt="...">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -48,6 +49,9 @@
                   </div>
             </div>
         </div>
+
+        <!-- Sección 2 -->
+
         <div class="margen">
             <div class="aside-box">
                 <form action="" method="">
@@ -60,8 +64,8 @@
                     </nav>
                     <section>
                         <div class="product__details">
-                            <p class="product_details__name">[Nombre del producto]</p>
-                            <span class="product__details_money">$999.999</span>
+                            <p class="product_details__name"><%= producto.name %></p>
+                            <span class="product__details_money"><%= producto.price.toFixed(2) %></span>
                             <div>
                                 <select name="colors" class="product__details_color">
                                     <option value="" hidden selected>Color</option>
@@ -117,6 +121,9 @@
             </div>
         </div>
     </main>
+
+    <!-- Sección 3 -->
+
         <div class="padding-box">
             <form action="">
                 <div class="contenedor__filter">
@@ -135,22 +142,22 @@
                         <div class="profile-icon">
                             <i class="fas fa-user-circle"></i>
                         </div>
-                        <textarea name="" id="" cols="40" rows="5" placeholder="Comentá sobre este producto">
-                        </textarea>
+                        <textarea name="textareacomment" id="" class="comment-box__textarea"></textarea>
                     </div>
-                    <div class="submit">
+                    <div class="submit" rows="40" cols="50" placeholder="Comentá sobre este producto">
                         <button> <input type="submit" hidden>¡Enviar!</button>
                     </div>
                 </div>
             </form>
             <div class="h2-box">
-                <h2>Productos relacionados</h2>
+                <h2>Productos que te podrían interesar...</h2>
             </div>
             <div class="recommended">
+
                 <div class="recommended__1 card mb-3" style="max-width: 320px;">
                     <div class="row g-0">
                       <div class="col-sm-4">
-                        <img src="./img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
+                        <img src="/img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="recommended1" >
                       </div>
                       <div class="col-sm-8">
                         <div class="card-body">
@@ -163,10 +170,11 @@
                       </div>
                     </div>
                 </div>
+
                 <div class="recommended__2 card mb-3" style="max-width: 320px;">
                     <div class="row g-0">
                       <div class="col-sm-4">
-                        <img src="./img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
+                        <img src="/img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
                       </div>
                       <div class="col-sm-8">
                         <div class="card-body">
@@ -179,10 +187,11 @@
                       </div>
                     </div>
                 </div>
-                <div class="recommended__3 mb-3" style="max-width: 320px;">
+
+                <div class="recommended__3 card mb-3" style="max-width: 320px;">
                     <div class="row g-0">
                       <div class="col-sm-4">
-                        <img src="./img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
+                        <img src="/img/Mochila_Power_5.jpg" class="img-fluid rounded-start" alt="..." >
                       </div>
                       <div class="col-sm-8">
                         <div class="card-body">

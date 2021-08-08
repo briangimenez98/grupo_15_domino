@@ -14,8 +14,12 @@ module.exports = {
         });
     },
     detail : (req, res) => {
-        res.render('detalle');
-    }, 
+        let producto = productos.find(p => p.id === +req.params.id)
+        return res.render('detalle', {
+            producto,
+            productos
+        })
+    },
     carrito : (req, res) => {
         res.render('carrito')
     },

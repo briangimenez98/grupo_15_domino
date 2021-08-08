@@ -4,7 +4,7 @@ const {index, detail, carrito, createProduct, editProduct} = require('../control
 
 /* GET home page. */
 router.get('/', index);
-router.get('/detail', detail);
+router.get('/detail/:id', detail);
 router.get('/carrito', carrito);
 router.get('/createProduct', createProduct);
 router.get('/editProduct', editProduct);

@@ -1,7 +1,9 @@
 
-/*---------- main ----------*/
+/* Sección 1 */
+
 .general {
     background-color: var(--blanco);
+    width: 100%;
 }
 .detail-box{
     display:flex;
@@ -16,11 +18,14 @@
 }
 .view .view-1{
     width: 100%;
-    height: 100%;
+    padding: 15px;
 }
-.detail-box .view-2{
+.detail-box .view .view__multiple{
     display:none;
 }
+
+/* Sección 2 */
+
 div.margen{
     background-color: var(--blanco);
     width: 100%;
@@ -122,7 +127,8 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
   -webkit-text-fill-color: transparent;
 }
 
-/*----------LowerMain----------*/
+/* Sección 3 */
+
 .padding-box{
     width: 100%;
     height: 100%;
@@ -154,7 +160,8 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
     border-bottom: 1px solid grey ;
     border-top: 1px solid grey;
 }
-textarea{
+.comment-box__textarea{
+    padding: 10px;
     width: 100%;
     margin: 15px 0;
     border: 0;
@@ -197,39 +204,33 @@ textarea{
 .recommended__2, .recommended__3{
     display: none;
 }
+
 @media (min-width: 768px){
-    /*---------Main--------------*/
-    main.detail-box{
+
+    /*Sección 1*/
+
+    .detail-box{
         flex-direction: row;
         width: 100%;
     }
-    main.detail-box .view{
+    .detail-box .view{
+        width: 60%;
         padding-top: 15px;
     }
-    .view .view-1{
+    .detail-box .view .view-1{
         width: 100%;
-        justify-content: center;
-        border-radius: 20px;
-        margin: 0;
-        flex-grow: 0;
+        padding: 0;
     }
-    .detail-box .view .view-2{
-        width: 25%;
+    .detail-box .view .view__multiple{
         display: flex;
         flex-direction: column;
-        margin: 0px 15px 0 5px;
-        padding: 10px 10px 120px;
-        justify-content: center;
+        width: 30%;
+        padding: 0 10px;
     }
-    main.detail-box .view .view-2 img{
-        border: 0px;
-        width: 120px;
+    .view__multiple__img{
         border-radius: 10px;
-        align-items: flex-start;
-        margin-bottom: 40px;
-    }
-    div.numero-v span{
-        display: none;
+        border: 1px solid grey;
+        margin-bottom: 15px;
     }
     main.detail-box div.margen{
         width: 50%;
@@ -237,11 +238,10 @@ textarea{
         padding: 0;
         margin: 0;  
     }
-    main.detail-box div.aside-box{
+    .detail-box .aside-box{
+
         width: 100%;
-        height: 700px;
         padding: 10px;
-        justify-content: center;
     }
     .talle .form-2{
         justify-content:baseline;
@@ -274,7 +274,9 @@ textarea{
         justify-content: space-evenly;
     }
     .recommended__2{
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
     }
 }
 
@@ -293,6 +295,8 @@ textarea{
         padding-right: 20px;
     }
     .recommended__3{
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
     }
 }
