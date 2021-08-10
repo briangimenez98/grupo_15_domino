@@ -48,13 +48,13 @@
                 <section>
                     <% principales.forEach(producto=> { %>
                         <article>
-                            <img src="/img/<%= producto.image %>" alt="">
+                            <img src="/img/<%= producto.image[0] %>" alt="">
                             <div class="datos">
                                 <div class="caja1">
                                     <h4>
                                         <%= producto.name %>
                                     </h4>
-                                    <p>$ <%= producto.price.toFixed(3)%>
+                                    <p>$ <%= toThousand(producto.price) %>
                                     </p>
                                 </div>
                                 <div class="caja2">
@@ -94,14 +94,14 @@
                                     <section class="articulos">
                                         <% seleccionados1.forEach(producto=> { %>
                                             <article class="<%= producto.clase %>">
-                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <img src="/img/<%= producto.image[0] %>" alt="">
                                                 <div class="datos">
                                                     <div class="caja1">
                                                         <h4>
                                                             <%= producto.name %>
                                                         </h4>
                                                         <p>
-                                                            <%= producto.price.toFixed(3)%>
+                                                            $ <%= toThousand(producto.price) %>
                                                         </p>
                                                     </div>
                                                     <div class="caja2">
@@ -130,14 +130,14 @@
                                     <section class="articulos">
                                         <% seleccionados2.forEach(producto=> { %>
                                             <article class="<%= producto.clase %>">
-                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <img src="/img/<%= producto.image[0] %>" alt="">
                                                 <div class="datos">
                                                     <div class="caja1">
                                                         <h4>
                                                             <%= producto.name %>
                                                         </h4>
                                                         <p>
-                                                            <%= producto.price.toFixed(3)%>
+                                                            $ <%= toThousand(producto.price) %>
                                                         </p>
                                                     </div>
                                                     <div class="caja2">
@@ -166,14 +166,14 @@
                                     <section class="articulos">
                                         <% seleccionados3.forEach(producto=> { %>
                                             <article class="<%= producto.clase %>">
-                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <img src="/img/<%= producto.image[0] %>" alt="">
                                                 <div class="datos">
                                                     <div class="caja1">
                                                         <h4>
                                                             <%= producto.name %>
                                                         </h4>
                                                         <p>
-                                                            <%= producto.price.toFixed(3)%>
+                                                            $ <%= toThousand(producto.price) %>
                                                         </p>
                                                     </div>
                                                     <div class="caja2">
@@ -225,14 +225,14 @@
                                     <section class="articulos">
                                         <% destacados1.forEach(producto=> { %>
                                             <article class="<%= producto.clase %>">
-                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <img src="/img/<%= producto.image[0] %>" alt="">
                                                 <div class="datos">
                                                     <div class="caja1">
                                                         <h4>
                                                             <%= producto.name %>
                                                         </h4>
                                                         <p>
-                                                            <%= producto.price.toFixed(3)%>
+                                                            $ <%= toThousand(producto.price) %>
                                                         </p>
                                                     </div>
                                                     <div class="caja2">
@@ -261,14 +261,14 @@
                                     <section class="articulos">
                                         <% destacados2.forEach(producto=> { %>
                                             <article class="<%= producto.clase %>">
-                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <img src="/img/<%= producto.image[0] %>" alt="">
                                                 <div class="datos">
                                                     <div class="caja1">
                                                         <h4>
                                                             <%= producto.name %>
                                                         </h4>
                                                         <p>
-                                                            <%= producto.price.toFixed(3)%>
+                                                            $ <%= toThousand(producto.price) %>
                                                         </p>
                                                     </div>
                                                     <div class="caja2">
@@ -297,14 +297,14 @@
                                     <section class="articulos">
                                         <% destacados3.forEach(producto=> { %>
                                             <article class="<%= producto.clase %>">
-                                                <img src="/img/<%= producto.image %>" alt="">
+                                                <img src="/img/<%= producto.image[0] %>" alt="">
                                                 <div class="datos">
                                                     <div class="caja1">
                                                         <h4>
                                                             <%= producto.name %>
                                                         </h4>
                                                         <p>
-                                                            <%= producto.price.toFixed(3)%>
+                                                            $ <%= toThousand(producto.price) %>
                                                         </p>
                                                     </div>
                                                     <div class="caja2">

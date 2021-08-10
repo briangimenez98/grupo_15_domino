@@ -1,4 +1,5 @@
 const productos = require('../data/products_db');
+const toThousand = require('../utils/toThousand');
 
 module.exports = {
     index : (req, res) => {
@@ -11,6 +12,7 @@ module.exports = {
             destacados1 : productos.filter(producto => producto.seccion === "destacado1"),
             destacados2 : productos.filter(producto => producto.seccion === "destacado2"),
             destacados3 : productos.filter(producto => producto.seccion === "destacado3"),
+            toThousand,
         });
     },
     detail : (req, res) => {
