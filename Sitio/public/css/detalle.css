@@ -47,16 +47,11 @@ ol.breadcrumb {
 }
 .product_details__name{
     font-family: 'Open Sans';
-    font-size: 24px;
+    font-size: 26px;
     margin: 0;
 }
-.product__details_color{
-    display: block;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 5px 0;
-    border: 1px solid grey;
-    border-radius: 5px;
+.product__details__color{
+    display:flex;
 }
 .cuotas__div{
     margin: 10px 0px;
@@ -83,11 +78,13 @@ ol.breadcrumb {
     font-size: 24px;
 }
 .talle__div__size{
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
-    height: 40px;
-    margin-top: 10px;
-    padding-left: 8px;
-    border: 0;
+    margin: 5px 0;
+}
+.talle__div__size .btn-group, .btn-group-vertical{
+    width: 100%;
 }
 .talle__div__cantidad-box{
     display: flex;
@@ -95,12 +92,15 @@ ol.breadcrumb {
     margin: 5px 0px;
 }
 .talle__div__cantidad{
-    width: 30%;
+    width: 15%;
     border: 0;
+}
+.talle__div__cantidad-box .btn-dark{
+    width: 80%;
 }
 .discount__box{
     display: flex;
-    margin: 20px;
+    margin: 0px;
     background-color: wheat;
     border: yellow 1px solid;
     border-radius: 10px;
@@ -214,12 +214,18 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
         width: 100%;
     }
     .detail-box .view{
-        width: 60%;
+        width: 100%;
         padding-top: 15px;
     }
     .detail-box .view .view-1{
         width: 100%;
         padding: 0;
+    }
+    .view-1__carousel{
+        width: 100%;
+    }
+    .view-1__otherview{
+        display: none
     }
     .detail-box .view .view__multiple{
         display: flex;
@@ -228,8 +234,9 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
         padding: 0 10px;
     }
     .view__multiple__img{
+        width: 80%;
         border-radius: 10px;
-        border: 1px solid grey;
+        border: 0;
         margin-bottom: 15px;
     }
     main.detail-box div.margen{
@@ -239,7 +246,6 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
         margin: 0;  
     }
     .detail-box .aside-box{
-
         width: 100%;
         padding: 10px;
     }
