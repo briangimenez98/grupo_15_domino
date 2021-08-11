@@ -13,6 +13,8 @@ module.exports = {
             destacados2 : productos.filter(producto => producto.seccion === "destacado2"),
             destacados3 : productos.filter(producto => producto.seccion === "destacado3"),
             toThousand,
+
+            
         });
     },
     detail : (req, res) => {

@@ -86,6 +86,57 @@ header .nav-principal li a{
     color: white;
 }
 
+header .dropdown-toggle::after{
+    display: none;
+}
+
+header .nav-link{
+   padding: 0 0;
+   color: black;
+}
+
+header .nav-link:focus, .nav-link:hover, a:hover{
+   color: black;
+}
+
+header .accordion-body ul{
+   padding-left: 0rem;
+}
+
+header .accordion-button{
+   padding: 0px;
+}
+
+header .close{
+   text-align: end;
+   border-bottom: 1px solid #dee2e6;
+}
+
+header .btn-close{
+   font-size: 12px;
+   padding-right: 20px;
+}
+
+header .accordion-button::after{
+   display: none;
+}
+
+header .accordion-item a{
+   font-size: 15px;
+   font-family: "Roboto";
+}
+
+header hr:not([size]){
+   height: 1px;
+   background-color: rgb(167 165 165);
+}
+
+header .li-mobile{
+   padding-bottom: 20px;
+   font-size: 14px;
+}
+
+
 
 /*---------- footer ----------*/
 footer{
@@ -185,6 +236,91 @@ footer .redes ul li:last-child{
         display: flex;
     }
 
+    header .nav-principal-div{
+        width: 80%;
+    }
+
+    header .navbar-nav{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    header a:hover, header .nav-link:hover, header .fa-heart:hover{
+        color: rgb(55, 8, 185);
+    }
+
+    header .navbar-nav .nav-link{
+        padding: 0;
+        font-family: "Roboto";
+    }
+
+    header .nav-link:focus {
+        color: white;
+    }
+    
+    header .breadcrumb-item.breadcrumb-item::before {
+        display: none;
+    }
+
+    header .nav-principal li a{
+        font-weight: lighter;
+        font-size: 15px;
+        color: white;
+    }
+    
+    header .nav-principal li .dropdown-item{
+        color: black;
+        font-weight: 600;
+        font-family: "Roboto";
+    }
+
+    header .nav-principal li.categ,
+    header .nav-principal li.categ li{
+        display: block;
+    }
+    
+    header .nav-principal li .categorias{
+        color: black;
+        font-family: "Roboto";
+    }
+    
+    header .nav-principal li .categorias:hover{
+        color: rgb(153, 149, 149);
+    }
+    
+    header .dropdown-menu{
+        padding: 1.5rem 0;
+    }
+    
+    header .envio-gratis{
+        width: 200px;
+        padding: 0 20px;
+    }
+    
+    header .dropdown-menu.show {
+        display: flex;
+    }
+
+    header ol.breadcrumb{
+        margin: 0;
+    }
+    header .breadcrumb-item.active{
+        padding: 0;
+    }
+    
+    header .categ{
+        border-right: solid 1px rgb(167, 165, 165);
+        padding: 0 25px 0 18px;
+    }
+
+    header .categ ul{
+        padding-left: 1rem;
+    }
+
+    header .dropdown-toggle::after{
+        display: none;
+    }
+
     /*---------- footer ----------*/
     footer section{
         justify-content: space-around;
@@ -243,15 +379,16 @@ footer .redes ul li:last-child{
     footer .info{
         flex-grow: 1;
     }
+    header .nav-principal-div{
+        width: 70%;
+    }
     footer section article{
         padding: 0;
         align-items:flex-start;
     }
-
     footer .redes {
         padding-bottom: 10px;
-    }
-    
+    } 
     footer section article, footer .redes p{
         font-size: 14px;
     }

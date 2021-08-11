@@ -40,7 +40,7 @@
         "name": "Mochila Power",
         "price" : 5500,
         "colors" : ["#000000", "#494a50", "#13173d"],
-        "image": ["mochila-adidas-1.jpg", "mochila-adidas-2.jpg", "mochila-adidas-3.jpg","mochila-adidas-4.jpg"],
+        "image": ["mochila-adidas-1.png", "mochila-adidas-2.jpg", "mochila-adidas-3.jpg","mochila-adidas-4.jpg"],
         "category" : "mochila",
         "description" : "lorem ipsum dolor amet sit"
     },
