@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<!---Head-->
+<%-include('./partials/head')%> 
+<body class="products">
+    <!--Header-->
+    <%-include('./partials/header')%>
+    
+    <!--Main-->
+    <main>
+        <section>
+            <% principales.forEach(producto=> { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %>" alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+                </article>
+             <% }) %>
+             <% seleccionados1.forEach(producto=> { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %> " alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+
+                </article>
+                <% }) %>
+            <% seleccionados2.forEach(producto => { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %> " alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+
+                </article>
+             
+            <% }) %>
+            <% seleccionados3.forEach(producto => { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %> " alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+            <% destacados1.forEach(producto => { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %> " alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+                </article>
+             
+            <% }) %>
+            <% destacados2.forEach(producto => { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %>" alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+            <% destacados3.forEach(producto => { %>
+                <article>
+                    <img src="/img/<%= producto.image[0] %>" alt="">
+                    <div class="description">
+                        <div class="date">
+                            <h4>
+                                <%= producto.name %>
+                            </h4>
+                            <p>$ <%= toThousand(producto.price) %>
+                            </p>
+                        </div>
+                        <div class="date2">
+                            <a href="/editProduct"><button type="button" class="edit">Editar</button></a>
+                            <button type="button" class="delete">Eliminar</button>
+                        </div>
+                    </div>
+
+                </article>
+             
+            <% }) %>
+          
+        </section>
+
+    </main>
+    
+    <!--Footer-->
+    <%- include('./partials/footer')%>
+    
+    
+    
+
+<!--Scripts-->
+<%-include('./partials/scripts')%>     
+</body>
+</html>
