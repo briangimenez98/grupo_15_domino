@@ -7,6 +7,6 @@ router.get('/', index);
 router.get('/detail/:id', detail);
 router.get('/carrito', carrito);
 router.get('/createProduct', createProduct);
-router.get('/editProduct', editProduct);
+router.get('/editProduct/:id', editProduct);
 router.get('/products', products);
 module.exports = router;

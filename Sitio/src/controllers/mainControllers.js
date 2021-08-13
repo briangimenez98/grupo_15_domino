@@ -31,7 +31,11 @@ module.exports = {
         res.render('createProduct')
     },
     editProduct: (req, res) => {
-        res.render('editProduct')
+        let producto = productos.find(p => p.id === +req.params.id)
+        return res.render('editProduct',{
+            producto,
+            productos
+        })
     },
     products: (req, res) => {
         return res.render('products', {
