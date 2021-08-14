@@ -311,6 +311,18 @@
         "category" : "camiseta",
         "talle": ["XS","s","M"],
         "description" : "lorem ipsum dolor amet sit"
+    },
+    {
+        "id" : 28,
+        "seccion" : "destacado3",
+        "clase" : "art4",
+        "name": "Camiseta Angora",
+        "price" : 2800,
+        "colors" : ["#adbd66", "#fcf9fb", "#b38aac"],
+        "image": ["camiseta-angora-1.jpeg","camiseta-angora-2.jpeg","camiseta-angora-3.jpeg","camiseta-angora-4.jpeg"],
+        "category" : "camiseta",
+        "talle": ["XS","s","M"],
+        "description" : "lorem ipsum dolor amet sit"
     }
 ]
 

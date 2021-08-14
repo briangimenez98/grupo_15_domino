@@ -9,7 +9,8 @@
     <!--Main-->
     <main>
         <section>
-            <% principales.forEach(producto=> { %>
+            
+            <% productos.forEach(producto => { %>
                 <article>
                     <img src="/img/<%= producto.image[0] %>" alt="">
                     <div class="description">
@@ -22,119 +23,10 @@
                         </div>
                         <div class="date2">
                             <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
-                        </div>
-                    </div>
-                </article>
-             <% }) %>
-             <% seleccionados1.forEach(producto=> { %>
-                <article>
-                    <img src="/img/<%= producto.image[0] %> " alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
-                        </div>
-                        <div class="date2">
-                            <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
-                        </div>
-                    </div>
-
-                </article>
-                <% }) %>
-            <% seleccionados2.forEach(producto => { %>
-                <article>
-                    <img src="/img/<%= producto.image[0] %> " alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
-                        </div>
-                        <div class="date2">
-                            <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
-                        </div>
-                    </div>
-
-                </article>
-             
-            <% }) %>
-            <% seleccionados3.forEach(producto => { %>
-                <article>
-                    <img src="/img/<%= producto.image[0] %> " alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
-                        </div>
-                        <div class="date2">
-                            <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
-                        </div>
-                    </div>
-                </article>
-            <% }) %>
-            <% destacados1.forEach(producto => { %>
-                <article>
-                    <img src="/img/<%= producto.image[0] %> " alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
-                        </div>
-                        <div class="date2">
-                            <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
-                        </div>
-                    </div>
-                </article>
-             
-            <% }) %>
-            <% destacados2.forEach(producto => { %>
-                <article>
-                    <img src="/img/<%= producto.image[0] %>" alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
-                        </div>
-                        <div class="date2">
-                            <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
-                        </div>
-                    </div>
-                </article>
-            <% }) %>
-            <% destacados3.forEach(producto => { %>
-                <article>
-                    <img src="/img/<%= producto.image[0] %>" alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
-                        </div>
-                        <div class="date2">
-                            <a href="/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            <button type="button" class="delete">Eliminar</button>
+                            
+                            <form action="/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="delete">Eliminar</button>
+                            </form>
                         </div>
                     </div>
 

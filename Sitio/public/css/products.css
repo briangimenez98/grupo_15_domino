@@ -47,7 +47,7 @@
 }
 
 .products main section article .description .date2 .delete{
-    width: 35%;
+    width: 100%;
     padding: 4px;
     border: none;
     border-radius: 4px;
