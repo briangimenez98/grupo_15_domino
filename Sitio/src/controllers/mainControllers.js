@@ -9,6 +9,7 @@ module.exports = {
         res.render('home', {
             productos,
             principales : productos.filter(producto => producto.seccion === "principal"),
+            /* ----- carrusel ----- */
             seleccionados1 : productos.filter(producto => producto.seccion === "seleccionado1"),
             seleccionados2 : productos.filter(producto => producto.seccion === "seleccionado2"),
             seleccionados3 : productos.filter(producto => producto.seccion === "seleccionado3"),
@@ -18,42 +19,4 @@ module.exports = {
             toThousand,
         });
     },
-    detail : (req, res) => {
-        let producto = productos.find(p => p.id === +req.params.id)
-        return res.render('detalle', {
-            producto,
-            productos
-        })
-    },
-    carrito : (req, res) => {
-        res.render('carrito')
-    },
-    createProduct : (req, res) => {
-        res.render('createProduct')
-    },
-    editProduct: (req, res) => {
-        let producto = productos.find(p => p.id === +req.params.id)
-        return res.render('editProduct',{
-            producto,
-            productos
-        })
-    },
-    products: (req, res) => {
-        return res.render('products', {
-            productos,
-            toThousand,
-        })
-    },
-    destroy : (req, res) => {
-
-		productos.forEach(producto => {
-			if (producto.id === +req.params.id){
-				let productAEliminar = productos.indexOf(producto);
-				productos.splice(productAEliminar,1)
-			}
-		});
-
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(productos,null,2),'utf-8')
-		return res.redirect('/products/')
-	}
 }
