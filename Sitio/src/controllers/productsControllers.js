@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const productos = require('../data/products_db');
+const {productos, guardar} = require('../data/products_db');
 const toThousand = require('../utils/toThousand');
 
 module.exports = {
@@ -22,7 +22,26 @@ module.exports = {
         res.render('carrito')
     },
     createProduct : (req, res) => {
-        res.render('createProduct')
+        res.render('createProduct', {
+        productos,
+        })
+    },
+    addProduct : (req, res) => {
+        const {name, description,price,category, seccion, talle, clase} = req.body;
+            let producto = {
+                id : productos[productos.length - 1].id + 1,
+                seccion,
+                clase,
+                name,
+                price : +price,
+                image : req.file,
+                category,
+                talle,
+                description
+            }
+           productos.push(producto);
+           guardar(productos)
+           return res.redirect('/')
     },
     editProduct: (req, res) => {
         let producto = productos.find(p => p.id === +req.params.id)
@@ -30,6 +49,9 @@ module.exports = {
             producto,
             productos
         })
+    },
+    edit : (req, res) => {
+        res.send(req.body)
     },
     destroy : (req, res) => {
 

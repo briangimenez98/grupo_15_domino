@@ -1,6 +1,6 @@
 /*-----------MAIN----------*/
 .carrito{
-    background-color: white;
+    background-color: var(--blanco);
 }
 main{
     width: 100%;

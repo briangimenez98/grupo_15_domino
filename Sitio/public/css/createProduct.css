@@ -49,6 +49,15 @@
     height: 100%;
     width: 100%;
 }
+.carga-producto main .segundo .form .checkbox{
+    display: flex;
+    flex-direction: column;
+}
+.carga-producto main .segundo .form .checkbox .size{
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
 
 .carga-producto main .primero .form, .carga-producto main .segundo .form, .carga-producto main .tercero .form{
     display: flex;

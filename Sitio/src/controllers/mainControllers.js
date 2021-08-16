@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const productos = require('../data/products_db');
+const {productos} = require('../data/products_db');
 const toThousand = require('../utils/toThousand');
 
 module.exports = {

@@ -10,20 +10,20 @@
 
     <main>
         <h3>Editar Producto</h3>
-        <form action="">
+        <form action="/products/editProduct/<%= producto.id %>?_method=PUT" method="POST">
             <div class="primero">
                 <div class="form">
                     <label>Nuevo producto</label>
-                    <input type="text" name="producto" placeholder="Editar nombre...">
+                    <input type="text" name="producto" placeholder="<%= producto.name %> ">
                 </div>
                 <div class="form">
                     <label>Descripción del producto</label>
-                    <input type="text" name="producto" placeholder="Editar descripción...">
+                    <input type="text" name="producto" placeholder="<%= producto.description%>">
                 </div>
                 <div class="form">
                     <label>Imagen</label>
                     <div class="img">
-                        <p>.JPG</p>
+                        <p><%= producto.image%></p>
                     </div>
                     <div class="galeria">
                         <button>Abrir Galeria</button>
@@ -35,18 +35,21 @@
     
             <div class="segundo">
                 <div class="form">
-                    <label>Categorías</label>
+                    <label>Categoria</label>
                     <select name="categorias" id="categorias">
+                        <option value="select" hidden selected><%= producto.category %></option>
                         <option value="remeras">Remeras</option>
                         <option value="buzos">Buzos</option>
                         <option value="camperas">Camperas</option>
                         <option value="mochilas">Mochilas</option>
                         <option value="zapatillas">Zapatillas</option>
+                        <option value="pantalon">Pantalon</option>
                     </select>
                 </div>
                 <div class="form">
                     <label>Talle</label>
                     <select name="talle" id="talle">
+                        <option value="select" hidden selected>Seleccionar talle</option>
                         <option value="small">S</option>
                         <option value="medium">M</option>
                         <option value="large">L</option>
@@ -72,13 +75,14 @@
                 <div class="form">
                     <label>Precio</label>
                     <div class="edit-number">
-                        <label>$$$</label>
+                        <label>$<%= producto.price.toFixed(2) %></label>
+
                         <input type="number" name="producto" placeholder="Editar $$$"> 
                     </div> 
                 </div>
                     
                 <div class="botones">    
-                    <button type="button">Publicar</button>
+                    <button type="submit">Publicar</button>
                     <button type="button">Cerrar</button>
                 </div>
                 

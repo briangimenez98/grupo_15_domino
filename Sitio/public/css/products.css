@@ -45,8 +45,10 @@
     background-color: black;
     color: white;
 }
-
-.products main section article .description .date2 .delete{
+.products main section article .description .date2 form{
+    width: 35%;
+}
+.products main section article .description .date2 form .delete{
     width: 100%;
     padding: 4px;
     border: none;
