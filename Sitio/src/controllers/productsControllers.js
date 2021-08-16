@@ -34,14 +34,14 @@ module.exports = {
                 clase,
                 name,
                 price : +price,
-                image : req.file,
+                image : req.file ? req.files.filename : 'defaultimage.png',
                 category,
                 talle,
                 description
             }
            productos.push(producto);
            guardar(productos)
-           return res.redirect('/')
+           return res.redirect('/products/')
     },
     editProduct: (req, res) => {
         let producto = productos.find(p => p.id === +req.params.id)
@@ -62,7 +62,7 @@ module.exports = {
 			}
 		});
 
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'),JSON.stringify(productos,null,2),'utf-8')
+        guardar(productos)
 		return res.redirect('/products/')
 	}
 }

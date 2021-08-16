@@ -10,7 +10,7 @@
 
     <main>
         <h3>Crear Producto</h3>
-        <form action="/products/createProduct" method="POST">
+        <form action="/products/createProduct" method="POST" enctype="multipart/form-data">
             <div class="primero">
                 <div class="form">
                     <label>Nuevo producto</label>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="galeria">
                         <button>Abrir Galeria</button>
-                        <input class="button-file" type="file" name="image" accept=".jpg">
+                        <input class="button-file" type="file" name="image" accept="image/*" multiple>
                     </div>
                 </div>
             </div>
