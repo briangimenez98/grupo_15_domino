@@ -644,5 +644,18 @@
       "M"
     ],
     "description": "lorem ipsum dolor amet sit"
+  },
+  {
+    "id": 28,
+    "seccion": "nuevaColeccion",
+    "clase": "art1",
+    "name": "Campera Nike",
+    "price": 8500,
+    "category": "camperas",
+    "talle": [
+      "M",
+      "L"
+    ],
+    "description": "Muy buena para el frio!!"
   }
 ]

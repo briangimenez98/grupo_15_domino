@@ -4,25 +4,26 @@ const {index, detail, carrito, createProduct, editProduct, destroy, edit, addPro
 const path = require('path');
 //multer//
 const multer = require('multer');
-const productsControllers = require('../controllers/productsControllers');
-const { FILE } = require('dns');
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, path.join(__dirname, '../public/img'));
+    destination : (req,file, callback) => {
+        callback(null,'public/images')
     },
-    filename : function (req, file, cb) {
-        const newFilename = 'image-' + Date.now() + path.extname(file.originalname)
-        cb(null, newFilename);
+    filename : (req, file, callback) => {
+        callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
-var upload = multer({ storage });
+
+const upload = multer({
+    storage,
+})
+
 
 /* GET home page. */
 router.get('/', index);
 router.get('/detail/:id', detail);
 router.get('/carrito', carrito);
 router.get('/createProduct', createProduct);
-router.post('/createProduct', upload.single('image'), productsControllers.addProduct);
+router.post('/createProduct', upload.single('image'), addProduct);
 router.get('/editProduct/:id', editProduct);
 router.put('/editProduct/:id', edit);
 router.delete('/delete/:id', destroy);
