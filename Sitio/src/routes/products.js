@@ -23,7 +23,7 @@ router.get('/', index);
 router.get('/detail/:id', detail);
 router.get('/carrito', carrito);
 router.get('/createProduct', createProduct);
-router.post('/createProduct', upload.single('image'), addProduct);
+router.post('/createProduct',upload.any('image',4),addProduct);
 router.get('/editProduct/:id', editProduct);
 router.put('/editProduct/:id', edit);
 router.delete('/delete/:id', destroy);

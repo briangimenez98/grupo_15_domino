@@ -28,13 +28,16 @@ module.exports = {
     },
     addProduct : (req, res) => {
         const {name, description,price,category, seccion, talle, clase} = req.body;
+
+        let images= [(req.files[0]?req.files[0].filename:"defaultimage.png"),(req.files[1]?req.files[1].filename:"defaultimage.png"),(req.files[2]?req.files[2].filename:"defaultimage.png"),(req.files[3]?req.files[3].filename:"defaultimage.png")]
+
             let producto = {
                 id : productos[productos.length - 1].id + 1,
                 seccion,
                 clase,
                 name,
                 price : +price,
-                image : req.file ? req.files.filename : 'defaultimage.png',
+                image : images,
                 category,
                 talle,
                 description
