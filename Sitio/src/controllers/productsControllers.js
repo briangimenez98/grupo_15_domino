@@ -56,8 +56,23 @@ module.exports = {
             productos
         })
     },
-    edit: (req, res) => {
-        res.send(req.body)
+    edit : (req, res) => {
+        const {name, description, price, category, seccion, talle, clase } = req.body;
+        productos.forEach(producto => {
+            if (producto.id === req.params.id){
+                producto.id = +req.params.id
+                producto.seccion = seccion,
+                producto.clase = clase,
+                producto.name = name,
+                producto.price = +price,
+                producto.category = category,
+                producto.talle = talle,
+                producto.description = description
+            }
+        })
+        guardar(productos);
+        return res.redirect('/products');
+
     },
     destroy: (req, res) => {
 

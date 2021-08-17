@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--Head-->
+<%- include('./partials/head') %> 
+
+<body class="results">
+    <!--Header-->
+    <%- include('./partials/header')  %>
+    
+    <main>
+        <div class="resultado">
+            <h4>Resultado de la búsqueda: <%= buscador %> </h3>
+        </div>
+        
+        <% if (results.length > 0) { %>
+
+            <section>
+                <% results.forEach(producto => { %>
+                    <article>
+                        <a href="/products/detail/ <%= producto.id %> "><img src="/img/<%= producto.image[0] %>" alt=""></a>
+                        <div class="datos">
+                            <div class="caja1">
+                                <a href="/products/detail/ <%= producto.id %> ">
+                                    <h4>
+                                        <%= producto.name %>
+                                    </h4>
+                                </a>                            
+                                <p>$ <%= toThousand(producto.price) %>
+                                </p>
+                            </div>
+                            <div class="caja2">
+                                <div>
+                                    <div class="color-circle" style=<%='background-color:' +
+                                        producto.colors[0] %>></div>
+                                    <div class="color-circle" style=<%='background-color:' +
+                                        producto.colors[1] %>></div>
+                                    <div class="color-circle" style=<%='background-color:' +
+                                        producto.colors[2] %>></div>
+                                </div>
+                                <div class="heart"><i class="far fa-heart"></i></div>
+                            </div>
+                        </div>
+                    </article>
+    
+                <% }) %>   
+            </section> 
+
+        <% } else { %>
+            <div class="error">
+                <h4>No hay productos que coincidan con tu búsqueda <i class="far fa-frown"></i></h3>
+            </div>
+        <% } %>
+         
+         
+
+    </main>
+
+    <!--Footer-->
+    <%- include('./partials/footer')  %> 
+
+
+<%- include('./partials/scripts') %>     
+</body>
+</html>

@@ -54,6 +54,15 @@
     display: flex;
     flex-direction: column;
 }
+.editar-producto main .segundo .form .checkbox{
+    display: flex;
+    flex-direction: column;
+}
+.editar-producto main .segundo .form .checkbox .size{
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
 
 .editar-producto main .form{
     margin-bottom: 15px;

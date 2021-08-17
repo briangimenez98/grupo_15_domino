@@ -14,11 +14,11 @@
             <div class="primero">
                 <div class="form">
                     <label>Nuevo producto</label>
-                    <input type="text" name="producto" placeholder="<%= producto.name %> ">
+                    <input type="text" name="name" value="<%= producto.name %>">
                 </div>
                 <div class="form">
                     <label>Descripción del producto</label>
-                    <input type="text" name="producto" placeholder="<%= producto.description%>">
+                    <input type="text" name="description" value="<%= producto.description %>">
                 </div>
                 <div class="form">
                     <label>Imagen</label>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="galeria">
                         <button>Abrir Galeria</button>
-                        <input class="button-file" type="file" name="imagen" accept=".jpg" multiple>
+                        <input class="button-file" type="file" name="image" accept="image/*" multiple>
                     </div>
                     
                 </div>
@@ -36,7 +36,7 @@
             <div class="segundo">
                 <div class="form">
                     <label>Categoria</label>
-                    <select name="categorias" id="categorias">
+                    <select name="category" id="categorias">
                         <option value="select" hidden selected><%= producto.category %></option>
                         <option value="remeras">Remeras</option>
                         <option value="buzos">Buzos</option>
@@ -47,27 +47,29 @@
                     </select>
                 </div>
                 <div class="form">
-                    <label>Talle</label>
-                    <select name="talle" id="talle">
-                        <option value="select" hidden selected>Seleccionar talle</option>
-                        <option value="small">S</option>
-                        <option value="medium">M</option>
-                        <option value="large">L</option>
-                        <option value="x-large">XL</option>
-                    </select>
-                </div>
-                <div class="form">
-                    <label>Stock</label>
-                    <div class="edit-number">
-                        <label>Nro</label>
-                        <input type="number" name="producto" placeholder="Editar Nro...">
-
+                    <label>Talles</label>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="talle" value="S" class="size">S
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" value="M" class="size">M
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" value="L" class="size">L
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" value="XL" class="size">XL
+                        </div>    
                     </div>
-                    
                 </div>
                 <div class="form">
-                    <label>Codigo</label>
-                    <input type="number" name="producto" placeholder="Nro...">
+                    <label>Clase</label>
+                    <input type="text" name="clase" value="<%= producto.clase %>">
+                </div>
+                <div class="form">
+                    <label>Seccion</label>
+                    <input type="text" name="seccion" value="<%= producto.seccion %>">
                 </div>
             </div>
     
@@ -76,9 +78,9 @@
                     <label>Precio</label>
                     <div class="edit-number">
                         <label>$<%= producto.price.toFixed(2) %></label>
-
-                        <input type="number" name="producto" placeholder="Editar $$$"> 
-                    </div> 
+                        <input type="number" name="price" value="$$$"> 
+                    </div>
+                       
                 </div>
                     
                 <div class="botones">    
