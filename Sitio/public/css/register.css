@@ -4,6 +4,9 @@
 }
 
 /* datos personales */
+.feedback{
+    color: red;
+}
 .register .primero{
     display: flex;
     flex-direction: column;
@@ -63,6 +66,9 @@
 .register .boton-registro a {
     color: white;
 }
+.register .boton-registro a:hover {
+    color: grey;
+}
 .register .registrame{
     width: 65%;
     padding: 10px;
@@ -105,7 +111,7 @@
     margin: 10px 0;
 }
 .iniciar-sesion a{
-    color:white;
+    color:white
 }
 .ingresar .iniciar-sesion button{
     width: 80%;
@@ -116,6 +122,9 @@
     border: none;
     text-transform: uppercase;
     text-align: center;
+}
+.ingresar .iniciar-sesion button{
+    color: grey;
 }
 .register .ingresar .iniciar-sesion p {
     text-align: center;

@@ -8,23 +8,29 @@
         <%-include('./partials/header')%>
     <!--Esto es el header-->
     <main class="login-main">
-        <form action="/" method="">
+        <form action="./login" method="POST">
             <section class="tengo-cuenta">
                 <h3>Iniciá sesión en Domino</h3>
                     <div class="tengo-cuenta__div">
                         <label for="email">Email</label>
-                        <input class="cien" type="email" id="email" name="email">
+                        <input class="cien" type="email" id="email" name="email" value= "<%= locals.old && old.email ? old.email : '' %>">
+                        <p class="feedback"><%= locals.errors && locals.errors.email ? errors.email.msg : null %></p>
                     </div>
                     <div class="tengo-cuenta__div">
                         <label for="contraseña">Contraseña</label>
                         <input class="cien" type="password" id="contraseña" name="password">
+
+                        <p class="feedback">
+                            <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
+                        </p>
                     </div>
                     <div class="remember">
                         <input type="checkbox" name="remember">
                         <label for="remember">Recordarme</label>
                     </div>
                     <p class="forgot-me"><a href="" >¿Olvidaste tu contraseña?</a></p>
-                    <button type="button" class="btn btn-dark"><a href="/" class="white">ingresar</a></button>
+                    <button type="submit" class="btn btn-dark"><a class="white">ingresar</a></button>
+
             </section>
             <section class="ingresar">
                 <article>
@@ -37,7 +43,7 @@
                 </article>
                 <article>
                     <p>¿Sos nuevo usuario?</p>
-                    <a href="/users/register"><button type="button" class="btn btn-dark">Registrate</button></a>
+                    <a href="./register"><button type="button" class="btn btn-dark">Registrate</button></a>
                 </article>
             </section>
         </form>

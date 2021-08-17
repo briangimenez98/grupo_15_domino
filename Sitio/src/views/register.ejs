@@ -11,31 +11,39 @@
             <div class="primero">
                 <section class="datos-personales">
                     <h3>¡Completa tus datos!</h3>
-                    <form action="/users/login" method="POST">
+                    <form action="./register" method="POST">
                         <section class="datos">
                             <div>
                                 <label for="nombre">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                                <input type="text" id="nombre" name="nombre" value= "<%= locals.old && old.nombre ? old.nombre : '' %>">
+                                <p class="feedback">
+                                    <%= locals.errors && locals.errors.nombre ? errors.nombre.msg : null %>
+                                </p>
                             </div>
                             <div>
-                                <label for="nombre">Apellido</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                                <label for="apellido">Apellido</label>
+                                <input type="text" id="nombre" name="apellido" value= "<%= locals.old && old.apellido ? old.apellido : '' %>">
+                                <p class="feedback">
+                                    <%= locals.errors && locals.errors.apellido ? errors.apellido.msg : null %>
+                                </p>
                             </div>
                             <div>
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" value= "<%= locals.old && old.email ? old.email : '' %>">
+                                <p class="feedback">
+                                    <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
+                                </p>
                             </div>
                             <div>
                                 <label for="contraseña">Contraseña</label>
-                                <input type="password" id="contraseña" name="password" required>
-                            </div>
-                            <div>
-                                <label for="telefono">Teléfono/Celular</label>
-                                <input type="tel" id="telefono" name="telefono" required>
+                                <input type="password" id="contraseña" name="password">
+                                <p class="feedback">
+                                    <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
+                                </p>
                             </div>
                             <div class="birthday">
                                 <label for="birthday">Fecha de Nacimiento</label>
-                                <input type="date" name="birthday" id="birthday" required>
+                                <input type="date" name="birthday" id="birthday">
                             </div>
                         </section>
                         <div class="checkbox">
@@ -47,13 +55,16 @@
                         </div>
                         <div class="checkbox">
                             <p>
-                                <input type="checkbox" name="newsletters">
+                                <input type="checkbox" name="terminos" value= "<%= locals.old && old.terminos ? old.terminos : '' %> "
                                 Acepto los <a href="">Términos y Condiciones</a>.
+                                <p class="feedback">
+                                    <%= locals.errors && locals.errors.terminos ? errors.terminos.msg : null %>
+                                </p>
                             </p>
                         </div>
                         <div class="boton-registro">
                             <button type="submit" class="registrame">
-                                <a href="/">registrarme</a>
+                                <a>registrarme</a>
                             </button>
                         </div>
                     </form>
