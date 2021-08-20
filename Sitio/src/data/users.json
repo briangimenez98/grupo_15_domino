@@ -1,23 +1,11 @@
 [
-    {"id":1,"first_name":"Trix","last_name":"Tinsley","email":"ttinsley0@blogs.com","password":"HgfwjT9lktsn","category":"user","image":"user_1.jpg"},
-    {"id":2,"first_name":"Britte","last_name":"Mercer","email":"bmercer1@phoca.cz","password":"cu43c14","category":"user","image":"user_2.jpg"},
-    {"id":3,"first_name":"Nicko","last_name":"Shorrock","email":"nshorrock2@vistaprint.com","password":"xonupjenZoEY","category":"user","image":"user_3.jpg"},
-    {"id":4,"first_name":"Borg","last_name":"Lerigo","email":"blerigo3@qq.com","password":"p0Sd9cX2G","category":"user","image":"user_4.jpg"},
-    {"id":5,"first_name":"Dolf","last_name":"Parrin","email":"dparrin4@squidoo.com","password":"R6tOJ5WrKAe","category":"user","image":"user_5.jpg"},
-    {"id":6,"first_name":"Bernice","last_name":"Skerratt","email":"bskerratt5@usgs.gov","password":"g4jkZs","category":"user","image":"user_6.jpg"},
-    {"id":7,"first_name":"Gale","last_name":"Stubbington","email":"gstubbington6@ucoz.ru","password":"VxueLzJvXXCq","category":"user","image":"user_7.jpg"},
-    {"id":8,"first_name":"Lyn","last_name":"Gent","email":"lgent7@psu.edu","password":"T1LQSYGk9","category":"user","image":"user_8.jpg"},
-    {"id":9,"first_name":"Alfredo","last_name":"Caney","email":"acaney8@cdc.gov","password":"e1AFj22CkRE","category":"user","image":"user_9.jpg"},
-    {"id":10,"first_name":"Minnie","last_name":"Howle","email":"mhowle9@buzzfeed.com","password":"D2Q8pzz","category":"user","image":"user_10.jpg"},
-    {"id":11,"first_name":"Marcille","last_name":"Dutnell","email":"mdutnella@nhs.uk","password":"7D7nT4IT2Ky","category":"user","image":"user_11.jpg"},
-    {"id":12,"first_name":"Orv","last_name":"Ovesen","email":"oovesenb@paypal.com","password":"pMPpJorxWY5","category":"user","image":"user_12.jpg"},
-    {"id":13,"first_name":"Karly","last_name":"Sagg","email":"ksaggc@flickr.com","password":"dFJP5bmyi","category":"user","image":"user_13.jpg"},
-    {"id":14,"first_name":"Jemie","last_name":"Wreight","email":"jwreightd@ucsd.edu","password":"rgfSC1yTTc","category":"user","image":"user_14.jpg"},
-    {"id":15,"first_name":"Merle","last_name":"Gligori","email":"mgligorie@mapquest.com","password":"2QAHdyh","category":"user","image":"user_15.jpg"},
-    {"id":16,"first_name":"Leonhard","last_name":"Syseland","email":"lsyselandf@goo.gl","password":"S5FJQGCQ","category":"user","image":"user_16.jpg"},
-    {"id":17,"first_name":"Nicola","last_name":"Ovid","email":"novidg@about.com","password":"AOlHG7Y5Z5","category":"user","image":"user_17.jpg"},
-    {"id":18,"first_name":"Jimmy","last_name":"O'Hare","email":"johareh@nature.com","password":"vhPXbN6Vg","category":"user","image":"user_18.jpg"},
-    {"id":19,"first_name":"Gabrielle","last_name":"Jenks","email":"gjenksi@cisco.com","password":"ie8sS5x","category":"user","image":"user_19.jpg"},
-    {"id":20,"first_name":"Georgeanna","last_name":"Zolini","email":"gzolinij@fotki.com","password":"k2usAO9YC3","category":"user","image":"user_20.jpg"}
-
-] 
+  {
+    "id": 1,
+    "nombre": "sol",
+    "apellido": "cete",
+    "email": "sol@gmail.com",
+    "password": "$2a$10$xqfGthkqeZLkt6aKMpdtgexem.ZyHix8g5wRHd5Ay9tMT4qiYdq32",
+    "birthday": "1995-07-03",
+    "rol": "user"
+  }
+]
