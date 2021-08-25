@@ -5,92 +5,94 @@
 
 <body class="carga-producto">
 
-    <!--Header-->
     <%-include('./partials/header')%>
-
     <main>
-        <h3>Crear Producto</h3>
-        <form action="/products/createProduct" method="POST" enctype="multipart/form-data">
-            <div class="primero">
-                <div class="form">
-                    <label>Nuevo producto</label>
-                    <input type="text" name="name" placeholder="Nombre...">
-                </div>
-                <div class="form">
-                    <label>Descripción del producto</label>
-                    <input type="text" name="description" placeholder="Descripción...">
-                </div>
-                <div class="form">
-                    <label>Imagen</label>
-                    <div class="img">
-                        <p>.JPG</p>
+        <% if (locals.userLogin && locals.userLogin.rol === "admin") { %>
+            <h3>Crear Producto</h3>
+            <form action="/products/createProduct" method="POST" enctype="multipart/form-data">
+                <div class="primero">
+                    <div class="form">
+                        <label>Nuevo producto</label>
+                        <input type="text" name="name" placeholder="Nombre...">
                     </div>
-                    <div class="galeria">
-                        <button>Abrir Galeria</button>
-                        <input class="button-file" type="file" name="image" accept="image/*" multiple/>
+                    <div class="form">
+                        <label>Descripción del producto</label>
+                        <input type="text" name="description" placeholder="Descripción...">
                     </div>
-                </div>
-            </div>
-    
-            <div class="segundo">
-                <div class="form">
-                    <label>Categoría</label>
-                    <select name="category" id="categorias">
-                        <option value="categorias" hidden selected>Elegir Categoria</option>
-                        <option value="remeras">Remeras</option>
-                        <option value="buzos">Buzos</option>
-                        <option value="camperas">Camperas</option>
-                        <option value="mochilas">Mochilas</option>
-                        <option value="zapatillas">Zapatillas</option>
-                    </select>
-                </div>
-                <div class="form">
-                    <label>Talles</label>
-                    <div class="checkbox">
-                        <div>
-                            <input type="checkbox" name="talle" value="S" class="size">S
+                    <div class="form">
+                        <label>Imagen</label>
+                        <div class="img">
+                            <p>.JPG</p>
                         </div>
-                        <div>
-                            <input type="checkbox" name="talle" value="M" class="size">M
+                        <div class="galeria">
+                            <button>Abrir Galeria</button>
+                            <input class="button-file" type="file" name="image" accept="image/*" multiple/>
                         </div>
-                        <div>
-                            <input type="checkbox" name="talle" value="L" class="size">L
-                        </div>
-                        <div>
-                            <input type="checkbox" name="talle" value="XL" class="size">XL
-                        </div>
-                        
                     </div>
                 </div>
-                <div class="form">
-                    <label>Clase</label>
-                    <input type="text" name="clase" placeholder="Nro...">
-                </div>
-                <div class="form">
-                    <label>Seccion</label>
-                    <input type="text" name="seccion" placeholder="Nro...">
-                </div>
-            </div>
-    
-            <div class="tercero">
-                <div class="form">
-                    <label>Precio</label>
-                    <input type="number" name="price" placeholder="$$$">    
-                </div>
-                    
-                <div class="botones">    
-                    <button type="submit">Publicar</button>
-                    <button type="button">Cerrar</button>
-                </div>
-                
-            </div>
-        </form>
         
+                <div class="segundo">
+                    <div class="form">
+                        <label>Categoría</label>
+                        <select name="category" id="categorias">
+                            <option value="categorias" hidden selected>Elegir Categoria</option>
+                            <option value="remeras">Remeras</option>
+                            <option value="buzos">Buzos</option>
+                            <option value="camperas">Camperas</option>
+                            <option value="mochilas">Mochilas</option>
+                            <option value="zapatillas">Zapatillas</option>
+                        </select>
+                    </div>
+                    <div class="form">
+                        <label>Talles</label>
+                        <div class="checkbox">
+                            <div>
+                                <input type="checkbox" name="talle" value="S" class="size">S
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" value="M" class="size">M
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" value="L" class="size">L
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" value="XL" class="size">XL
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label>Clase</label>
+                        <input type="text" name="clase" placeholder="Nro...">
+                    </div>
+                    <div class="form">
+                        <label>Seccion</label>
+                        <input type="text" name="seccion" placeholder="Nro...">
+                    </div>
+                </div>
+        
+                <div class="tercero">
+                    <div class="form">
+                        <label>Precio</label>
+                        <input type="number" name="price" placeholder="$$$">    
+                    </div>
+                        
+                    <div class="botones">    
+                        <button type="submit">Publicar</button>
+                        <button type="button">Cerrar</button>
+                    </div>
+                    
+                </div>
+            </form>
+         
+        <% } else if (locals.userLogin && locals.userLogin.rol === "user") { %>
+                <p>No contás con los permisos necesarios para crear productos</p>
+         <% } else { %>
+            <p>Necesitas logearte!</p>
+          <% } %>
     </main>
-
     <!--Footer-->
     <%-include('./partials/footer')%> 
-
     <!--Scripts-->
     <%-include('./partials/scripts')%> 
     

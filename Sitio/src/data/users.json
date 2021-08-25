@@ -7,5 +7,23 @@
     "password": "$2a$10$xqfGthkqeZLkt6aKMpdtgexem.ZyHix8g5wRHd5Ay9tMT4qiYdq32",
     "birthday": "1995-07-03",
     "rol": "user"
+  },
+  {
+    "id": 2,
+    "nombre": "Pepe",
+    "apellido": "Cibrian",
+    "email": "pepe@gmail.com",
+    "password": "$2a$10$A/i5m/55LRF7K0Er.UzjCOVoD.XnqKyBUrRZa0sz5Cshvu/9u/aWC",
+    "birthday": "2021-08-04",
+    "rol": "user"
+  },
+  {
+    "id": 3,
+    "nombre": "lolo",
+    "apellido": "lolazo",
+    "email": "lolo@gmail.com",
+    "password": "$2a$10$h7lezrytUrBxn8KUBj0TaOTfbmvT4zRTqakMPmnSr4SDMfAYmqeYe",
+    "birthday": "2021-08-05",
+    "rol": "admin"
   }
 ]
