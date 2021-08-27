@@ -517,32 +517,6 @@
     "description": "lorem ipsum dolor amet sit"
   },
   {
-    "id": 23,
-    "seccion": "destacado2",
-    "clase": "art4",
-    "name": "Remera Saona",
-    "price": 1500,
-    "colors": [
-      "#080808",
-      "#5c555a",
-      "#fdfdfc"
-    ],
-    "image": [
-      "remera-saona-1.jpg",
-      "remera-saona-2.jpg",
-      "remera-saona-3.jpg",
-      "remera-saona-4.jpg"
-    ],
-    "category": "Remeras",
-    "talle": [
-      "S",
-      "M",
-      "L",
-      "XL"
-    ],
-    "description": "lorem ipsum dolor amet sit"
-  },
-  {
     "id": 24,
     "seccion": "destacado3",
     "clase": "art1",
