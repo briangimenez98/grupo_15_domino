@@ -13,9 +13,8 @@ module.exports = {
         let errors = validationResult(req);
         let {nombre,apellido,email,password,birthday} = req.body;
         if(errors.isEmpty()){
-
             let usuario = {
-                id : usuarios.length > 0 ? usuarios[usuario.length - 1].id + 1 : 1,
+                id : usuarios.length > 0 ? usuarios[usuarios.length - 1].id + 1 : 1,
                 nombre,
                 apellido,
                 email,
@@ -30,13 +29,24 @@ module.exports = {
             res.render('register',{errors : errors.mapped(), old: req.body})
         };
     },
-    loginValidator : (req, res) => {
+    processLogin : (req, res) => {
         let errors = validationResult(req);
-
+        const {email, password} = req.body; 
         if (errors.isEmpty()){
-            res.redirect('/')
+            let usuario = usuarios.find(usuario => usuario.email === email)
+            req.session.userLogin = {
+                id : usuario.id,
+                nombre : usuario.nombre,
+                rol: usuario.rol
+            }
+            return res.redirect('/')
         } else {
-            res.render('login',{errors: errors.mapped(), old: req.body})
-        };
+            return res.render('login', {errors: errors.mapped(), old: req.body})
+        }
+    },
+    logout : (req,res) => {
+        req.session.destroy();
+        res.cookie('dominoCookie',null,{maxAge:-1})
+        return res.redirect('/')
     }
 }

@@ -1,6 +1,16 @@
-const {body} = require('express-validator')
+const {body} = require('express-validator');
+const {usuarios} = require('../data/users_db');
+const bcrypt = require('bcryptjs');
+
 
 module.exports = [
-    body('email').isEmail().withMessage('Debes poner tu email.'),
-    body('password').isLength({min: 6, max: 15}).withMessage('La contraseña debe tener entre 6 y 15 caracteres.'),
-];
+    body('email')
+    .custom((value,{req}) => {
+        let usuario = usuarios.find(usuario => usuario.email === value && bcrypt.compareSync(req.body.password,usuario.password));
+        if (usuario){
+            return true
+        }else{
+            return false
+        }
+    }).withMessage('credenciales inválidas')
+]
