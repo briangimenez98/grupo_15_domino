@@ -10,8 +10,8 @@
   },
   {
     "id": 2,
-    "nombre": "Pepe",
-    "apellido": "Cibrian",
+    "nombre": "Usuario",
+    "apellido": "Comun",
     "email": "pepe@gmail.com",
     "password": "$2a$10$A/i5m/55LRF7K0Er.UzjCOVoD.XnqKyBUrRZa0sz5Cshvu/9u/aWC",
     "birthday": "2021-08-04",
@@ -19,8 +19,8 @@
   },
   {
     "id": 3,
-    "nombre": "lolo",
-    "apellido": "lolazo",
+    "nombre": "Usuario",
+    "apellido": "Administrador",
     "email": "lolo@gmail.com",
     "password": "$2a$10$h7lezrytUrBxn8KUBj0TaOTfbmvT4zRTqakMPmnSr4SDMfAYmqeYe",
     "birthday": "2021-08-05",

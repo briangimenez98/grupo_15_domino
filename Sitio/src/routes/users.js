@@ -5,7 +5,24 @@ const {login, register, processRegister, processLogin, logout} = require('../con
 const registerValidation = require('../validations/registerValidation');
 const loginValidation = require('../validations/loginValidation');
 
-/* Routes */
+/* Users Multer */
+
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination : (req,file, callback) => {
+        callback(null,'public/img/usersProfilePics')
+    },
+    filename : (req, file, callback) => {
+        callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+
+const upload = multer({
+    storage,
+})
+
+
+/* Users Routes */
 router.get('/login', login);
 router.post('/login',loginValidation, processLogin);
 router.get('/register', register);

@@ -8,6 +8,8 @@
     
     <!--Main-->
     <main>
+        <% if (locals.userLogin && locals.userLogin.rol === "admin") { %>
+            
         <section>
             
             <% productos.forEach(producto => { %>
@@ -34,8 +36,12 @@
              
             <% }) %>
           
-        </section>
-
+        </section>  
+        <% } else { %>
+            <div>
+                <p>¡No tenes los permisos suficientes para acceder a esta página!</p>
+            </div>
+        <% } %>
     </main>
     
     <!--Footer-->

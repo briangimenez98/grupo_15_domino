@@ -1,8 +1,14 @@
+/* Requires */
 var express = require('express');
 var router = express.Router();
 const {index, detail, carrito, createProduct, editProduct, destroy, edit, addProduct} = require('../controllers/productsControllers');
 const path = require('path');
-//multer//
+
+/* Middlewares */
+
+const adminMiddleware = require('../middlewares/adminMiddleware');
+
+/* Multer */
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination : (req,file, callback) => {
@@ -18,14 +24,14 @@ const upload = multer({
 })
 
 
-/* GET home page. */
+/* Products Routes */
 router.get('/', index);
 router.get('/detail/:id', detail);
 router.get('/carrito', carrito);
-router.get('/createProduct', createProduct);
-router.post('/createProduct',upload.any('image',4),addProduct);
-router.get('/editProduct/:id', editProduct);
-router.put('/editProduct/:id', edit);
-router.delete('/delete/:id', destroy);
-router.post('/createProduct', addProduct);
+router.get('/createProduct', adminMiddleware,createProduct);
+router.post('/createProduct',upload.any('image',4),adminMiddleware,addProduct);
+router.get('/editProduct/:id', adminMiddleware,editProduct);
+router.put('/editProduct/:id', adminMiddleware,edit);
+router.delete('/delete/:id', adminMiddleware,destroy);
+router.post('/createProduct', adminMiddleware, addProduct);
 module.exports= router;
