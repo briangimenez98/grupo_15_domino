@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Domino's Head -->
+    <%-include('./partials/head')%> 
+    <body class="body_profileUser">
+        <!-- Domino's Header -->
+        <%-include('./partials/header')%>
+            <main>
+                <form action="/users/miperfil?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="section_profileUser">
+                        <h2 class="greeting_profileUser">¡Hola <%=user.nombre%> <%= user.apellido %>!</h2>
+                        <section class="myinfo_profileUser">
+                            <section class="myinfo_profileUser_photo">
+                                <!-- Photo input -->
+                                <h2>Tu foto de perfil</h2>
+                                <img src="/img/users/<%= user.avatar %>"  alt="foto-de-perfil" class="profilePicture_user">
+                                <input type="file" name="fotoUsuario" accept="image/*" class="uploadPhoto">
+                            </section>
+                            
+                            <section class="myinfo_form_profileUser">
+                                <h3>Mis datos</h3>
+                                <!-- Nombre Input -->
+                                <label>Cambiar Nombre: </label>
+                                <input type="text" name="nombre" placeholder="nombre" value="<%= user.nombre %>">
+
+                                <!-- Apellido Input -->
+                                <label>Cambiar Apellido: </label>
+                                <input type="text" name="apellido" value="<%= user.apellido %>">
+
+                                <!-- Contraseña Input -->
+                                <label>Cambiar Contraseña: </label>
+                                <input type="password" name="password" placeholder="Nueva contraseña">
+
+                                <!-- Email Input -->
+                                <label>Cambiar Email: </label>
+                                <input type="email" name="email" placeholder="Nuevo Email">
+
+                                <button type="submit" class="btn btn-dark">Guardar cambios</button>
+                            </section>
+                        </section>
+                    </div>
+                </form>
+            </main>
+        
+        <!-- Go back to Home -->
+        
+        <!-- Domino's Footer-->
+        <%- include('./partials/footer')%>
+        <!-- Bootstrap Script -->
+        <%-include('./partials/scripts')%>  
+    </body>
+</html>

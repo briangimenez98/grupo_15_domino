@@ -1,12 +1,13 @@
 [
   {
     "id": 1,
-    "nombre": "sol",
+    "nombre": "Sol",
     "apellido": "cete",
     "email": "sol@gmail.com",
     "password": "$2a$10$xqfGthkqeZLkt6aKMpdtgexem.ZyHix8g5wRHd5Ay9tMT4qiYdq32",
     "birthday": "1995-07-03",
-    "rol": "user"
+    "rol": "user",
+    "avatar": "default-profile-image.jpg"
   },
   {
     "id": 2,
@@ -15,15 +16,27 @@
     "email": "pepe@gmail.com",
     "password": "$2a$10$A/i5m/55LRF7K0Er.UzjCOVoD.XnqKyBUrRZa0sz5Cshvu/9u/aWC",
     "birthday": "2021-08-04",
-    "rol": "user"
+    "rol": "user",
+    "avatar": "default-profile-image.jpg"
   },
   {
     "id": 3,
-    "nombre": "Usuario",
-    "apellido": "Administrador",
-    "email": "lolo@gmail.com",
-    "password": "$2a$10$h7lezrytUrBxn8KUBj0TaOTfbmvT4zRTqakMPmnSr4SDMfAYmqeYe",
+    "nombre": "Freddy",
+    "apellido": "Fufis",
+    "email": "michael.spivak@gmail.com",
+    "password": "$2a$10$yWYe79OUAWNU7M8SNYvP3eiEMiYflN32gglhgEKwMYekpIXomcRca",
     "birthday": "2021-08-05",
-    "rol": "admin"
+    "rol": "admin",
+    "avatar": "1631637980651.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Alicia",
+    "apellido": "Rotzank",
+    "email": "dross@k.com",
+    "password": "$2a$10$Hk4Zo3HdXspWA9sRagvhxeksczYPO2Oo7XU0E0h/D4fUq5U1MQ78q",
+    "birthday": "2021-09-22",
+    "rol": "user",
+    "avatar": "default-profile-image.jpg"
   }
 ]

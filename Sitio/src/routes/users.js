@@ -1,25 +1,30 @@
 /* Requires */
+const path = require('path')
+const multer = require('multer');
 const express = require('express');
 var router = express.Router();
-const {login, register, processRegister, processLogin, logout} = require('../controllers/usersController')
+const {login, register, processRegister, processLogin, logout, profileUser, profileUserChanges} = require('../controllers/usersController')
 const registerValidation = require('../validations/registerValidation');
 const loginValidation = require('../validations/loginValidation');
+const userValidation = require('../validations/userValidation')
+const userMiddleware = require('../middlewares/userMiddleware');
+
 
 /* Users Multer */
 
-const multer = require('multer');
 const storage = multer.diskStorage({
-    destination : (req,file, callback) => {
-        callback(null,'public/img/usersProfilePics')
+    destination : (req,file,callback) => {
+        let folder = path.join('public/img/users');
+        callback(null, folder);
     },
     filename : (req, file, callback) => {
-        callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        console.log(file)
+        let imageName = Date.now() + path.extname(file.originalname)
+        callback(null, imageName)
     }
 })
 
-const upload = multer({
-    storage,
-})
+let upload = multer({storage:storage})
 
 
 /* Users Routes */
@@ -28,4 +33,6 @@ router.post('/login',loginValidation, processLogin);
 router.get('/register', register);
 router.post('/register', registerValidation , processRegister);
 router.get('/logout',logout);
+router.get('/miperfil',userMiddleware, profileUser);
+router.put('/miperfil', userMiddleware, upload.single('fotoUsuario') ,userValidation, profileUserChanges)
 module.exports = router;

@@ -145,17 +145,23 @@
                         <li><a class="dropdown-item" href="#">Locales</a></li>
                         <li><a class="dropdown-item" href="#">Cambios</a></li>
                         <li><a class="dropdown-item" href="#">Ayuda</a></li>
-                        <li><a class="dropdown-item" href="/users/login">Inicia sesión</a></li>
-                        <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
+                        <% if (locals.userLogin) { %>
+                            <li><a class="dropdown-item" href="/users/miperfil">Mi Perfil</a></li>
+                        <% } else { %>
+                            <li><a class="dropdown-item" href="/users/login">Inicia sesión</a></li>
+                            <li><a class="dropdown-item" href="/users/register">Registrate</a></li>
+                        <% } %> 
                     </ul>
                 </li>
                 <li><a href=""><i class="fas fa-search"></i></a></li>
             </ul>
         </nav>
-        <nav>
+        <nav class="nav_profile">
             <% if (locals.userLogin) { %>
                 <ul class="nav2">
-                    <li class="locals"><a href="/users/profile"> ¡Hola <%= locals.userLogin.nombre %>!</a></li>
+                    <!-- <li><img src="/img/users/<%= userLogin.avatar %>" alt="" class="locals_image"></li> -->
+                    <li class="locals_image locals"><a href="/users/miperfil"><img src="/img/users/<%= userLogin.avatar %>" alt=""></a></li>
+                    <li class="locals"><a href="/users/miperfil">Mi Perfil</a></li>
                     <li><a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a></li>
                     <li><a href="/favorito"><i class="fas fa-heart"></i></a></li>
                     <li class="locals"><a href="/users/logout">Log Out</a></li>

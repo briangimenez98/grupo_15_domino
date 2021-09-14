@@ -229,8 +229,11 @@ footer .redes ul li:last-child{
     header .burger-buscar{
         display: none;
     }
+    .nav_profile{
+        width: 20%;
+    }
     header .nav2{
-        justify-content:flex-end;
+        justify-content:center;
     }
     header .nav2 i{
         padding: 6px 12px;
@@ -239,8 +242,18 @@ footer .redes ul li:last-child{
     header .nav2 .locals {
         display: flex;
         justify-content: space-around;
-        padding: 0 5px;
+        align-items: baseline;
+        padding: 0;
         margin: 0;
+    }
+    .locals_image{
+        width: 20%;
+    }
+    .locals_image img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid grey;
     }
     header .nav2 li:last-child{
         display: flex;

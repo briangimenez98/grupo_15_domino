@@ -1,11 +1,14 @@
 const fs = require('fs');
 const path = require('path');
+const {usuarios} = require('../data/users_db')
 
 const {productos} = require('../data/products_db');
 const toThousand = require('../utils/toThousand');
 
 module.exports = {
     index : (req, res) => {
+
+
         res.render('home', {
             productos,
             principales : productos.filter(producto => producto.seccion === "principal"),
@@ -16,7 +19,7 @@ module.exports = {
             destacados1 : productos.filter(producto => producto.seccion === "destacado1"),
             destacados2 : productos.filter(producto => producto.seccion === "destacado2"),
             destacados3 : productos.filter(producto => producto.seccion === "destacado3"),
-            toThousand,
+            toThousand
         });
     },
     search : (req, res) => {
