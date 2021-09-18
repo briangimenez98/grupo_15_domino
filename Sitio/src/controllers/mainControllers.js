@@ -16,9 +16,9 @@ module.exports = {
             seleccionados1 : productos.filter(producto => producto.seccion === "seleccionado1"),
             seleccionados2 : productos.filter(producto => producto.seccion === "seleccionado2"),
             seleccionados3 : productos.filter(producto => producto.seccion === "seleccionado3"),
-            destacados1 : productos.filter(producto => producto.seccion === "destacado1"),
-            destacados2 : productos.filter(producto => producto.seccion === "destacado2"),
-            destacados3 : productos.filter(producto => producto.seccion === "destacado3"),
+            destacados : productos.filter(producto => producto.seccion === "destacado"),
+            /* destacados2 : productos.filter(producto => producto.seccion === "destacado2"),
+            destacados3 : productos.filter(producto => producto.seccion === "destacado3"), */
             toThousand
         });
     },

@@ -499,6 +499,7 @@
         flex-direction:row;
         width: 100%;
         padding-top: 12px;
+        padding-bottom: 50px;
         justify-content:space-between;
     }
     .home .segundo section p {

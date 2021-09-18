@@ -363,7 +363,7 @@
   },
   {
     "id": 17,
-    "seccion": "destacado1",
+    "seccion": "destacado",
     "clase": "art2",
     "name": "Palazzo Frizado",
     "price": 4800,
@@ -389,7 +389,7 @@
   },
   {
     "id": 18,
-    "seccion": "destacado1",
+    "seccion": "destacado",
     "clase": "art3",
     "name": "Pantalón Tamesis",
     "price": 5200,
@@ -415,7 +415,7 @@
   },
   {
     "id": 19,
-    "seccion": "destacado1",
+    "seccion": "destacado",
     "clase": "art4",
     "name": "Conjunto Slouchy",
     "price": 9200,
@@ -440,7 +440,7 @@
   },
   {
     "id": 20,
-    "seccion": "destacado2",
+    "seccion": "destacado",
     "clase": "art1",
     "name": "Conjunto Function",
     "price": 8400,
@@ -466,7 +466,7 @@
   },
   {
     "id": 21,
-    "seccion": "destacado2",
+    "seccion": "destacado",
     "clase": "art2",
     "name": "Campera Tisza",
     "price": 4800,
@@ -492,7 +492,7 @@
   },
   {
     "id": 22,
-    "seccion": "destacado2",
+    "seccion": "destacado",
     "clase": "art3",
     "name": "Conjunto Else",
     "price": 7600,
@@ -517,8 +517,34 @@
     "description": "lorem ipsum dolor amet sit"
   },
   {
+    "id": 23,
+    "seccion": "destacado",
+    "clase": "art1",
+    "name": "Remera Saona",
+    "price": 1800,
+    "colors": [
+      "#fdfdfc",
+      "#494a50",
+      "#0a0a0a"
+    ],
+    "image": [
+      "remera-saona-1.jpg",
+      "remera-saona-2.jpg",
+      "remera-saona-3.jpg",
+      "remera-saona-4.jpg"
+    ],
+    "category": "Sweater",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "descripcion": "lorem ipsum dolor amet sit"
+  },
+  {
     "id": 24,
-    "seccion": "destacado3",
+    "seccion": "destacado",
     "clase": "art1",
     "name": "Sweater Holme",
     "price": 5200,
@@ -544,7 +570,7 @@
   },
   {
     "id": 25,
-    "seccion": "destacado3",
+    "seccion": "destacado",
     "clase": "art2",
     "name": "Pantalón Let",
     "price": 5800,
@@ -570,7 +596,7 @@
   },
   {
     "id": 26,
-    "seccion": "destacado3",
+    "seccion": "destacado",
     "clase": "art3",
     "name": "Remera Arrow",
     "price": 1800,
@@ -596,7 +622,7 @@
   },
   {
     "id": 27,
-    "seccion": "destacado3",
+    "seccion": "destacado",
     "clase": "art4",
     "name": "Camiseta Angora",
     "price": 2800,
