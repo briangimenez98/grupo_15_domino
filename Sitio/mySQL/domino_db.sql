@@ -33,7 +33,8 @@ CREATE TABLE `carritos` (
   `date` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Carritos_Users1_idx` (`users_id`),
-  KEY `fk_Carritos_Users_idx` (`products_id`),
+  KEY `fk_Carritos_Products1_idx` (`products_id`),
+  CONSTRAINT `fk_Carritos_Products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`),
   CONSTRAINT `fk_Carritos_Users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -67,6 +68,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'Remeras'),(2,'Camperas'),(3,'Pantalones'),(4,'Camisetas'),(5,'Zapatillas'),(6,'Shorts'),(7,'Gorras'),(8,'Bolsos'),(9,'Riñoneras'),(10,'Mochilas'),(11,'Conjuntos'),(12,'Sweaters');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +80,7 @@ DROP TABLE IF EXISTS `colorproduct`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `colorproduct` (
-  `id` varchar(45) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `products_id` int NOT NULL,
   `colors_id` int NOT NULL,
   PRIMARY KEY (`id`),
@@ -86,7 +88,7 @@ CREATE TABLE `colorproduct` (
   KEY `fk_Colors_has_Products_Colors1_idx` (`colors_id`),
   CONSTRAINT `fk_Colors_has_Products_Colors1` FOREIGN KEY (`colors_id`) REFERENCES `colors` (`id`),
   CONSTRAINT `fk_Colors_has_Products_Products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +97,7 @@ CREATE TABLE `colorproduct` (
 
 LOCK TABLES `colorproduct` WRITE;
 /*!40000 ALTER TABLE `colorproduct` DISABLE KEYS */;
+INSERT INTO `colorproduct` VALUES (1,1,1),(2,1,2),(3,1,3),(4,2,4),(5,2,5),(6,2,6),(7,3,4),(8,3,7),(9,3,8),(10,4,4),(11,4,9),(12,4,10),(13,5,11),(14,5,12),(15,5,13),(16,6,4),(17,6,7),(18,6,14),(19,7,4),(20,7,7),(21,7,15),(22,8,4),(23,8,9),(24,8,10),(25,9,11),(26,9,12),(27,9,16),(28,10,11),(29,10,12),(30,10,17),(31,11,4),(32,11,7),(33,11,18),(34,12,19),(35,12,9),(36,12,20),(37,13,4),(38,13,7),(39,13,14),(40,14,4),(41,14,21),(42,14,22),(43,15,4),(44,15,23),(45,15,24),(46,16,4),(47,16,25),(48,16,26),(49,17,4),(50,17,27),(51,17,28),(52,18,29),(53,18,30),(54,18,31),(55,19,32),(56,19,33),(57,19,34),(58,20,4),(59,20,25),(60,20,35),(61,21,4),(62,21,43),(63,21,28),(64,22,36),(65,22,33),(66,22,37),(67,23,43),(68,23,9),(69,23,20),(70,24,38),(71,24,9),(72,24,20),(73,25,11),(74,25,12),(75,25,39),(76,26,4),(77,26,7),(78,26,40),(79,27,41),(80,27,7),(81,27,42);
 /*!40000 ALTER TABLE `colorproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +112,7 @@ CREATE TABLE `colors` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombreColor` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,6 +121,7 @@ CREATE TABLE `colors` (
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
+INSERT INTO `colors` VALUES (1,'#656666'),(2,'#0c0c0c'),(3,'#641717'),(4,'#000000'),(5,'#9c9c93'),(6,'#fdfffd'),(7,'#fcf9fb'),(8,'#a33724'),(9,'#494a50'),(10,'#13173d'),(11,'#fafcfc'),(12,'#070707'),(13,'#81747f'),(14,'#611f50'),(15,'#3b380e'),(16,'#550f24'),(17,'#9ea371'),(18,'#753f68'),(19,'#fdfcfc'),(20,'#0a0a0a'),(21,'#24049b'),(22,'#838282'),(23,'#1f1553'),(24,'#524d50'),(25,'#757274'),(26,'#0c0849'),(27,'#cf7fb7'),(28,'#a1a1a1'),(29,'#8d623a'),(30,'#305e66'),(31,'#ca9912'),(32,'#5a5c07'),(33,'#5c555a'),(34,'#6d5410'),(35,'#861252'),(36,'#af6464'),(37,'#c2b969'),(38,'#632e2e'),(39,'#a82f11'),(40,'#6e686d'),(41,'#adbd66'),(42,'#b38aac'),(43,'#fdfdfc');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +136,7 @@ CREATE TABLE `generos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `genero` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,6 +145,7 @@ CREATE TABLE `generos` (
 
 LOCK TABLES `generos` WRITE;
 /*!40000 ALTER TABLE `generos` DISABLE KEYS */;
+INSERT INTO `generos` VALUES (1,'Hombre'),(2,'Mujer'),(3,'Unisex');
 /*!40000 ALTER TABLE `generos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,6 +172,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (1,'remera-switch-1.jpg',1),(2,'remera-switch-2.jpg',1),(3,'remera-switch-3.jpg',1),(4,'remera-switch-4.jpg',1),(5,'campera-row-1.jpg',2),(6,'campera-row-2.jpg',2),(7,'campera-row-3.jpg',2),(8,'campera-row-4.jpg',2),(9,'camiseta-size-1.jpg',3),(10,'camiseta-size-2.jpg',3),(11,'camiseta-size-3.jpg',3),(12,'camiseta-size-4.jpg',3),(13,'mochila-adidas-1.png',4),(14,'mochila-adidas-2.jpg',4),(15,'mochila-adidas-3.jpg',4),(16,'mochila-adidas-4.jpg',4),(17,'zapa-air-zoom-1.png',5),(18,'zapa-air-zoom-2.png',5),(19,'zapa-air-zoom-3.png',5),(20,'zapa-air-zoom-4.png',5),(21,'bolso-res-1.png',6),(22,'bolso-res-2.png',6),(23,'bolso-res-3.png',6),(24,'bolso-res-4.png',6),(25,'riñonera-piet3-1.png',7),(26,'riñonera-piet3-2.png',7),(27,'riñonera-piet3-3.png',7),(28,'riñonera-piet3-4.png',7),(29,'bolso-active-1.png',8),(30,'bolso-active-2.png',8),(31,'bolso-active-3.png',8),(32,'bolso-active-4.png',8),(33,'zapa-cliff-1.png',9),(34,'zapa-cliff-2.png',9),(35,'zapa-cliff-3.png',9),(36,'zapa-cliff-4.png',9),(37,'mochila-one-1.png',10),(38,'mochila-one-2.png',10),(39,'mochila-one-3.png',10),(40,'mochila-one-4.png',10),(41,'gorra-piet-1.png',11),(42,'gorra-piet-2.png',11),(43,'gorra-piet-3.png',11),(44,'gorra-piet-4.png',11),(45,'zapa-runfalcon-1.png',12),(46,'zapa-runfalcon-2.png',12),(47,'zapa-runfalcon-3.png',12),(48,'zapa-runfalcon-4.png',12),(49,'riñonera-piet2-1.png',13),(50,'riñonera-piet2-2.png',13),(51,'riñonera-piet2-3.png',13),(52,'riñonera-piet2-4.png',13),(53,'gorra-piet2-1.png',14),(54,'gorra-piet2-2.png',14),(55,'gorra-piet2-3.png',14),(56,'gorra-piet2-4.png',14),(57,'riñonera-piet-1.png',15),(58,'riñonera-piet-2.png',15),(59,'riñonera-piet-3.png',15),(60,'riñonera-piet-4.png',15),(61,'campera-michigan-1.jpg',16),(62,'campera-michigan-2.jpg',16),(63,'campera-michigan-3.jpg',16),(64,'campera-michigan-4.jpg',16),(65,'palazzo-frizado-1.jpg',17),(66,'palazzo-frizado-2.jpg',17),(67,'palazzo-frizado-3.jpg',17),(68,'palazzo-frizado-4.jpg',17),(69,'pantalon-tamesis-1.jpg',18),(70,'pantalon-tamesis-2.jpg',18),(71,'pantalon-tamesis-3.jpg',18),(72,'pantalon-tamesis-4.jpg',18),(73,'conjunto-slouchy-1.jpg',19),(74,'conjunto-slouchy-2.jpg',19),(75,'conjunto-slouchy-3.jpg',19),(76,'conjunto-slouchy-4.jpg',19),(77,'conjunto-function-1.jpg',20),(78,'conjunto-function-2.jpg',20),(79,'conjunto-function-3.jpg',20),(80,'conjunto-function-4.jpg',20),(81,'campera-tisza-1.jpg',21),(82,'campera-tisza-2.jpg',21),(83,'campera-tisza-3.jpg',21),(84,'campera-tisza-4.jpg',21),(85,'conjunto-else-1.jpg',22),(86,'conjunto-else-2.jpg',22),(87,'conjunto-else-3.jpg',22),(88,'conjunto-else-4.jpg',22),(89,'remera-saona-1.jpg',23),(90,'remera-saona-2.jpg',23),(91,'remera-saona-3.jpg',23),(92,'remera-saona-4.jpg',23),(93,'sweater-holme-1.jpg',24),(94,'sweater-holme-2.jpg',24),(95,'sweater-holme-3.jpg',24),(96,'sweater-holme-4.jpg',24),(97,'pantalon-let-1.jpg',25),(98,'pantalon-let-2.jpg',25),(99,'pantalon-let-3.jpg',25),(100,'pantalon-let-4.jpg',25),(101,'remera-arrow-1.jpg',26),(102,'remera-arrow-2.jpg',26),(103,'remera-arrow-3.jpg',26),(104,'remera-arrow-4.jpg',26),(105,'camiseta-angora-1.jpeg',27),(106,'camiseta-angora-2.jpeg',27),(107,'camiseta-angora-3.jpeg',27),(108,'camiseta-angora-4.jpeg',27);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,6 +196,7 @@ CREATE TABLE `marcas` (
 
 LOCK TABLES `marcas` WRITE;
 /*!40000 ALTER TABLE `marcas` DISABLE KEYS */;
+INSERT INTO `marcas` VALUES (1,'Domino');
 /*!40000 ALTER TABLE `marcas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,12 +221,11 @@ CREATE TABLE `products` (
   KEY `fk_Products_Categories1_idx` (`categories_id`),
   KEY `fk_Products_Marcas1_idx` (`marcas_id`),
   KEY `fk_Products_Generos1_idx` (`generos_id`),
-  CONSTRAINT `fk_Products_Carritos1` FOREIGN KEY (`id`) REFERENCES `carritos` (`products_id`),
   CONSTRAINT `fk_Products_Categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`),
   CONSTRAINT `fk_Products_Generos1` FOREIGN KEY (`generos_id`) REFERENCES `generos` (`id`),
   CONSTRAINT `fk_Products_Marcas1` FOREIGN KEY (`marcas_id`) REFERENCES `marcas` (`id`),
   CONSTRAINT `fk_Products_Sections1` FOREIGN KEY (`sections_id`) REFERENCES `sections` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,6 +234,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Remera Switch',1,1,1,2,'lorem ipsum dolor amet sit',1900),(2,'Campera Row',1,2,1,1,'lorem ipsum dolor amet sit',9600),(3,'Camiseta Size',1,4,1,1,'lorem ipsum dolor amet sit',1800),(4,'Mochila Power',2,10,1,3,'lorem ipsum dolor amet sit',5500),(5,'Zapatillas Zoom',2,5,1,1,'lorem ipsum dolor amet sit',14900),(6,'Bolso Res',2,8,1,2,'lorem ipsum dolor amet sit',4200),(7,'Riñonera Unix',2,9,1,3,'lorem ipsum dolor amet sit',5200),(8,'Bolso Active',3,8,1,2,'lorem ipsum dolor amet sit',6500),(9,'Zapatillas Cliff',3,5,1,2,'lorem ipsum dolor amet sit',12800),(10,'Mochila One',3,10,1,3,'lorem ipsum dolor amet sit',6900),(11,'Gorra Piet II',3,7,1,3,'lorem ipsum dolor amet sit',4800),(12,'Zapatillas Run',4,5,1,2,'lorem ipsum dolor amet sit',7500),(13,'Riñonera Class',4,9,1,2,'lorem ipsum dolor amet sit',4900),(14,'Gorra Piet',4,7,1,3,'lorem ipsum dolor amet sit',4800),(15,'Riñonera Mou',4,9,1,3,'lorem ipsum dolor amet sit',10200),(16,'Campera Michigan',5,2,1,1,'lorem ipsum dolor amet sit',7200),(17,'Palazzo Frizado',6,3,1,1,'lorem ipsum dolor amet sit',4800),(18,'Pantalón Tamesis',6,3,1,2,'lorem ipsum dolor amet sit',5200),(19,'Conjunto Slouchy',6,11,1,2,'lorem ipsum dolor amet sit',9200),(20,'Conjunto Function',6,11,1,1,'lorem ipsum dolor amet sit',8400),(21,'Campera Tisza',6,2,1,2,'lorem ipsum dolor amet sit',4800),(22,'Conjunto Else',6,11,1,1,'lorem ipsum dolor amet sit',7600),(23,'Remera Saona',6,1,1,2,'lorem ipsum dolor amet sit',1800),(24,'Sweater Holme',6,12,1,2,'lorem ipsum dolor amet sit',5200),(25,'Pantalón Let',6,3,1,2,'lorem ipsum dolor amet sit',5800),(26,'Remera Arrow',6,1,1,1,'lorem ipsum dolor amet sit',1800),(27,'Camiseta Angora',6,4,1,2,'lorem ipsum dolor amet sit',2800);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +249,7 @@ CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,6 +258,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'user'),(2,'admin');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +273,7 @@ CREATE TABLE `sections` (
   `id` int NOT NULL AUTO_INCREMENT,
   `section` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,6 +282,7 @@ CREATE TABLE `sections` (
 
 LOCK TABLES `sections` WRITE;
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
+INSERT INTO `sections` VALUES (1,'principal'),(2,'seleccionado1'),(3,'seleccionado2'),(4,'seleccionado3'),(5,'destacado1'),(6,'destacado');
 /*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +302,7 @@ CREATE TABLE `talleproducto` (
   KEY `fk_TalleProducto_Products1_idx` (`products_id`),
   CONSTRAINT `fk_TalleProducto_Products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`),
   CONSTRAINT `fk_TalleProducto_Talles1` FOREIGN KEY (`talles_id`) REFERENCES `talles` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,6 +311,7 @@ CREATE TABLE `talleproducto` (
 
 LOCK TABLES `talleproducto` WRITE;
 /*!40000 ALTER TABLE `talleproducto` DISABLE KEYS */;
+INSERT INTO `talleproducto` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,2,7),(6,2,8),(7,2,9),(8,2,10),(9,3,7),(10,3,8),(11,3,9),(12,3,10),(13,4,21),(14,5,13),(15,5,14),(16,5,15),(17,5,16),(18,5,17),(19,6,21),(20,7,21),(21,8,21),(22,9,11),(23,9,12),(24,9,13),(25,9,14),(26,9,15),(27,10,21),(28,11,21),(29,12,13),(30,12,14),(31,12,15),(32,12,16),(33,12,17),(34,13,21),(35,14,21),(36,15,21),(37,16,2),(38,16,3),(39,16,4),(40,16,5),(41,17,7),(42,17,8),(43,17,9),(44,17,10),(45,18,17),(46,18,18),(47,18,19),(48,18,20),(49,19,7),(50,19,8),(51,19,9),(52,20,7),(53,20,8),(54,20,9),(55,20,10),(56,21,2),(57,21,3),(58,21,4),(59,21,5),(60,22,7),(61,22,8),(62,22,9),(63,22,10),(64,23,2),(65,23,3),(66,23,4),(67,23,5),(68,24,2),(69,24,3),(70,24,4),(71,24,5),(72,25,7),(73,25,8),(74,25,9),(75,25,10),(76,26,2),(77,26,3),(78,26,4),(79,26,5),(80,27,1),(81,27,2),(82,27,3);
 /*!40000 ALTER TABLE `talleproducto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +326,7 @@ CREATE TABLE `talles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `talle` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -325,6 +335,7 @@ CREATE TABLE `talles` (
 
 LOCK TABLES `talles` WRITE;
 /*!40000 ALTER TABLE `talles` DISABLE KEYS */;
+INSERT INTO `talles` VALUES (1,'XS'),(2,'S'),(3,'M'),(4,'L'),(5,'XL'),(6,'XXL'),(7,'1'),(8,'2'),(9,'3'),(10,'4'),(11,'36'),(12,'37'),(13,'38'),(14,'39'),(15,'40'),(16,'41'),(17,'42'),(18,'44'),(19,'46'),(20,'48'),(21,'Unico');
 /*!40000 ALTER TABLE `talles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,14 +351,14 @@ CREATE TABLE `users` (
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(150) NOT NULL,
   `birthday` varchar(45) NOT NULL,
   `avatar` varchar(200) NOT NULL,
   `roles_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Users_Roles_idx` (`roles_id`),
   CONSTRAINT `fk_Users_Roles` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,6 +367,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Sol','Tete','sol@gmail.com','$2a$10$xqfGthkqeZLkt6aKMpdtgexem.ZyHix8g5wRHd5Ay9tMT4qiYdq32','1995-07-03','default-profile-image.jpg',1),(2,'Usuario','Comun','pepe@gmail.com','$2a$10$A/i5m/55LRF7K0Er.UzjCOVoD.XnqKyBUrRZa0sz5Cshvu/9u/aWC','2021-08-04','default-profile-image.jpg',1),(3,'Freddy','Pupis','michael.spivak@gmail.com','$2a$10$yWYe79OUAWNU7M8SNYvP3eiEMiYflN32gglhgEKwMYekpIXomcRca','2021-08-05','1631637980651.jpg',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -368,4 +380,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-21 22:41:44
+-- Dump completed on 2021-09-23 23:43:15
