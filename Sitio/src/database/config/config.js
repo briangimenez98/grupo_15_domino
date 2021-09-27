@@ -4,7 +4,7 @@ module.exports = {
   development: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
-    database: "domino_db",
+    database: "domino1_db",
     host: "127.0.0.1",
     dialect: "mysql"
   },

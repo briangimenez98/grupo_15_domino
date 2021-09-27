@@ -4,11 +4,9 @@ const {usuarios} = require('../data/users_db')
 
 const {productos} = require('../data/products_db');
 const toThousand = require('../utils/toThousand');
-
+const db = require('../database/models');
 module.exports = {
     index : (req, res) => {
-
-
         res.render('home', {
             productos,
             principales : productos.filter(producto => producto.seccion === "principal"),
@@ -29,5 +27,16 @@ module.exports = {
             toThousand,
             buscador : req.query.buscador.trim()
         });
+    },
+    prueba: (req,res) => {
+        db.Producto.findAll({
+            include: [{association: "color"}, {association: "talles"}]
+        })
+        .then(usuario => {
+            res.send(usuario)
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 }

@@ -1,66 +1,62 @@
-module.exports = (sequelize, dataTypes) => { 
-
-    let alias = "Usuario"; 
-
-    let cols = { 
-        id : {
-            type : dataTypes.INTEGER.UNSIGNED, 
-            autoIncrement : true, 
-            allowNull : false, 
-            primaryKey : true 
+module.exports = (sequelize, dataTypes) => {
+    let alias = "Usuario";
+    let cols = {
+        id: {
+            type: dataTypes.INTEGER.UNSIGNED,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement:true,
         },
         nombre: {
-            type: Sequelize.STRING(100),
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         apellido: {
-            type: Sequelize.STRING(100),
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         email: {
-            type: Sequelize.STRING(200),
+            type: dataTypes.STRING(200),
             allowNull: false,
         },
         password: {
-            type: Sequelize.STRING(45),
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         birthday: {
-            type: Sequelize.DATE,
-            allowNull: false,
+            type: dataTypes.DATE,
+            allowNull: false
         },
         avatar: {
-            type: Sequelize.STRING(200),
+            type: dataTypes.STRING(200),
+            allowNull: false,
+        },
+        rol: {
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         createdAt: {
-            allowNull: false,
-            type: Sequelize.DATE
+            type: dataTypes.DATE,
+            allowNull: false
         },
         updatedAt: {
-            allowNull: false,
-            type: Sequelize.DATE
-        }
-       
+            type: dataTypes.DATE,
+            allowNull: false
+        },
     };
-
-    let config = { 
-        tableName : 'users',
-        timestamps : true, 
-        underscored : true  
+    let config = {
+        tableName: "usuarios",
+        timestamps: true
     };
-
-    const User = sequelize.define(alias,cols,config); 
-
-    /* relaciones */
-
+    const User = sequelize.define(alias,cols,config);
     User.associate = models => {
-        /* defino las relaciones */
-        User.belongsTo(models.Rol,{
-            as : 'rol',
-            foreignKey : 'roles_id'
+        User.belongsToMany(models.Carrito, {
+            as: "carrito",
+            through: "Carrito",
+            foreignKey: "id_usuario",
+            otherKey:"id_producto",
+            timestamps: false
         })
     }
-
-    return User
+    return User;
 }
