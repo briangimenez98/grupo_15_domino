@@ -1,15 +1,23 @@
-##Retrospectiva n°5: JSON + Auth
+# Retrospectiva: Sprint 5. Middlewares + Auth
 
-#Comenzar a hacer: 
-- Null.
+## Comenzar a Hacer: 
 
-#Hacer mas: 
-- Hacer las tareas opcionales 
-#Seguir haciendo:
-- Seguir mejorando la distribución de tareas.
-- Mantener nuestra forma de comunicarnos.
-#Hacer menos:
-- Aplazar entregas
-- 
-#Dejar de hacer:
-- Null
+* Null 
+
+## Hacer más :
+
+* Plantear dudas entre nosotros.
+* Reuniones grupales.
+
+## Seguir Haciendo:
+
+* Seguir mejorando la distribución de tareas.
+* Mantener nuestra forma de comunicarnos.
+
+## Dejar de hacer: 
+
+* Aplazar entregas
+
+## Hacer menos: 
+
+* Atrasarse con una tarea, ya que atrasamos a todo el grupo.
