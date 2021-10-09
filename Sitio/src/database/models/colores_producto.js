@@ -1,18 +1,18 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     let alias = "colores_producto";
     let cols = {
         id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             allowNull: false,
             autoIncrement:true,
         },
-        id_producto: {
-            type: dataTypes.INTEGER.UNSIGNED,
+        productoId: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        id_color: {
-            type: dataTypes.INTEGER.UNSIGNED,
+        colorId: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         }
     };
@@ -22,7 +22,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     const colores_producto = sequelize.define(alias,cols,config);
 
-    colores_producto.associate = models => {
+    /* colores_producto.associate = models => {
         colores_producto.hasMany(models.Color, { 
             as: "color",
             foreignKey: "id"
@@ -32,6 +32,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "id"
         })
     } 
+ */
 
     return colores_producto;
 }

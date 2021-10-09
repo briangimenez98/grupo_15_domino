@@ -1,45 +1,46 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     let alias = "Producto";
+
     let cols = {
         id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
         nombre: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false
         },
         precio: {
-            type: dataTypes.FLOAT.UNSIGNED,
+            type: DataTypes.FLOAT.UNSIGNED,
             allowNull: false
         },
         descripcion: {
-            type: dataTypes.STRING(200),
+            type: DataTypes.STRING(200),
             allowNull: false
-        },
-        descuentos: {
-            type: dataTypes.INTEGER.UNSIGNED,
         },
         marca: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false
         },
+        descuento: {
+            type: DataTypes.INTEGER.UNSIGNED,
+        },
         createdAt: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
             allowNull: false
         },
         updatedAt: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
             allowNull: false
         },
-        categorias_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+        idCategoria: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        generos_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+        idGeneros: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         }
     };
@@ -49,33 +50,42 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Product = sequelize.define(alias, cols, config);
 
-    /* Relaciones */
+    /* Relaciones de Producto: 
+        1) Categoria
+        2) Genero
+        3) Colores
+        4) Talle
+        5) Carrito
+    */
 
     Product.associate = models => {
         Product.belongsTo(models.Categoria, {
-            as: "productoCategoria",
-            foreignKey: "categorias_id"
+            as: "Categoria",
+            foreignKey: "idCategoria"
         })
+
         Product.belongsTo(models.Genero, {
-            as: "productoGenero",
-            foreignKey: "generos_id"
+            as: "Genero",
+            foreignKey: "idGeneros"
         })
-        Product.belongsToMany(models.colores_producto, {
-            as: "color",
+
+        Product.belongsToMany(models.Color, {
+            as: "Colores",
             through: "colores_producto",
-            foreignKey: "id_producto",
-            otherKey:"id_color",
-            timestamps: false
-        })
-        Product.belongsToMany(models.talles_productos, {
-            as: "talles",
-            through: "talles_productos",
-            foreignKey: "id_producto",
-            otherKey:"id_talle",
+            foreignKey: "productoId",
+            otherKey: "colorId",
             timestamps: false
         })
 
-        Product.belongsToMany(models.Carrito, {
+        Product.belongsToMany(models.Talle, {
+            as: "Talles",
+            through: "talles_producto",
+            foreignKey: "productoId",
+            otherKey: "talleId",
+            timestamps: false
+        })
+
+        Product.belongsToMany(models.Usuario, {
             as: "carrito",
             through: "Carrito",
             foreignKey: "id_producto",

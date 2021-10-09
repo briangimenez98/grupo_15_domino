@@ -16,25 +16,22 @@
     <main class="detail-box">
         <div class="view">
             <aside class="view__multiple">
-                <img src="/img/<%= producto.image[1] %>" alt="imagen-1" class="view__multiple__img">
-                <img src="/img/<%= producto.image[2] %>" alt="imagen-2" class="view__multiple__img">
-                <img src="/img/<%= producto.image[3] %>" alt="imagen-3" class="view__multiple__img">
+              <% for( let i = 1; i < imagenes.length; i++ ) { %>
+                <img src="/img/products/<%=imagenes[i].nombre%>" alt="imagen-<%= i %>" class="view__multiple__img">
+              <% } %>
             </aside>
             <div class="view-1">
                   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
+
                       <div class="carousel-item active">
-                        <img src="/img/<%= producto.image[0] %>" class="d-block w-100" alt="...">
-                      </div>                      
-                      <div class="carousel-item view-1__otherview">
-                        <img src="/img/<%= producto.image[1] %>" class="d-block w-100" alt="...">
+                        <img src="/img/products/<%=imagenes[0].nombre%>" class="d-block w-100">
                       </div>
-                      <div class="carousel-item view-1__otherview">
-                        <img src="/img/<%= producto.image[2] %>" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item view-1__otherview">
-                        <img src="/img/<%= producto.image[3] %>" class="d-block w-100" alt="...">
-                      </div>
+                      <% for( let i = 1; i < imagenes.length; i++ ) { %>
+                        <div class="carousel-item view-1__otherview">
+                          <img src="/img/products/<%=imagenes[i].nombre%>" class="d-block w-100">
+                        </div>
+                      <% } %>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,25 +52,25 @@
                 <form action="" method="">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                          <li class="breadcrumb-item"><a href="#"><%= producto.category %></a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Producto</li>
+                          <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                          <li class="breadcrumb-item"><a href="#"><%=producto.Categoria.nombre%></a></li>
+                          <li class="breadcrumb-item active" aria-current="page"><%= producto.nombre %> </li>
                         </ol>
                     </nav>
                     <section>
                         <div class="product__details">
-                            <p class="product_details__name"><%= producto.name %></p>
-                            <span class="product__details_money">$<%= producto.price.toFixed(2) %></span>
+                            <p class="product_details__name"><%= producto.nombre %></p>
+                            <span class="product__details_money">$<%= producto.precio.toFixed(2) %></span>
                             <div class="product__details__color">
-                              <input type="color" class="form-control form-control-color" id="exampleColorInput" value="<%= producto.colors[0] %>" title="Choose your color">
-                              <input type="color" class="form-control form-control-color" id="exampleColorInput" value="<%= producto.colors[1] %>" title="Choose your color">
-                              <input type="color" class="form-control form-control-color" id="exampleColorInput" value="<%= producto.colors[2] %>" title="Choose your color">
+                              <% for( let i = 0; i < producto.Colores.length; i++ ) { %>
+                                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="<%= producto.Colores[i].nombre%>" title="Choose your color">
+                              <% } %>
                             </div>
                         </div>
                         <div class="cuotas__totaldiv">
                             <div class="cuotas__minidiv">
                                 <i class="far fa-credit-card"></i>
-                                <span>12 cuotas de $ <%= ((producto.price) / 12).toFixed(2) %></span> 
+                                <span>12 cuotas sin interés de $<%= (producto.precio/12).toFixed(2) %></span> 
                             </div>
                             <div class="cuotas__minidiv">
                                 <i class="fas fa-dollar-sign"></i>
@@ -83,25 +80,20 @@
                         </div>
                     </section>
                     <section class="talle__div">
-                        <% if (producto.talle) { %>
+
                           <span class="talle__div__titular">Talles disponibles</span>
                           <div class="talle__div__size">
                           
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                              <label class="btn btn-outline-primary" for="btnradio1"><%= producto.talle[0]%></label>
-                            
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio2"><%= producto.talle[1]%></label>
-                            
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio3"><%= producto.talle[2]%></label>
-  
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio4"><%= producto.talle[3]%></label>
+
+                              <% for( let i = 0; i < producto.Talles.length; i++ ) { %>
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="btnradio1"><%= producto.Talles[i].talle %></label>
+                              <% } %>
+
                             </div>
                           </div>
-                        <% } %>
+                        
                         <article class="talle__div__cantidad-box">
                             <select name="cantidad" class="talle__div__cantidad">
                                 <option value="1">1</option>
@@ -163,7 +155,7 @@
                 <div class="recommended__1 card mb-3" style="max-width: 320px;">
                     <div class="row g-0">
                       <div class="col-sm-4">
-                        <img src="/img/defaultimage.png" class="img-fluid rounded-start" alt="recommended1" width="100%">
+                        <img src="/img/products/defaultimage.png" class="img-fluid rounded-start" alt="recommended1" width="100%">
                       </div>
                       <div class="col-sm-8">
                         <div class="card-body">
@@ -197,7 +189,7 @@
                 <div class="recommended__3 card mb-3" style="max-width: 320px;">
                     <div class="row g-0">
                       <div class="col-sm-4">
-                        <img src="/img/defaultimage.png" class="img-fluid rounded-start" alt="..." >
+                        <img src="/img/products/defaultimage.png" class="img-fluid rounded-start" alt="..." >
                       </div>
                       <div class="col-sm-8">
                         <div class="card-body">

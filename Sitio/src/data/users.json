@@ -38,5 +38,15 @@
     "birthday": "2021-09-22",
     "rol": "user",
     "avatar": "default-profile-image.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "John",
+    "apellido": "Coltrane",
+    "email": "john.coltrane@gmail.com",
+    "password": "$2a$10$6oTC7hlTIexhMNaRGK3AquosZlko/Cxr.3scCtMspu76WimjpJCGS",
+    "birthday": "2021-10-05",
+    "rol": "user",
+    "avatar": "default-profile-image.jpg"
   }
 ]

@@ -1,5 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Color";
+
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -18,12 +19,15 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Color = sequelize.define(alias,cols,config);
 
+    /* Colores tiene una asociación a la tabla pivot: colores_producto  */
+
    Color.associate = models => {
-        Color.belongsToMany(models.colores_producto, {
+
+        Color.belongsToMany(models.Producto, {
             as: "producto",
             through: "colores_producto",
-            foreignKey: "id_color",
-            otherKey:"id_producto",
+            foreignKey: "colorId",
+            otherKey: "productoId",
             timestamps: false
         })
     }

@@ -19,13 +19,14 @@ module.exports = (sequelize, dataTypes) => {
     const Talle = sequelize.define(alias,cols,config);
 
     Talle.associate = models => {
-        Talle.belongsToMany(models.talles_productos, {
+        Talle.belongsToMany(models.talles_producto, {
             as: "productos",
-            through: "talles_productos",
-            foreignKey: "id_talle",
-            otherKey:"id_producto",
+            through: "talles_producto",
+            foreignKey: "talleId",
+            otherKey:"productoId",
             timestamps: false
         })
     }
+
     return Talle;
 }

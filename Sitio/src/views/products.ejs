@@ -11,31 +11,27 @@
         <% if (locals.userLogin && locals.userLogin.rol === "admin") { %>
             
         <section>
-            
-            <% productos.forEach(producto => { %>
+            <% for( let i = 0; i < productos.length; i++ ) { %>
                 <article>
-                    <img src="/img/<%= producto.image[0] %>" alt="">
-                    <div class="description">
-                        <div class="date">
-                            <h4>
-                                <%= producto.name %>
-                            </h4>
-                            <p>$ <%= toThousand(producto.price) %>
-                            </p>
+                        <img src="/img/products/<%= imagenes[0].nombre %>" alt="">
+                        <div class="description">
+                            <div class="date">
+                                <h4>
+                                    <%= productos[i].nombre %>
+                                </h4>
+                                <p>$ <%= productos[i].precio %>
+                                </p>
+                            </div>
+                            <div class="date2">
+                                <a href="/products/editProduct/<%= productos[i].id %>"><button type="button" class="edit">Editar</button></a>
+                                
+                                <form action="/products/delete/<%= productos[i].id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="delete">Eliminar</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="date2">
-                            <a href="/products/editProduct/<%= producto.id %>"><button type="button" class="edit">Editar</button></a>
-                            
-                            <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="delete">Eliminar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </article>
-             
-            <% }) %>
-          
+                    </article>
+            <% } %>
         </section>  
         <% } else { %>
             <div>

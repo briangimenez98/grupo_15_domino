@@ -1,5 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Usuario";
+    
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -20,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         password: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(200),
             allowNull: false,
         },
         birthday: {
@@ -48,6 +49,9 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "usuarios",
         timestamps: true
     };
+
+    /* Usuarios tiene relacion con Carrito */
+
     const User = sequelize.define(alias,cols,config);
     User.associate = models => {
         User.belongsToMany(models.Carrito, {
@@ -59,4 +63,5 @@ module.exports = (sequelize, dataTypes) => {
         })
     }
     return User;
+
 }
