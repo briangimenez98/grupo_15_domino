@@ -5,9 +5,10 @@
 
 <body class="carga-producto">
 
+    <!--Header-->
     <%-include('./partials/header')%>
-    <main>
-        <% if (locals.userLogin && locals.userLogin.rol === "admin") { %>
+
+    <main>     
             <h3>Crear Producto</h3>
             <form action="/products/createProduct" method="POST" enctype="multipart/form-data">
                 <div class="primero">
@@ -34,7 +35,7 @@
                 <div class="segundo">
                     <div class="form">
                         <label>Categoría</label>
-                        <select name="category" id="categorias">
+                        <select name="categoria" id="categorias">
                             <option value="categorias" hidden selected>Elegir Categoria</option>
                             <option value="1">Remeras</option>
                             <option value="2">Camperas</option>
@@ -94,12 +95,6 @@
                     
                 </div>
             </form>
-         
-        <% } else if (locals.userLogin && locals.userLogin.rol === "user") { %>
-                <p>No contás con los permisos necesarios para crear productos</p>
-         <% } else { %>
-            <p>Necesitas logearte!</p>
-          <% } %>
     </main>
     <!--Footer-->
     <%-include('./partials/footer')%> 

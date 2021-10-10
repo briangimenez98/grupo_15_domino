@@ -20,11 +20,13 @@ module.exports = {
         });
     },
     search : (req, res) => {
-        let results = productos.filter(producto => producto.name.toLowerCase().includes(req.query.buscador.toLowerCase().trim()));
+        /* let results = productos.filter(producto => producto.name.toLowerCase().includes(req.query.buscador.toLowerCase().trim()));
         return res.render('results', {
             results,
             toThousand,
             buscador : req.query.buscador.trim()
-        });
+        }); */
+
+        let results = Produc
     },
 }
