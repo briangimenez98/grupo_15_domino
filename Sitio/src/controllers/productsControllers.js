@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
+const Sequelize = require('sequelize');
 const {validationResult} = require('express-validator')
 const toThousand = require('../utils/toThousand');
 const Productos = db.Producto;
@@ -16,14 +17,17 @@ module.exports = {
         Productos.findAll()
             .then(productos => {
                 Imagenes.findAll({
-                    attributes: ['idProducto'],
-                    group: ['idProducto']
+                    include: {association: "Producto"},
+                    attributes: ['productoId', 'nombre'],
+                    group: ['productoId']    
                 })
                     .then(imagenes => {
                         return res.render('products', {
                             productos,
                             toThousand,
                             imagenes
+                    }).catch(error => {
+                        console.log(error);
                     })
             })
         })
@@ -42,7 +46,7 @@ module.exports = {
         }).then(producto => {
             Imagenes.findAll({
                 include: {association: "Producto"},
-                where: {idProducto: req.params.id}
+                where: {productoId: req.params.id}
             }).then(imagenes => {
                     return res.render('detalle', {producto, imagenes})
                 })
@@ -51,7 +55,9 @@ module.exports = {
     },
     carrito: (req, res) => {
         Imagenes.findAll({
-            include: {association: "Producto"}
+            include: {association: "Producto"},
+            attributes: ['productoId', 'nombre'],
+            group: ['productoId']       
         })
             .then(productos => {
                 return res.send(productos)
@@ -91,7 +97,7 @@ module.exports = {
                         imagenes.forEach(img => {
                             var image = {
                                 nombre: img,
-                                idProducto: producto.id
+                                productoId: producto.id
                             }
                             images.push(image)
                     });
@@ -130,30 +136,20 @@ module.exports = {
     },
     destroy: (req, res) => {
 
-        Productos.destroy({
-            where: {id: req.params.id}
-        }).then(() => {
+        Imagenes.destroy({
+            where: {productoId:req.params.id}
+        }).then(
             talleProducto.destroy({
                 where: {productoId: req.params.id}
-            }).then(() => {
-                Imagenes.destroy({
-                    where: {idProducto:req.params.id}
-                }).then(() => {
-                    return res.redirect('/products/')
+            }).then(
+                Productos.destroy({
+                    where: {id: req.params.id}
                 })
-            })
-        }).catch(error => {
-            console.log(error);
-        })
-
-        /* productos.forEach(producto => {
-            if (producto.id === +req.params.id) {
-                let productAEliminar = productos.indexOf(producto);
-                productos.splice(productAEliminar, 1)
-            }
-        });
-
-        guardar(productos)
-        return res.redirect('/products/') */
+                ).then(() => {
+                    return res.redirect("/products");
+                }).catch(error => {
+                    console.log(error);
+                })
+        )
     }
 }
