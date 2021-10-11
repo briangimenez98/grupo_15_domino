@@ -7,7 +7,9 @@
 
     <%-include('./partials/header')%>
     <main>
+        <div class="container">
         <% if (locals.userLogin && locals.userLogin.rol === "admin") { %>
+            <div class="formulario mt-5">
             <h3>Crear Producto</h3>
             <form action="/products/createProduct" method="POST" enctype="multipart/form-data">
                 <div class="primero">
@@ -94,12 +96,13 @@
                     
                 </div>
             </form>
-         
+        </div>
         <% } else if (locals.userLogin && locals.userLogin.rol === "user") { %>
                 <p>No contás con los permisos necesarios para crear productos</p>
          <% } else { %>
             <p>Necesitas logearte!</p>
           <% } %>
+        </div>
     </main>
     <!--Footer-->
     <%-include('./partials/footer')%> 
