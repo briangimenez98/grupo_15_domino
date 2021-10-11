@@ -54,10 +54,11 @@ module.exports = {
             })
     },
     carrito: (req, res) => {
-        Imagenes.findAll({
-            include: {association: "Producto"},
-            attributes: ['productoId', 'nombre'],
-            group: ['productoId']       
+        Productos.findAll({
+            include: [{association: "Categoria"},
+            {association:"Talles"}]
+            /* attributes: ['productoId', 'nombre'],
+            group: ['productoId']       */ 
         })
             .then(productos => {
                 return res.send(productos)
@@ -77,7 +78,7 @@ module.exports = {
 
         if(errors.isEmpty()){
 
-            const {nombre, descripcion,image,category,talle,genero,precio} = req.body;
+            const {nombre, descripcion,categoria,talle,genero,precio} = req.body;
 
             Productos.create({
                 nombre,
@@ -85,7 +86,7 @@ module.exports = {
                 descripcion,
                 marca: "Domino",
                 descuento: 0,
-                idCategoria: category,
+                idCategoria: categoria,
                 idGeneros: genero
             }).then(producto => {
                     talleProducto.create({
@@ -112,27 +113,38 @@ module.exports = {
         }
     },
     editProduct: (req, res) => {
-        Productos.findByPk(req.params.id)
+        Productos.findByPk(req.params.id, {
+            include: [{association: "Categoria"}, 
+            {association: "Colores"}, 
+            {association: "Genero"}, 
+            {association:"Talles"}]
+        })
             .then(producto => {
                 return res.render('editProduct.ejs', {producto, Productos})
             })
     },
     edit : (req, res) => {
-        const {name, description, price, category, seccion, talle, clase } = req.body;
-        productos.forEach(producto => {
-            if (producto.id === req.params.id){
-                producto.id = +req.params.id
-                producto.seccion = seccion,
-                producto.clase = clase,
-                producto.name = name,
-                producto.price = +price,
-                producto.category = category,
-                producto.talle = talle,
-                producto.description = description
-            }
-        })
-        guardar(productos);
-        return res.redirect('/products');
+        let errors = validationResult(req);
+        const {nombre,descripcion,precio,talle,categoria} = req.body;
+
+        if(errors.isEmpty()){
+            Productos.update({
+                nombre,
+                precio,
+                descripcion,
+                idCategoria: categoria,
+                idGeneros: genero
+            }).then(producto => {
+                talleProducto.update({
+                    productoId: producto.id,
+                    talleId: talle
+                }).then(() => {
+                    return res.redirect('/products')
+                }).catch(error => {
+                    console.log(error);
+                })
+            })
+        }
     },
     destroy: (req, res) => {
 
