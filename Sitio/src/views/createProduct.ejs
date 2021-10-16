@@ -14,11 +14,11 @@
                 <div class="primero">
                     <div class="form">
                         <label>Nuevo producto</label>
-                        <input type="text" name="nombre" placeholder="Nombre...">
+                        <input type="text" name="nombre" placeholder="Nombre..." value= "<%= locals.old && old.nombre ? old.nombre : '' %>">
                     </div>
                     <div class="form">
                         <label>Descripción del producto</label>
-                        <input type="text" name="descripcion" placeholder="Descripción...">
+                        <input type="text" name="descripcion" placeholder="Descripción..." value= "<%= locals.old && old.descripcion ? old.descripcion : '' %>">
                     </div>
                     <div class="form">
                         <label>Imagen</label>
@@ -85,7 +85,7 @@
                 <div class="tercero">
                     <div class="form">
                         <label>Precio</label>
-                        <input type="number" name="precio" placeholder="$$$">    
+                        <input type="number" name="precio" placeholder="$$$" value= "<%= locals.old && old.precio ? old.precio : '' %>">    
                     </div>
                         
                     <div class="botones">    

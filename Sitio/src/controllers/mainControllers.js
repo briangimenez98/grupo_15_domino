@@ -1,8 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const {usuarios} = require('../data/users_db')
 const {productos} = require('../data/products_db');
 const toThousand = require('../utils/toThousand');
+const db = require("../database/models");
+const Op = db.Sequelize.Op;
+const Productos = db.Producto;
+const Imagenes = db.Imagen;
 
 module.exports = {
     index : (req, res) => {
@@ -20,13 +23,28 @@ module.exports = {
         });
     },
     search : (req, res) => {
+        
+        Productos.findAll({
+            where: {
+                [Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]
+            }
+            
+        }).then( producto => {
+
+            let productos = producto.id;
+
+            return res.json(productos)
+            Imagenes.findAll({
+                include:[{association: "Producto"}],
+            })
+        }).catch(error => console.log(error));
+        
+
         /* let results = productos.filter(producto => producto.name.toLowerCase().includes(req.query.buscador.toLowerCase().trim()));
         return res.render('results', {
             results,
             toThousand,
             buscador : req.query.buscador.trim()
         }); */
-
-        let results = Produc
     },
 }

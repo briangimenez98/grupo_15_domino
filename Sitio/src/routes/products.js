@@ -1,11 +1,12 @@
 /* Requires */
 var express = require('express');
 var router = express.Router();
-const {index, detalle, carrito, createProduct, editProduct, destroy, edit, addProduct} = require('../controllers/productsControllers');
+const {index, detalle, carrito, createProduct, editProduct, destroy, edit} = require('../controllers/productsControllers');
 const path = require('path');
 
 /* Middlewares */
 
+const createValidator = require("../validations/createValidation");
 const adminMiddleware = require('../middlewares/adminMiddleware');
 
 /* Multer */
@@ -26,13 +27,12 @@ const upload = multer({storage})
 /* Esto viene como /products/... */
 
 router.get('/', index);
-router.get('/detail/:id', detalle);
-router.get('/carrito', carrito);
-router.get('/createProduct', adminMiddleware,createProduct);
-router.post('/createProduct',upload.any('image',4),adminMiddleware,addProduct);
-router.get('/editProduct/:id', adminMiddleware, editProduct);
-router.put('/editProduct/:id', adminMiddleware, edit);
-router.delete('/delete/:id', adminMiddleware,destroy);
-router.post('/createProduct', adminMiddleware, addProduct);
+router.get('/detail/:id',detalle);
+router.get('/carrito',carrito);
+router.get('/createProduct',adminMiddleware,createProduct);
+router.post('/createProduct',upload.any('image',4),adminMiddleware,createProduct);
+router.get('/editProduct/:id',adminMiddleware,editProduct);
+router.put('/editProduct/:id',adminMiddleware,edit,createValidator);
+router.delete('/delete/:id',adminMiddleware,destroy);
 
 module.exports= router;

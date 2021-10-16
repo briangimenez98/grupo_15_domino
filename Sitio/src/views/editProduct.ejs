@@ -38,7 +38,7 @@
                 <div class="form">
                     <label>Categoria</label>
                     <select name="categoria" id="categorias">
-                        <option value="select" hidden selected><%= producto.Categoria.nombre %></option>
+                        <option value="<%= producto.Categoria.id %>" hidden selected><%= producto.Categoria.nombre %></option>
                         <option value="1">Remeras</option>
                         <option value="2">Camperas</option>
                         <option value="3">Pantalones</option>
@@ -77,7 +77,7 @@
                 <div class="form">
                     <label>Genero</label>
                     <select name="genero" id="genero">
-                        <option value="categorias" hidden selected><%= producto.Genero.nombre %> </option>
+                        <option value="<%= producto.Genero.id %>" hidden selected><%= producto.Genero.genero %> </option>
                         <option value="1">Hombre</option>
                         <option value="2">Mujer</option>
                         <option value="3">Unisex</option>

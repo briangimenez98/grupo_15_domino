@@ -1,6 +1,5 @@
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
-const {usuarios, guardar} = require('../data/users_db')
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 let Usuarios = db.Usuario;
@@ -35,8 +34,8 @@ module.exports = {
     },
     processLogin : (req, res) => {
         let errors = validationResult(req)
+        console.log(errors);
         const {recordar} = req.body;
-
         if(errors.isEmpty()){
             Usuarios.findOne({
                 where: {
@@ -64,7 +63,7 @@ module.exports = {
             })
         } else {
             return res.render('login.ejs', {errors: errors.mapped(), old: req.body})
-        }
+        } 
     },
     logout : (req,res) => {
         req.session.destroy();

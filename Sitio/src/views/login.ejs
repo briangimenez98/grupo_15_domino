@@ -14,11 +14,14 @@
                     <div class="tengo-cuenta__div">
                         <label for="email">Email</label>
                         <input class="cien" type="email" id="email" name="email" value= "<%= locals.old && old.email ? old.email : '' %>">
-                        <p class="feedback"><%= locals.errors && locals.errors.email ? errors.email.msg : null %></p>
+
+                        <p class="feedback">
+                            <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
+                        </p>
                     </div>
                     <div class="tengo-cuenta__div">
                         <label for="contraseña">Contraseña</label>
-                        <input class="cien" type="password" id="contraseña" name="password">
+                        <input class="cien" type="password" id="password" name="password" value= "<%= locals.old && old.email ? old.email : '' %>">
 
                         <p class="feedback">
                             <%= locals.errors && locals.errors.password ? errors.password.msg : null %>

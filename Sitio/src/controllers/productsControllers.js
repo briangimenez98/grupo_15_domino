@@ -54,9 +54,8 @@ module.exports = {
             })
     },
     carrito: (req, res) => {
-        Productos.findAll({
-            include: [{association: "Categoria"},
-            {association:"Talles"}]
+        Imagenes.findAll({
+            include: [{association: "Producto"}]
             /* attributes: ['productoId', 'nombre'],
             group: ['productoId']       */ 
         })
@@ -73,13 +72,11 @@ module.exports = {
             Productos,
         })
     },
-    addProduct: (req, res) => {
+    createProduct: (req, res) => {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-
             const {nombre, descripcion,categoria,talle,genero,precio} = req.body;
-
             Productos.create({
                 nombre,
                 precio,
@@ -92,24 +89,28 @@ module.exports = {
                     talleProducto.create({
                         productoId: producto.id,
                         talleId: talle
-                    }).then(talleProducto => {
+                    })
+                    .then(() => {
                         var images = [];
                         var imagenes = req.files.map(imagen => imagen.filename);
-                        imagenes.forEach(img => {
-                            var image = {
-                                nombre: img,
-                                productoId: producto.id
-                            }
-                            images.push(image)
-                    });
+                            imagenes.forEach(img => {
+                                var image = {
+                                    nombre: img,
+                                    productoId: producto.id
+                                }
+                                images.push(image)
+                                })
                         Imagenes.bulkCreate(images, { validate: true })
-                        .then(() => console.log('imagenes agregadas'))
-                        return res.redirect("/products/")
+                            .then(() => {
+                                console.log('imagenes agregadas')
+                            })
                     })
-            }).catch(error => {
-                console.log(error);
-            })
-
+                    return res.redirect("/products")
+                }).catch(error => {
+                    console.log(error);
+                })
+        } else {
+            return res.render("createProduct.ejs", {errors: errors.mapped(), old: req.body})
         }
     },
     editProduct: (req, res) => {
@@ -125,27 +126,30 @@ module.exports = {
     },
     edit : (req, res) => {
         let errors = validationResult(req);
-        const {nombre,descripcion,precio,talle,categoria} = req.body;
 
         if(errors.isEmpty()){
             Productos.update({
-                nombre,
-                precio,
-                descripcion,
-                idCategoria: categoria,
-                idGeneros: genero
+                nombre: req.body.nombre ? req.body.nombre : Productos.nombre,
+                precio: req.body.precio ? req.body.precio : Productos.precio,
+                descripcion: req.body.descripcion ? req.body.descripcion : Productos.descripcion,
+                idCategoria: req.body.categoria ? req.body.categoria : Productos.idCategoria,
+                idGeneros: req.body.genero ? req.body.genero : Productos.idGeneros
+            }, {
+                where: {id: req.params.id}
             }).then(producto => {
                 talleProducto.update({
                     productoId: producto.id,
-                    talleId: talle
-                }).then(() => {
-                    return res.redirect('/products')
-                }).catch(error => {
-                    console.log(error);
+                    talleId: req.body.talle ? req.body.talle : talleProducto.talleId
+                }, {
+                    where: {productoId: producto.id}
                 })
+                return res.redirect("/products")
+            }).catch(error => {
+                console.log(error);
             })
         }
     },
+
     destroy: (req, res) => {
 
         Imagenes.destroy({
