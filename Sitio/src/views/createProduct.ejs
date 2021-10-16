@@ -5,38 +5,83 @@
 
 <body class="carga-producto">
 
-    <!--Header-->
     <%-include('./partials/header')%>
-
-    <main>     
+    <main>
+        
+        <div class="container">
+    
+            <div class="formulario">
+    
             <h3>Crear Producto</h3>
-            <form action="/products/createProduct" method="POST" enctype="multipart/form-data">
+            <form class="needs-validation" action="/products/createProduct" method="POST" id="form-register" enctype="multipart/form-data" novalidate>
                 <div class="primero">
+    
                     <div class="form">
                         <label>Nuevo producto</label>
+<<<<<<< HEAD
                         <input type="text" name="nombre" placeholder="Nombre..." value= "<%= locals.old && old.nombre ? old.nombre : '' %>">
+=======
+                        <input type="text" class="form-control" name="nombre" required>
+                        <span class="small text-danger">
+                            
+                        </span>
+                        <div class="invalid-feedback">
+                        Debes colocar un nombre
+                        </div>
+>>>>>>> 7625a399b95a31b74c2da560b057fdbb635b851b
                     </div>
+    
                     <div class="form">
                         <label>Descripción del producto</label>
+<<<<<<< HEAD
                         <input type="text" name="descripcion" placeholder="Descripción..." value= "<%= locals.old && old.descripcion ? old.descripcion : '' %>">
+=======
+                        <textarea class="form-control" id="" name="descripcion"
+                        required></textarea>
+                        <span class="small text-danger">
+                        
+                        </span>
+                        <div class="invalid-feedback">
+                        Debes escribir una descripción
+                        </div>
+>>>>>>> 7625a399b95a31b74c2da560b057fdbb635b851b
                     </div>
+
                     <div class="form">
-                        <label>Imagen</label>
-                        <div class="img">
-                            <p>.JPG</p>
-                        </div>
-                        <div class="galeria">
-                            <button>Abrir Galeria</button>
-                            <input class="button-file" type="file" name="image" accept="image/*" multiple/>
-                        </div>
+                        <label>Precio</label>
+                        <input type="number" class="form-control" name="precio" placeholder="$$$" required> 
+                        <span class="small text-danger">
+                            
+                        </span>
+                        <div class="invalid-feedback">
+                            El precio es obligatorio
+                        </div>   
                     </div>
+    
+                    <div class="form">
+                        <label>Genero</label>
+                        <select class="form-select" name="genero" id="genero" required>
+                            <option value="" selected hidden>Elegir Genero</option>
+                            <option value="1">Hombre</option>
+                            <option value="2">Mujer</option>
+                            <option value="3">Unisex</option>
+                        </select>
+                        <span class="small text-danger">
+                            
+                        </span>
+                        <div class="invalid-feedback">
+                            Debes indicar un genero
+                        </div>
+                    </div> 
+                    
                 </div>
         
                 <div class="segundo">
+    
                     <div class="form">
                         <label>Categoría</label>
-                        <select name="categoria" id="categorias">
-                            <option value="categorias" hidden selected>Elegir Categoria</option>
+                        <select class="form-select" name="categoria" id="categorias" required>
+                            <option value="" hidden selected>Elegir Categoria</option>
                             <option value="1">Remeras</option>
                             <option value="2">Camperas</option>
                             <option value="3">Pantalones</option>
@@ -51,60 +96,84 @@
                             <option value="12">Sweaters</option>
                             <option value="13">Buzos</option>
                         </select>
-                    </div>
-                    <div class="form">
-                        <label>Talles</label>
-                        <div class="checkbox">
-                            <div>
-                                <input type="checkbox" name="talle" value="1" class="size">XS
-                            </div>
-                            <div>
-                                <input type="checkbox" name="talle" value="2" class="size">S
-                            </div>
-                            <div>
-                                <input type="checkbox" name="talle" value="3" class="size">M
-                            </div>
-                            <div>
-                                <input type="checkbox" name="talle" value="4" class="size">L
-                            </div>
-                            <div>
-                                <input type="checkbox" name="talle" value="5" class="size">XL
-                            </div>
+                        <span class="small text-danger">
+                            
+                        </span>
+                        <div class="invalid-feedback">
+                            Debes indicar la categoría
                         </div>
                     </div>
+    
                     <div class="form">
-                        <label>Genero</label>
-                        <select name="genero" id="genero">
-                            <option value="categorias" hidden selected>Elegir Genero</option>
-                            <option value="1">Hombre</option>
-                            <option value="2">Mujer</option>
-                            <option value="3">Unisex</option>
-                        </select>
+                        <label>Talles</label>
+                        <div class="checkbox form-control <%= locals.errors && locals.errors.apellido ? 'is-invalid' : null %>" id="talles" required>
+                            <input type="checkbox" name="talle" value="1" class="size">XS
+                            <input type="checkbox" name="talle" value="2" class="size">S
+                            <input type="checkbox" name="talle" value="3" class="size">M
+                            <input type="checkbox" name="talle" value="4" class="size">L
+                            <input type="checkbox" name="talle" value="5" class="size">XL
+                            <input type="checkbox" name="talle" value="6" class="size">XXL
+                            <input type="checkbox" name="talle" value="7" class="size">Unico
+                            <input type="checkbox" name="talle" value="8" class="size">1
+                            <input type="checkbox" name="talle" value="9" class="size">2
+                            <input type="checkbox" name="talle" value="10" class="size">3
+                            <input type="checkbox" name="talle" value="11" class="size">4
+                            <input type="checkbox" name="talle" value="12" class="size">36
+                            <input type="checkbox" name="talle" value="13" class="size">37
+                            <input type="checkbox" name="talle" value="14" class="size">38
+                            <input type="checkbox" name="talle" value="15" class="size">39
+                            <input type="checkbox" name="talle" value="16" class="size">40
+                            <input type="checkbox" name="talle" value="17" class="size">41
+                            <input type="checkbox" name="talle" value="18" class="size">42
+                            <input type="checkbox" name="talle" value="19" class="size">44
+                            <input type="checkbox" name="talle" value="20" class="size">46
+                            <input type="checkbox" name="talle" value="21" class="size">48
+                        </div>
+                        <span class="small text-danger" id="error-talles">
+
+                        </span>
                     </div>
+    
                 </div>
+    
                 <div class="tercero">
+
                     <div class="form">
+<<<<<<< HEAD
                         <label>Precio</label>
                         <input type="number" name="precio" placeholder="$$$" value= "<%= locals.old && old.precio ? old.precio : '' %>">    
+=======
+                        <label>Imágenes</label>
+                        <input type="file" class="form-control" id="" name="image" accept="image/*" multiple required>
+                        <span class="text-danger">
+                            
+                        </span>
+                        <div class="invalid-feedback">
+                            Debes subir una imagen  
+                        </div>  
+>>>>>>> 7625a399b95a31b74c2da560b057fdbb635b851b
                     </div>
                         
-                    <div class="botones">    
+                    <div class="botones">
+                        <input type="" style="display: none;" >    
                         <button type="submit">Publicar</button>
                         <button type="button">Cerrar</button>
                     </div>
                     
                 </div>
             </form>
+    
+         </div>
+    
+        </div>    
     </main>
     <!--Footer-->
     <%-include('./partials/footer')%> 
     <!--Scripts-->
     <%-include('./partials/scripts')%> 
     
-
+    <script src="/javascripts/validatorForms.js"></script>
     
-
-
     
 </body>
 </html>

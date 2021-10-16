@@ -1,9 +1,15 @@
 /*----MAIN----*/
 .carga-producto main{
     width: 100%;
-    padding-bottom: 15px;
+    padding: 20px 5px;
     background-color: var(--blanco);
 }
+
+.carga-producto main .formulario{
+    border: 3px solid rgb(167, 165, 165);
+    border-radius: 8px;
+}
+
 .carga-producto main h3{
     padding: 20px 20px 0 20px;
     text-transform: uppercase;
@@ -52,6 +58,8 @@
 .carga-producto main .segundo .form .checkbox{
     display: flex;
     flex-direction: column;
+    height: 215px;
+    flex-wrap: wrap;
 }
 .carga-producto main .segundo .form .checkbox .size{
     margin-right: 10px;
@@ -71,7 +79,6 @@
 .carga-producto main .form input{
     padding: 4px;
     color: black;
-    text-align: center;
     border: solid 1px black;
     border-radius: 4px;
 }
@@ -109,6 +116,9 @@
 
 @media (min-width: 768px){
     /*----MAIN----*/
+    .carga-producto main{
+        padding: 50px;
+    }
     .carga-producto main form{
         flex-direction: row;
         flex-wrap: wrap;
