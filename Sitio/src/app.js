@@ -13,7 +13,7 @@ const localUserCheck = require('./middlewares/processLogin');
 
 const indexRouter= require('./routes/index');
 const productsRouter = require('./routes/products');
-var usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
 
 var app = express();
 // view engine setup

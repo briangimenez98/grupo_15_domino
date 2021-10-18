@@ -68,11 +68,9 @@ module.exports = {
                 //Retorna como un array de objetos productos[i].nombre
     },
     createProduct: (req, res) => {
-        res.render('createProduct', {
-            Productos,
-        })
+        res.render('createProduct.ejs', {Productos})
     },
-    createProduct: (req, res) => {
+    addProduct: (req, res) => {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
@@ -89,8 +87,7 @@ module.exports = {
                     talleProducto.create({
                         productoId: producto.id,
                         talleId: talle
-                    })
-                    .then(() => {
+                    }).then(() => {
                         var images = [];
                         var imagenes = req.files.map(imagen => imagen.filename);
                             imagenes.forEach(img => {
@@ -103,11 +100,9 @@ module.exports = {
                         Imagenes.bulkCreate(images, { validate: true })
                             .then(() => {
                                 console.log('imagenes agregadas')
-                            })
+                                return res.redirect("/products")
+                            }).catch(error => console.log(error))
                     })
-                    return res.redirect("/products")
-                }).catch(error => {
-                    console.log(error);
                 })
         } else {
             return res.render("createProduct.ejs", {errors: errors.mapped(), old: req.body})

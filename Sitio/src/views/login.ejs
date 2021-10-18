@@ -13,7 +13,7 @@
                 <h3>Iniciá sesión en Domino</h3>
                     <div class="tengo-cuenta__div">
                         <label for="email">Email</label>
-                        <input class="cien" type="email" id="email" name="email" value= "<%= locals.old && old.email ? old.email : '' %>">
+                        <input class="cien" type="email" id="email" name="email">
 
                         <p class="feedback">
                             <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="tengo-cuenta__div">
                         <label for="contraseña">Contraseña</label>
-                        <input class="cien" type="password" id="password" name="password" value= "<%= locals.old && old.email ? old.email : '' %>">
+                        <input class="cien" type="password" id="password" name="password">
 
                         <p class="feedback">
                             <%= locals.errors && locals.errors.password ? errors.password.msg : null %>

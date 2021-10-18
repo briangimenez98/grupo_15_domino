@@ -1,7 +1,7 @@
 /* Requires */
 var express = require('express');
 var router = express.Router();
-const {index, detalle, carrito, createProduct, editProduct, destroy, edit} = require('../controllers/productsControllers');
+const {index, detalle, carrito, createProduct, editProduct, destroy, edit, addProduct} = require('../controllers/productsControllers');
 const path = require('path');
 
 /* Middlewares */
@@ -30,9 +30,9 @@ router.get('/', index);
 router.get('/detail/:id',detalle);
 router.get('/carrito',carrito);
 router.get('/createProduct',adminMiddleware,createProduct);
-router.post('/createProduct',upload.any('image',4),adminMiddleware,createProduct);
+router.post('/createProduct',upload.any('image',4),adminMiddleware,createValidator,addProduct);
 router.get('/editProduct/:id',adminMiddleware,editProduct);
-router.put('/editProduct/:id',adminMiddleware,edit,createValidator);
+router.put('/editProduct/:id',adminMiddleware,createValidator,edit);
 router.delete('/delete/:id',adminMiddleware,destroy);
 
 module.exports= router;
