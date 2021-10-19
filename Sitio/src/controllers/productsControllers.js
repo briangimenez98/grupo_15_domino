@@ -5,11 +5,12 @@ const {validationResult} = require('express-validator')
 const toThousand = require('../utils/toThousand');
 const Productos = db.Producto;
 const Imagenes = db.Imagen;
+const Talles = db.Talle;
+const talleProducto = db.talles_producto;
+const Categoria = db.Categoria;
+const colorProducto = db.colores_producto;
 
 
-let talleProducto = db.talles_producto;
-let Categoria = db.Categoria;
-let colorProducto = db.colores_producto;
 
 module.exports = {
 
@@ -54,25 +55,30 @@ module.exports = {
             })
     },
     carrito: (req, res) => {
-        Imagenes.findAll({
-            include: [{association: "Producto"}]
-            /* attributes: ['productoId', 'nombre'],
-            group: ['productoId']       */ 
-        })
-            .then(productos => {
-                return res.send(productos)
-            }) 
-                .catch(error => {
-                    console.log(error);
-                })
-                //Retorna como un array de objetos productos[i].nombre
+        Categoria.findAll()
+            .then(categorias => {
+                let array = []
+                for (let i = 0; i < categorias.length; i++) {
+                    array.push(i+1)
+                }
+                return res.json(array)
+            })
     },
     createProduct: (req, res) => {
-        res.render('createProduct.ejs', {Productos})
+        Productos.findAll()
+            .then(productos => {
+                Talles.findAll()
+                    .then(talles => {
+                        Categoria.findAll()
+                            .then(categorias => {
+                                return res.render("construction.ejs")
+                                return res.render("createProduct.ejs", {productos, talles, categorias})
+                            })
+                    })
+            })
     },
     addProduct: (req, res) => {
         let errors = validationResult(req);
-
         if(errors.isEmpty()){
             const {nombre, descripcion,categoria,talle,genero,precio} = req.body;
             Productos.create({
@@ -84,10 +90,20 @@ module.exports = {
                 idCategoria: categoria,
                 idGeneros: genero
             }).then(producto => {
+                    /* let arrayTalles = [];
+                    for (let i = 0; i < talle.length; i++) {
+                        let talles = {
+                            productoId: producto.id,
+                            talleId: talle[i]
+                        }
+                        array.push(talles)
+                    }
+                    talleProducto.bulkCreate(arrayTalles, { validate: true }) */
                     talleProducto.create({
                         productoId: producto.id,
                         talleId: talle
-                    }).then(() => {
+                    })
+                        .then(() => {
                         var images = [];
                         var imagenes = req.files.map(imagen => imagen.filename);
                             imagenes.forEach(img => {
@@ -104,9 +120,20 @@ module.exports = {
                             }).catch(error => console.log(error))
                     })
                 })
-        } else {
-            return res.render("createProduct.ejs", {errors: errors.mapped(), old: req.body})
-        }
+        }/* else {
+            return res.send({errors: errors.mapped()})
+        }  *//* else {
+            Productos.findAll()
+            .then(productos => {
+                Talles.findAll()
+                    .then(talles => {
+                    Categoria.findAll()
+                        .then(categorias => {
+                            return res.render("createProduct.ejs", {errors: errors.mapped(), old: req.body, productos, categorias, talles})
+                        })
+                    })
+                })
+        } */
     },
     editProduct: (req, res) => {
         Productos.findByPk(req.params.id, {
@@ -114,9 +141,15 @@ module.exports = {
             {association: "Colores"}, 
             {association: "Genero"}, 
             {association:"Talles"}]
-        })
-            .then(producto => {
-                return res.render('editProduct.ejs', {producto, Productos})
+        }).then(producto => {
+                Talles.findAll()
+                    .then(talles => {
+                        Categoria.findAll()
+                            .then(categorias => {
+                                return res.render("construction.ejs")
+                                return res.render("editProduct.ejs", {producto, talles, categorias})
+                            })
+                    })
             })
     },
     edit : (req, res) => {
@@ -142,6 +175,8 @@ module.exports = {
             }).catch(error => {
                 console.log(error);
             })
+        } else {
+            return res.render('editProduct.ejs', {errors: errors.mapped(), old: req.body})
         }
     },
 

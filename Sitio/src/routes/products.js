@@ -30,9 +30,9 @@ router.get('/', index);
 router.get('/detail/:id',detalle);
 router.get('/carrito',carrito);
 router.get('/createProduct',adminMiddleware,createProduct);
-router.post('/createProduct',upload.any('image',4),adminMiddleware,createValidator,addProduct);
+router.post('/createProduct',upload.any('image',4),adminMiddleware,addProduct,createValidator,);
 router.get('/editProduct/:id',adminMiddleware,editProduct);
-router.put('/editProduct/:id',adminMiddleware,createValidator,edit);
+router.put('/editProduct/:id',adminMiddleware,edit);
 router.delete('/delete/:id',adminMiddleware,destroy);
 
 module.exports= router;

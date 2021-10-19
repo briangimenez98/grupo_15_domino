@@ -74,19 +74,9 @@
                         <label>Categoría</label>
                         <select class="form-select" name="categoria" id="categorias" required>
                             <option value="" hidden selected>Elegir Categoria</option>
-                            <option value="1">Remeras</option>
-                            <option value="2">Camperas</option>
-                            <option value="3">Pantalones</option>
-                            <option value="4">Camisetas</option>
-                            <option value="5">Zapatillas</option>
-                            <option value="6">Shorts</option>
-                            <option value="7">Gorras</option>
-                            <option value="8">Bolsos</option>
-                            <option value="9">Riñoneras</option>
-                            <option value="10">Mochilas</option>
-                            <option value="11">Conjuntos</option>
-                            <option value="12">Sweaters</option>
-                            <option value="13">Buzos</option>
+                            <% for( let i = 0; i < categorias.length; i++ ) { %>
+                                <option value="<%=i+1%>"><%= categorias[i].nombre %></option>
+                            <% } %>
                         </select>
                         <span class="small text-danger">
                             
@@ -98,28 +88,11 @@
     
                     <div class="form">
                         <label>Talles</label>
+                         
                         <div class="checkbox form-control <%= locals.errors && locals.errors.apellido ? 'is-invalid' : null %>" id="talles" required>
-                            <input type="checkbox" name="talle" value="1" class="size">XS
-                            <input type="checkbox" name="talle" value="2" class="size">S
-                            <input type="checkbox" name="talle" value="3" class="size">M
-                            <input type="checkbox" name="talle" value="4" class="size">L
-                            <input type="checkbox" name="talle" value="5" class="size">XL
-                            <input type="checkbox" name="talle" value="6" class="size">XXL
-                            <input type="checkbox" name="talle" value="7" class="size">Unico
-                            <input type="checkbox" name="talle" value="8" class="size">1
-                            <input type="checkbox" name="talle" value="9" class="size">2
-                            <input type="checkbox" name="talle" value="10" class="size">3
-                            <input type="checkbox" name="talle" value="11" class="size">4
-                            <input type="checkbox" name="talle" value="12" class="size">36
-                            <input type="checkbox" name="talle" value="13" class="size">37
-                            <input type="checkbox" name="talle" value="14" class="size">38
-                            <input type="checkbox" name="talle" value="15" class="size">39
-                            <input type="checkbox" name="talle" value="16" class="size">40
-                            <input type="checkbox" name="talle" value="17" class="size">41
-                            <input type="checkbox" name="talle" value="18" class="size">42
-                            <input type="checkbox" name="talle" value="19" class="size">44
-                            <input type="checkbox" name="talle" value="20" class="size">46
-                            <input type="checkbox" name="talle" value="21" class="size">48
+                            <% for( let i = 0; i < talles.length; i++ ) { %>
+                                <input type="checkbox" name="talle" value="<%=i+1%>" class="size"><%= talles[i].talle %>
+                            <% } %>
                         </div>
                         <span class="small text-danger" id="error-talles">
 
@@ -159,7 +132,7 @@
     <!--Scripts-->
     <%-include('./partials/scripts')%> 
     
-    <script src="/javascripts/validatorForms.js"></script>
+    <!-- <script src="/javascripts/validatorForms.js"></script> -->
     
     
 </body>

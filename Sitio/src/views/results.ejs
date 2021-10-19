@@ -12,37 +12,27 @@
             <h4>Resultado de la búsqueda: <%= buscador %> </h3>
         </div>
         
-        <% if (results.length > 0) { %>
+        <% if (productos.length > 0) { %>
 
             <section>
-                <% results.forEach(producto => { %>
+                <% for( let j = 0; j < imagenes.length; j++ ) { %>
                     <article>
-                        <a href="/products/detail/ <%= results.id %> "><img src="/img/products<%= results %>" alt=""></a>
+                        <a href="/products/detail/<%= imagenes[j].Producto.id %>">
+                                <img src="/img/products/<%= imagenes[j].nombre %>" alt="">
+                        </a>
                         <div class="datos">
                             <div class="caja1">
-                                <a href="/products/detail/ <%= producto.id %> ">
+                                <a href="/products/detail/ <%= imagenes[j].Producto.id %> ">
                                     <h4>
-                                        <%= producto.name %>
+                                        <%= imagenes[j].Producto.nombre %>
                                     </h4>
                                 </a>                            
-                                <p>$ <%= toThousand(producto.price) %>
+                                <p>$ <%= imagenes[j].Producto.precio.toFixed(2) %>
                                 </p>
-                            </div>
-                            <div class="caja2">
-                                <div>
-                                    <div class="color-circle" style=<%='background-color:' +
-                                        producto.colors[0] %>></div>
-                                    <div class="color-circle" style=<%='background-color:' +
-                                        producto.colors[1] %>></div>
-                                    <div class="color-circle" style=<%='background-color:' +
-                                        producto.colors[2] %>></div>
-                                </div>
-                                <div class="heart"><i class="far fa-heart"></i></div>
                             </div>
                         </div>
                     </article>
-    
-                <% }) %>   
+                <% } %>   
             </section> 
 
         <% } else { %>
