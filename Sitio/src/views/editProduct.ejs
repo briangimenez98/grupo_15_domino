@@ -58,7 +58,7 @@
                                 <div class="form">
                                     <label>Genero</label>
                                     <select class="form-select" name="genero" id="genero" required>
-                                        <option value="categorias" hidden selected>
+                                        <option value="<%=producto.Genero.id%>" hidden selected>
                                             <%= producto.Genero.genero %>
                                         </option>
                                         <option value="1">Hombre</option>
@@ -79,7 +79,7 @@
                                 <div class="form">
                                     <label>Categoria</label>
                                     <select class="form-select" name="categoria" id="categorias" required>
-                                        <option value="select" hidden selected>
+                                        <option value="<%=producto.Categoria.id%>" hidden selected>
                                             <%= producto.Categoria.nombre %>
                                         </option>
                                         <% for( let i = 0; i < categorias.length; i++ ) { %>
@@ -99,7 +99,7 @@
 
                                     <div class="checkbox form-control <%= locals.errors && locals.errors.apellido ? 'is-invalid' : null %>" id="talles" required>
                                         <% for( let i = 0; i < talles.length; i++ ) { %>
-                                            <input type="checkbox" name="talle" value="<%- i+1 %>" class="size"><%= talles[i].talle %>
+                                            <input type="checkbox" name="talle" value="<%= i+1 %>" class="size"><%= talles[i].talle %>
                                         <% } %>
                                     </div>
                                     <span class="small text-danger" id="error-talles">
@@ -113,8 +113,7 @@
 
                                 <div class="form">
                                     <label>Imagen</label>
-                                    <input type="file" class="form-control" id="" name="image" accept="image/*"
-                                        multiple>
+                                    <input type="file" class="form-control" id="" name="image" accept="image/*" multiple >
                                     <span class="text-danger">
 
                                     </span>
