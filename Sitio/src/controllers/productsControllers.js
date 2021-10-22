@@ -55,14 +55,10 @@ module.exports = {
             })
     },
     carrito: (req, res) => {
-        Categoria.findAll()
-            .then(categorias => {
-                let array = []
-                for (let i = 0; i < categorias.length; i++) {
-                    array.push(i+1)
-                }
-                return res.json(array)
-            })
+        Productos.findAll({
+            include: [{association: "Genero"}, {association:"Categoria"}]
+        })
+            .then(productos => res.json(productos))
     },
     createProduct: (req, res) => {
         Productos.findAll()
@@ -71,7 +67,7 @@ module.exports = {
                     .then(talles => {
                         Categoria.findAll()
                             .then(categorias => {
-                                return res.render("construction.ejs")
+                                /* return res.render("construction.ejs") */
                                 return res.render("createProduct.ejs", {productos, talles, categorias})
                             })
                     })
@@ -90,39 +86,34 @@ module.exports = {
                 idCategoria: categoria,
                 idGeneros: genero
             }).then(producto => {
-                    /* let arrayTalles = [];
-                    for (let i = 0; i < talle.length; i++) {
-                        let talles = {
-                            productoId: producto.id,
-                            talleId: talle[i]
-                        }
-                        array.push(talles)
-                    }
-                    talleProducto.bulkCreate(arrayTalles, { validate: true }) */
-                    talleProducto.create({
+                let arrayT = [];
+                for (let j = 0; j < talle.length; j++) {
+                    let talles = {
                         productoId: producto.id,
-                        talleId: talle
-                    })
-                        .then(() => {
-                        var images = [];
-                        var imagenes = req.files.map(imagen => imagen.filename);
-                            imagenes.forEach(img => {
-                                var image = {
-                                    nombre: img,
-                                    productoId: producto.id
-                                }
-                                images.push(image)
-                                })
-                        Imagenes.bulkCreate(images, { validate: true })
+                        talleId: talle[j]
+                    }
+                    arrayT.push(talles)
+                }
+                talleProducto.bulkCreate(arrayT,{validate:true})
+                    .then(() => {
+                    var images = [];
+                    var imagenes = req.files.map(imagen => imagen.filename);
+                        imagenes.forEach(img => {
+                            var image = {
+                                nombre: img,
+                                productoId: producto.id
+                            }
+                            images.push(image)
+                            })
+                    Imagenes.bulkCreate(images, { validate: true })
                             .then(() => {
                                 console.log('imagenes agregadas')
                                 return res.redirect("/products")
                             }).catch(error => console.log(error))
                     })
                 })
-        }/* else {
-            return res.send({errors: errors.mapped()})
-        }  *//* else {
+        } else {
+            return res.send(errors)
             Productos.findAll()
             .then(productos => {
                 Talles.findAll()
@@ -133,9 +124,10 @@ module.exports = {
                         })
                     })
                 })
-        } */
+        }
     },
     editProduct: (req, res) => {
+        return res.render("construction.ejs")
         Productos.findByPk(req.params.id, {
             include: [{association: "Categoria"}, 
             {association: "Colores"}, 
@@ -146,14 +138,18 @@ module.exports = {
                     .then(talles => {
                         Categoria.findAll()
                             .then(categorias => {
-                                return res.render("construction.ejs")
-                                return res.render("editProduct.ejs", {producto, talles, categorias})
+                                Imagenes.findAll({
+                                    where: {productoId: req.params.id}
+                                }).then(imagenes => {
+                                    return res.render("editProduct.ejs", {producto, talles, categorias, imagenes})
+                                })
                             })
                     })
             })
     },
     edit : (req, res) => {
         let errors = validationResult(req);
+        const {talle} = req.body;
 
         if(errors.isEmpty()){
             Productos.update({
@@ -165,18 +161,35 @@ module.exports = {
             }, {
                 where: {id: req.params.id}
             }).then(producto => {
-                talleProducto.update({
-                    productoId: producto.id,
-                    talleId: req.body.talle ? req.body.talle : talleProducto.talleId
-                }, {
-                    where: {productoId: producto.id}
-                })
-                return res.redirect("/products")
-            }).catch(error => {
-                console.log(error);
+                let tallesArray = [];
+                for (let j = 0; j < talle.length; j++) {
+                    tallesArray.push(talle)
+                }
+                for (let i = 0; i < tallesArray.length; i++) {
+                    talleProducto.update({
+                        productoId: producto.id,
+                        talleId: tallesArray[i] ? tallesArray[i] : talleProducto.talle
+                    },{
+                        where:{productoId: req.params.id}
+                    })
+                }
+                return res.send("Success")
             })
         } else {
-            return res.render('editProduct.ejs', {errors: errors.mapped(), old: req.body})
+            Productos.findByPk(req.params.id, {
+                include: [{association: "Categoria"}, 
+                {association: "Colores"}, 
+                {association: "Genero"}, 
+                {association:"Talles"}]
+            }).then(producto => {
+                    Talles.findAll()
+                        .then(talles => {
+                            Categoria.findAll()
+                                .then(categorias => {
+                                    return res.render("editProduct.ejs", {producto, talles, categorias, errors: errors.mapped(), old: req.body})
+                                })
+                        })
+                })
         }
     },
 

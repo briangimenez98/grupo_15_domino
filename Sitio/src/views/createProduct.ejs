@@ -18,9 +18,9 @@
     
                     <div class="form">
                         <label>Nuevo producto</label>
-                        <input type="text" class="form-control" name="nombre" required>
+                        <input type="text" class="form-control" name="nombre" value= "<%= locals.old && old.nombre ? old.nombre : '' %>" required >
                         <span class="small text-danger">
-                            
+                            <%= locals.errors && locals.errors.nombre ? errors.nombre.msg : null %>
                         </span>
                         <div class="invalid-feedback">
                         Debes colocar un nombre
