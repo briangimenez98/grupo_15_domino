@@ -23,28 +23,23 @@ module.exports = {
         });
     },
     search : (req, res) => {
-        
         Productos.findAll({
-            where: {
-                [Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]
+            where: {[Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]}
+        }).then(productos => {
+            let array = [];
+            for (let i = 0; i < productos.length; i++) {
+                var productoId = productos[i].id;
+                array.push(productoId)
             }
-            
-        }).then( producto => {
-
-            let productos = producto.id;
-
-            return res.json(productos)
             Imagenes.findAll({
-                include:[{association: "Producto"}],
+                where: { productoId : array},
+                attributes: ['productoId', 'nombre'],
+                group: ['productoId'],
+                include: [{association: "Producto"}]
             })
-        }).catch(error => console.log(error));
-        
-
-        /* let results = productos.filter(producto => producto.name.toLowerCase().includes(req.query.buscador.toLowerCase().trim()));
-        return res.render('results', {
-            results,
-            toThousand,
-            buscador : req.query.buscador.trim()
-        }); */
-    },
+                .then(imagenes => {
+                    return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim()})
+                }) 
+        })
+    }
 }
