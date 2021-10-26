@@ -1,44 +1,94 @@
 const $ = id => document.getElementById(id);
 
+let regExLetter = /^[A-Z]+$/i;
 let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
 
 
 window.addEventListener('load', () => {
 
+    let listEmails;
+    const emailVerify = async() =>{
+    try {
+        const response = await fetch("http://localhost:3000/api/users/emails");
+        const result = await response.json();
+        console.log(result)
+        return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    emailVerify().then(array =>{
+        listEmails = array
+    })
+
+   
 
     /* validaciones */
-
+    
     $('nombre').addEventListener('blur', () => {
-        if(!$('nombre').value.trim()){
-            $('nombre').classList.add('is-invalid')
-            $('error-nombre').innerHTML = "Debes poner un nombre"
-        }else{
-            $('nombre').classList.remove('is-invalid')
-            $('nombre').classList.add('is-valid')
-            $('error-nombre').innerHTML = null
+       
+        switch (true) {
+            case !$('nombre').value.trim():
+                $('nombre').classList.add('is-invalid')    
+                $('error-nombre').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner un nombre</span>"
+                break;
+            case $('nombre').value.trim().length < 2 || $('nombre').value.trim().length > 50 :
+                $('nombre').classList.add('is-invalid')    
+                $('error-nombre').innerText = "Debe tener entre 2 y 50 caracteres"
+                break;
+            case !regExLetter.test($('nombre').value.trim()):
+                $('nombre').classList.add('is-invalid')    
+                $('error-nombre').innerText = "Solo caracteres alfabéticos"
+                break;
+            default:
+                $('nombre').classList.remove('is-invalid')
+                $('nombre').classList.add('is-valid')
+                $('error-nombre').innerText = null
+                break;
         }
     })
 
     $('apellido').addEventListener('blur', () => {
-        if(!$('apellido').value.trim()){
-            $('apellido').classList.add('is-invalid')
-            $('error-apellido').innerHTML = "Debes poner un apellido"
-        }else{
-            $('apellido').classList.remove('is-invalid')
-            $('apellido').classList.add('is-valid')
-            $('error-apellido').innerHTML = null
+        
+        switch (true) {
+            case !$('apellido').value.trim():
+                $('apellido').classList.add('is-invalid')    
+                $('error-apellido').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner un apellido</span>"
+                break;
+            case $('apellido').value.trim().length < 2 || $('apellido').value.trim().length > 50 :
+                $('apellido').classList.add('is-invalid')    
+                $('error-apellido').innerText = "Debe tener entre 2 y 50 caracteres"
+                break;
+            case !regExLetter.test($('apellido').value.trim()):
+                $('apellido').classList.add('is-invalid')    
+                $('error-apellido').innerText = "Solo caracteres alfabéticos"
+                break;
+            default:
+                $('apellido').classList.remove('is-invalid')
+                $('apellido').classList.add('is-valid')
+                $('error-apellido').innerText = null
+                break;
         }
     })
 
-    $('email').addEventListener('blur', () => {
-        if(!regExEmail.test($('email').value)){
-            $('email').classList.add('is-invalid')
-            $('error-email').innerHTML = "Debes ingresar un email válido"
-        }else{
-            $('email').classList.remove('is-invalid')
-            $('email').classList.add('is-valid')
-            $('error-email').innerHTML = null
+    $('email').addEventListener('blur', async () => {
+
+        switch (true) {
+            case !regExEmail.test($('email').value):
+                $('email').classList.add('is-invalid')    
+                $('error-email').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes ingresar un email válido</span>"
+                break;
+            case await listEmails.includes($('email').value.trim()) :
+                $('email').classList.add('is-invalid')    
+                $('error-email').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> El email ya esta registrado</span>"
+                break;
+            default:
+                $('email').classList.remove('is-invalid')
+                $('email').classList.add('is-valid')
+                $('error-email').innerHTML = null
+                break;
         }
     })
 
@@ -50,7 +100,7 @@ window.addEventListener('load', () => {
     $('contraseña').addEventListener('blur', () => {
         if(!regExPass.test($('contraseña').value)){
             $('contraseña').classList.add('is-invalid')
-            $('error-contraseña').innerHTML = "La contraseña debe cumplir con estándares"
+            $('error-contraseña').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner un nombre</span>"
         }else{
             $('contraseña').classList.remove('is-invalid')
             $('contraseña').classList.add('is-valid')
@@ -61,7 +111,7 @@ window.addEventListener('load', () => {
     $('birthday').addEventListener('blur', () => {
         if(!$('birthday').value){
             $('birthday').classList.add('is-invalid')
-            $('error-birthday').innerHTML = "Debes poner una fecha de nacimiento"
+            $('error-birthday').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner una fecha de nacimiento</span>"
         }else{
             $('birthday').classList.remove('is-invalid')
             $('birthday').classList.add('is-valid')
@@ -88,14 +138,14 @@ $('form-register').addEventListener('submit', e => {
         
         if(!elementosForm[i].value){
             elementosForm[i].classList.add('is-invalid')
-            $('error-empty').innerHTML = 'Los campos señalados son obligatorios';
+            $('error-empty').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Los campos señalados son obligatorios</span>";
             error = true
         }
     }
 
     if(!$('acepta').checked){
         $('acepta').classList.add('is-invalid')
-        $('error-acepta').innerHTML = "Debes aceptar los términos y condiciones";
+        $('error-acepta').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes aceptar los términos y condiciones</span>";
         error = true
     }
     if(!error){
