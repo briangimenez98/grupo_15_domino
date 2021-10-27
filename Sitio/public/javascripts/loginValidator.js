@@ -7,10 +7,15 @@ window.addEventListener('load', () => {
 
     /*validaciones*/
     $('email').addEventListener('blur', () => {
-        if(!regExEmail.test($('email').value)){
+        if(!$('email').value.trim()){
             $('email').classList.add('is-invalid')
             $('error-email').innerHTML = "Debes ingresar un Email"
-        }else{
+        }
+        if (!regExEmail.test($('email').value)){
+            $('email').classList.add('is-invalid')
+            $('error-email').innerHTML = "Debes ingresar un Email valido"
+        }
+        else{
             $('email').classList.remove('is-invalid')
             $('email').classList.add('is-valid')
             $('error-email').innerHTML = null
@@ -18,9 +23,13 @@ window.addEventListener('load', () => {
     })
 
     $('password').addEventListener('blur', () => {
-        if(!regExPass.test($('password').value)){
+        if(!$('password').value.trim()){
             $('password').classList.add('is-invalid')
-            $('error-password').innerHTML = "Debes ingresar una contraseña correcta"
+            $('error-password').innerHTML = "Debes ingresar una contraseña"
+        }
+        if(!regExPass.test($('password').value)){
+            $('email').classList.add('is-invalid')
+            $('error-email').innerHTML = "Debes ingresar una contraseña valida"
         }else{
             $('password').classList.remove('is-invalid')
             $('password').classList.add('is-valid')
@@ -35,7 +44,8 @@ window.addEventListener('load', () => {
 
     let elementosForm = $('form-login').elements;
     let error = false;
-    for (let i = 0; i < elementosForm.length - 2; i++) {
+
+    for (let i = 0; i < elementosForm.length - 4; i++) {
         
         if(!elementosForm[i].value){
             elementosForm[i].classList.add('is-invalid')
@@ -43,10 +53,12 @@ window.addEventListener('load', () => {
             error = true
         }
     }
+    if(!error){
+        $('error-empty').innerHTML = null;
+        $('form-login').submit();
+    }
+
     })
-
-
-
 
 
 
