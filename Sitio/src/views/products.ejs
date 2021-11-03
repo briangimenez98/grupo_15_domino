@@ -24,7 +24,7 @@
                                 <div class="date2">
                                     <a href="/products/editProduct/<%= imagenes[j].Producto.id %>"><button type="button" class="edit">Editar</button></a>
                                     <form action="/products/delete/<%= imagenes[j].Producto.id %>?_method=DELETE" method="POST">
-                                        <button type="submit" class="delete">Eliminar</button>
+                                        <button type="submit" class="delete" onclick="EventoAlert()">Eliminar</button>
                                     </form>
                                 </div>
                             </div>
@@ -41,5 +41,38 @@
 
 <!--Scripts-->
 <%-include('./partials/scripts')%>     
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    
+    function EventoAlert(){
+        event.preventDefault();
+        var form = event.target.form;
+        Swal.fire({
+            title: '¿Seguro que deseas eliminar el producto?',
+            html: `<p class="rojo">¡No podrás revertir los cambios!</p>`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'ELIMINAR',
+            cancelButtonText: 'CANCELAR',
+            padding: '10px 15px 50px'
+        }).then((result) => {
+            if (result.isConfirmed){
+                form.submit();
+                Swal.fire(
+                'ELIMINADO!',
+                'El producto ha sido eliminado',
+                'success',
+                )
+            }
+        })
+    }
+
+</script>
+
+
 </body>
 </html>

@@ -14,6 +14,7 @@ const localUserCheck = require('./middlewares/processLogin');
 const indexRouter= require('./routes/index');
 const productsRouter = require('./routes/products');
 const usersRouter = require('./routes/users');
+const vistasRouter = require('./routes/vistas');
 
 var app = express();
 // view engine setup
@@ -39,6 +40,7 @@ app.use(localUserCheck);
 app.use('/',indexRouter)
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/vistas', vistasRouter);
 
 app.use('/api/users',require('./routes/api/users'));
 

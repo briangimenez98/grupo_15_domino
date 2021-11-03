@@ -78,7 +78,7 @@ window.addEventListener('load', () => {
         switch (true) {
             case !regExEmail.test($('email').value):
                 $('email').classList.add('is-invalid')    
-                $('error-email').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes ingresar un email válido</span>"
+                $('error-email').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner un email válido</span>"
                 break;
             case await listEmails.includes($('email').value.trim()) :
                 $('email').classList.add('is-invalid')    
@@ -93,14 +93,14 @@ window.addEventListener('load', () => {
     })
 
     $('contraseña').addEventListener('focus', () => {
-        $('error-contraseña').innerHTML = "La contraseña debe tener entre 6 y 15 caractres, un número y una mayúscula"
+        $('error-contraseña').innerHTML = "<span style='color: gray'>La contraseña debe tener entre 6 y 15 caractres, un número y una mayúscula</span>"
 
     })
 
     $('contraseña').addEventListener('blur', () => {
         if(!regExPass.test($('contraseña').value)){
             $('contraseña').classList.add('is-invalid')
-            $('error-contraseña').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner un nombre</span>"
+            $('error-contraseña').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner una contraseña</span>"
         }else{
             $('contraseña').classList.remove('is-invalid')
             $('contraseña').classList.add('is-valid')

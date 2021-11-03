@@ -11,41 +11,41 @@
             <div class="primero">
                 <section class="datos-personales">
                     <h3>¡Completa tus datos!</h3>
-                    <p id="error-empty" class="text-danger"></p>
+                    <p id="error-empty" class="feedback"></p>
                     <form action="./register" method="POST" id="form-register">
                         <section class="datos">
                             <div>
                                 <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %> " id="nombre" name="nombre" value= "<%= locals.old && locals.old.nombre ? old.nombre : null%>">
-                                <p class="feedback" id="error-nombre">
+                                <p class="text-danger" id="error-nombre">
                                     <%= locals.errors && locals.errors.nombre ? errors.nombre.msg : null %>
                                 </p>
                             </div>
                             <div>
                                 <label for="apellido">Apellido</label>
                                 <input type="text" class="form-control <%= locals.errors && locals.errors.apellido ? 'is-invalid' : null %> " id="apellido" name="apellido" value= "<%= locals.old && locals.old.apellido ? old.apellido : null%>">
-                                <p class="feedback" id="error-apellido">
+                                <p class="text-danger" id="error-apellido">
                                     <%= locals.errors && locals.errors.apellido ? errors.apellido.msg : null %>
                                 </p>
                             </div>
                             <div>
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control <%= locals.errors && locals.errors.email ? 'is-invalid' : null %> " id="email" name="email">
-                                <p class="feedback" id="error-email">
+                                <p class="text-danger" id="error-email">
                                     <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
                                 </p>
                             </div>
                             <div>
                                 <label for="contraseña">Contraseña</label>
                                 <input type="password" class="form-control <%= locals.errors && locals.errors.password ? 'is-invalid' : null %> " id="contraseña" name="password">
-                                <p class="feedback" id="error-contraseña">
+                                <p class="text-danger" id="error-contraseña">
                                     <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
                                 </p>
                             </div>
                             <div class="birthday">
                                 <label for="birthday">Fecha de Nacimiento</label>
                                 <input type="date" class="form-control <%= locals.errors && locals.errors.birthday ? 'is-invalid' : null %> " name="birthday" id="birthday">
-                                <p class="feedback" id="error-birthday"></p>
+                                <p class="text-danger" id="error-birthday"></p>
                             </div>
                         </section>
                         <div class="checkbox">
@@ -59,7 +59,7 @@
                             <p>
                                 <input type="checkbox" name="terminos" class="form-check-input <%= locals.errores && locals.errores.acepta ? 'is-invalid' : null %>" id="acepta">
                                 Acepto los <a href="">Términos y Condiciones</a> 
-                                <p class="feedback" id="error-acepta">
+                                <p class="text-danger" id="error-acepta">
                                     <%= locals.errors && locals.errors.terminos ? errors.terminos.msg : null %>
                                 </p>
                             </p>
