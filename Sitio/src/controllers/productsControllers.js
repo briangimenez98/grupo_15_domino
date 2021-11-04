@@ -55,12 +55,6 @@ module.exports = {
                 .catch(error => console.log(error))
             })
     },
-    carrito: (req, res) => {
-        Productos.findAll({
-            include: [{association: "Genero"}, {association:"Categoria"}]
-        })
-            .then(productos => res.json(productos))
-    },
     createProduct: (req, res) => {
         Productos.findAll()
             .then(productos => {
@@ -126,6 +120,18 @@ module.exports = {
                     }
                 await Imagenes.bulkCreate(images, { validate: true })
                 return res.redirect('/products') //Redirigimos al usuario a lista de productos...
+            } else {
+                Productos.findAll()
+                    .then(productos => {
+                Talles.findAll()
+                    .then(talles => {
+                        Categoria.findAll()
+                            .then(categorias => {
+                                /* return res.render("construction.ejs") */
+                                return res.render("createProduct.ejs", {productos, talles, categorias, errors: errors.mapped(), old: req.body})
+                            })
+                    })
+            })
             }
         } catch (error) {
             console.log(error);
@@ -192,31 +198,6 @@ module.exports = {
                     })
 
                     await talleProducto.bulkCreate(arrayTalle, {validate: true})
-
-                    
-                    /* let arrayDB = await talleProducto.findAll({
-                        where: {productoId: req.params.id}
-                    })
-
-                    for (let j = 0; j < req.body.talle.length; j++) {
-                        for (let i = 0; i < arrayDB.length; i++) {
-                            arrayDB[i].productoId = producto.id
-                            arrayDB[i].talleId = req.body.talle[j]
-                        }
-                        await talleProducto.bulkCreate(arrayDB, {validate: true})
-                    } */
-                    /* reqTalles.map(obj => {
-                        obj.talleId = req.body.talle
-                    })
-
-                    let reqBodyArray = []; 
-                    req.body.talle.forEach(t => { 
-                        let talles = {
-                            productoId: producto.id,
-                            talleId: t
-                        }
-                        reqBodyArray.push(talles)
-                    }); */     
                 }
                 return res.redirect('/products/')
             } else {
@@ -258,23 +239,6 @@ module.exports = {
     },
 
     showCategories: async (req,res) => {
-        Productos.findAll({
-            where: {[Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]}
-        }).then(productos => {
-            let array = [];
-            for (let i = 0; i < productos.length; i++) {
-                var productoId = productos[i].id;
-                array.push(productoId)
-            }
-            Imagenes.findAll({
-                where: { productoId : array},
-                attributes: ['productoId', 'nombre'],
-                group: ['productoId'],
-                include: [{association: "Producto"}]
-            })
-                .then(imagenes => {
-                    return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim()})
-                }) 
-        })
-    }
+        return res.render('construction.ejs')
+    } 
 }

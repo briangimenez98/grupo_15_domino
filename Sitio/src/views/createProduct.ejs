@@ -29,10 +29,9 @@
     
                     <div class="form">
                         <label>Descripción del producto</label>
-                        <textarea class="form-control" id="" name="descripcion"
-                        required></textarea>
+                        <textarea class="form-control" id="" name="descripcion" value= "<%= locals.old && old.nombre ? old.nombre : '' %>" required></textarea>
                         <span class="small text-danger">
-                        
+                            <%= locals.errors && locals.errors.descripcion ? errors.descripcion.msg : null %>
                         </span>
                         <div class="invalid-feedback">
                         Debes escribir una descripción
@@ -40,13 +39,16 @@
                     </div>
                     <div class="form">
                         <label>Descuento</label>
-                        <input type="number" class="form-control" name="descuento" placeholder="%%%" required>
+                        <input type="number" class="form-control" name="descuento" placeholder="Tu Descuento"  value= "<%= locals.old && old.descuento ? old.descuento : 0 %>" required>
+                        <span class="small text-danger">
+                            <%= locals.errors && locals.errors.descuento ? errors.descuento.msg : null %>
+                        </span>
                     </div>
                     <div class="form">
                         <label>Precio</label>
-                        <input type="number" class="form-control" name="precio" placeholder="$$$" required> 
+                        <input type="number" class="form-control" name="precio" placeholder="$$$" value= "<%= locals.old && old.precio ? old.precio : 0 %>" required> 
                         <span class="small text-danger">
-                            
+                            <%= locals.errors && locals.errors.precio ? errors.precio.msg : null %>
                         </span>
                         <div class="invalid-feedback">
                             El precio es obligatorio
@@ -129,7 +131,7 @@
     <!--Scripts-->
     <%-include('./partials/scripts')%> 
     
-    <script src="/javascripts/validatorForms.js"></script>
+    <!-- <script src="/javascripts/validatorForms.js"></script> -->
     
     
 </body>

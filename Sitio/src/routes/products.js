@@ -26,7 +26,6 @@ const upload = multer({storage});
 
 router.get('/',adminMiddleware,index);
 router.get('/detail/:id',detalle);
-router.get('/carrito',carrito);
 router.get('/createProduct',adminMiddleware,createProduct);
 router.post('/createProduct',upload.any('image',4),adminMiddleware,createValidator,addProduct);
 router.get('/editProduct/:id',adminMiddleware,editProduct);

@@ -7,6 +7,10 @@ module.exports = [
     check("descripcion")
         .notEmpty().withMessage("¡Debes escribir algo sobre el producto!")
         .isLength({max:200}).withMessage("¡La descripción es muy larga!"),
+    check('descuento')
+        .notEmpty().withMessage("¡Poné un descuento al producto!")
+        .isNumeric().withMessage("Debe ser un numero")
+        ,
     check("categoria")
         .notEmpty().withMessage("Debes seleccionar una categoria."),
     check("talle")
@@ -14,5 +18,6 @@ module.exports = [
     check("genero")
         .notEmpty().withMessage("Selecciona un género."),
     check("precio")
-        .notEmpty().withMessage("Debes poner algún precio."),
+        .notEmpty().withMessage("Debes poner algún precio.")
+        .isNumeric().withMessage("Debe ser un numero"),
 ]
