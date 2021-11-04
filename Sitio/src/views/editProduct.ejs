@@ -42,7 +42,10 @@
                                         Debes escribir una descripción
                                     </div>
                                 </div>
-
+                                <div class="form">
+                                    <label>Descuento</label>
+                                    <input type="number" value="<%= producto.descuento %>" class="form-control" name="descuento" placeholder="%%%" required>
+                                </div>
                                 <div class="form">
                                     <label>Precio</label>
                                         <input type="number" class="form-control" name="precio"
@@ -97,9 +100,9 @@
                                 <div class="form">
                                     <label>Talles</label>
 
-                                    <div class="checkbox form-control <%= locals.errors && locals.errors.apellido ? 'is-invalid' : null %>" id="talles" required>
+                                    <div class="checkbox form-control <%= locals.errors && locals.errors.talle ? 'is-invalid' : null %>" id="talles" required>
                                         <% for( let i = 0; i < talles.length; i++ ) { %>
-                                            <input type="checkbox" name="talle" value="<%= i+1 %>" class="size"><%= talles[i].talle %>
+                                            <input type="checkbox" name="talle" value="<%=i+1 %>" class="size"><%= talles[i].talle %>
                                         <% } %>
                                     </div>
                                     <span class="small text-danger" id="error-talles">

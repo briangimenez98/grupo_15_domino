@@ -1,15 +1,16 @@
 const db = require('../database/models');
-const Op = db.Sequelize.Op;
-const Sequelize = require('sequelize');
 const {validationResult} = require('express-validator')
 const toThousand = require('../utils/toThousand');
+const fs = require('fs')
+const path = require('path');
+const { productos } = require('../data/products_db');
+/* Databases */
 const Productos = db.Producto;
 const Imagenes = db.Imagen;
 const Talles = db.Talle;
 const talleProducto = db.talles_producto;
 const Categoria = db.Categoria;
 const colorProducto = db.colores_producto;
-
 
 
 module.exports = {
@@ -73,61 +74,65 @@ module.exports = {
                     })
             })
     },
-    addProduct: (req, res) => {
-        let errors = validationResult(req);
-        if(errors.isEmpty()){
-            const {nombre, descripcion,categoria,talle,genero,precio} = req.body;
-            Productos.create({
-                nombre,
-                precio,
-                descripcion,
+    addProduct: async (req, res) => {
+        let errors = validationResult(req)
+        try {
+           if(errors.isEmpty()) {
+                let producto = await Productos.create({
+                nombre: req.body.nombre,
+                precio: req.body.precio,
+                descripcion: req.body.descripcion,
                 marca: "Domino",
-                descuento: 0,
-                idCategoria: categoria,
-                idGeneros: genero
-            }).then(producto => {
-                let arrayT = [];
-                for (let j = 0; j < talle.length; j++) {
-                    let talles = {
+                descuento: req.body.descuento,
+                idCategoria: req.body.categoria,
+                idGeneros: req.body.genero
+                });
+
+                if(req.body.talle.length < 2){ //Si lo que me viene por body es una sola cosa...
+                    await talleProducto.create({ //Creame un solo registro de eso...
                         productoId: producto.id,
-                        talleId: talle[j]
-                    }
-                    arrayT.push(talles)
+                        talleId: req.body.talle
+                    })
+                } else if (req.body.talle.length >= 2){ //Si lo que me viene por body es + de una cosa...
+                    let reqBodyArray = []; //Array vacío...
+                    req.body.talle.forEach(t => { //Recorremos lo que viene por body
+                        let talles = { //Asignamos una estructura de dato...
+                            productoId: producto.id,
+                            talleId: t
+                        }
+                        reqBodyArray.push(talles) //agregamos cada paquete al array vacío...
+                    });
+                    await talleProducto.bulkCreate(reqBodyArray, {validate: true})
                 }
-                talleProducto.bulkCreate(arrayT,{validate:true})
-                    .then(() => {
-                    var images = [];
-                    var imagenes = req.files.map(imagen => imagen.filename);
-                        imagenes.forEach(img => {
-                            var image = {
-                                nombre: img,
-                                productoId: producto.id
-                            }
-                            images.push(image)
-                            })
-                    Imagenes.bulkCreate(images, { validate: true })
-                            .then(() => {
-                                console.log('imagenes agregadas')
-                                return res.redirect("/products")
-                            }).catch(error => console.log(error))
-                    })
-                })
-        } else {
-            return res.send(errors)
-            Productos.findAll()
-            .then(productos => {
-                Talles.findAll()
-                    .then(talles => {
-                    Categoria.findAll()
-                        .then(categorias => {
-                            return res.render("createProduct.ejs", {errors: errors.mapped(), old: req.body, productos, categorias, talles})
+
+                let images = []; //Proceso simil pero con imagenes...
+                if(req.files.length != 0){ // existe algo que me venga por body?
+                    let imagenes = req.files.map(i=> i.filename);
+                    imagenes.forEach(img => {
+                        var image = {
+                            nombre: img,
+                            productoId: producto.id
+                        }
+                        images.push(image)
                         })
-                    })
-                })
+                    } else {
+                        var image = {
+                            nombre: "defaultimage.png",
+                            productoId: producto.id
+                        }
+                        for (let i = 0; i < 4; i++) {
+                            images.push(image)
+                        }
+                    }
+                await Imagenes.bulkCreate(images, { validate: true })
+                return res.redirect('/products') //Redirigimos al usuario a lista de productos...
+            }
+        } catch (error) {
+            console.log(error);
         }
     },
     editProduct: (req, res) => {
-        return res.render("construction.ejs")
+        /* return res.render("construction.ejs") */
         Productos.findByPk(req.params.id, {
             include: [{association: "Categoria"}, 
             {association: "Colores"}, 
@@ -138,6 +143,7 @@ module.exports = {
                     .then(talles => {
                         Categoria.findAll()
                             .then(categorias => {
+                                
                                 Imagenes.findAll({
                                     where: {productoId: req.params.id}
                                 }).then(imagenes => {
@@ -147,68 +153,128 @@ module.exports = {
                     })
             })
     },
-    edit : (req, res) => {
-        let errors = validationResult(req);
-        const {talle} = req.body;
+    edit : async (req, res) => {
+        let errors = validationResult(req)
 
-        if(errors.isEmpty()){
-            Productos.update({
-                nombre: req.body.nombre ? req.body.nombre : Productos.nombre,
-                precio: req.body.precio ? req.body.precio : Productos.precio,
-                descripcion: req.body.descripcion ? req.body.descripcion : Productos.descripcion,
-                idCategoria: req.body.categoria ? req.body.categoria : Productos.idCategoria,
-                idGeneros: req.body.genero ? req.body.genero : Productos.idGeneros
-            }, {
-                where: {id: req.params.id}
-            }).then(producto => {
-                let tallesArray = [];
-                for (let j = 0; j < talle.length; j++) {
-                    tallesArray.push(talle)
-                }
-                for (let i = 0; i < tallesArray.length; i++) {
-                    talleProducto.update({
-                        productoId: producto.id,
-                        talleId: tallesArray[i] ? tallesArray[i] : talleProducto.talle
-                    },{
-                        where:{productoId: req.params.id}
-                    })
-                }
-                return res.send("Success")
-            })
-        } else {
-            Productos.findByPk(req.params.id, {
-                include: [{association: "Categoria"}, 
-                {association: "Colores"}, 
-                {association: "Genero"}, 
-                {association:"Talles"}]
-            }).then(producto => {
-                    Talles.findAll()
-                        .then(talles => {
-                            Categoria.findAll()
-                                .then(categorias => {
-                                    return res.render("editProduct.ejs", {producto, talles, categorias, errors: errors.mapped(), old: req.body})
-                                })
-                        })
+        try {
+            if(errors.isEmpty()){
+                let producto = await Productos.update({
+                    nombre: req.body.nombre ? req.body.nombre : Productos.nombre,
+                    precio: req.body.precio ? req.body.precio : Productos.precio,
+                    descripcion: req.body.descripcion ? req.body.descripcion : Productos.descripcion,
+                    descuento: req.body.descuento? req.body.descuento : Productos.descuento,
+                    idCategoria: req.body.categoria ? req.body.categoria : Productos.idCategoria,
+                    idGeneros: req.body.genero ? req.body.genero : Productos.idGeneros
+                },
+                {
+                    where: {id: req.params.id}
                 })
+                if(typeof req.body.talle == "string"){ 
+                    await talleProducto.update({
+                        productoId: producto.id,
+                        talleId: req.body.talle
+                    },
+                    {where: {productoId:req.params.id}})
+                } else if (typeof req.body.talle == "object"){ 
+                    talleProducto.destroy({
+                        where: {productoId: req.params.id}
+                    })
+
+                    let arrayTalle = [];
+                    let talles = req.body.talle;
+
+                    talles.forEach(t => {
+                        var talle = {
+                            productoId: req.params.id,
+                            talleId: t
+                        }
+                        arrayTalle.push(talle)
+                    })
+
+                    await talleProducto.bulkCreate(arrayTalle, {validate: true})
+
+                    
+                    /* let arrayDB = await talleProducto.findAll({
+                        where: {productoId: req.params.id}
+                    })
+
+                    for (let j = 0; j < req.body.talle.length; j++) {
+                        for (let i = 0; i < arrayDB.length; i++) {
+                            arrayDB[i].productoId = producto.id
+                            arrayDB[i].talleId = req.body.talle[j]
+                        }
+                        await talleProducto.bulkCreate(arrayDB, {validate: true})
+                    } */
+                    /* reqTalles.map(obj => {
+                        obj.talleId = req.body.talle
+                    })
+
+                    let reqBodyArray = []; 
+                    req.body.talle.forEach(t => { 
+                        let talles = {
+                            productoId: producto.id,
+                            talleId: t
+                        }
+                        reqBodyArray.push(talles)
+                    }); */     
+                }
+                return res.redirect('/products/')
+            } else {
+                let producto = await Productos.findByPk(req.params.id, {
+                    include: [{association: "Categoria"}, 
+                    {association: "Colores"}, 
+                    {association: "Genero"}, 
+                    {association:"Talles"}]
+                })
+                let talles = await Talles.findAll();
+                let categorias = await Categoria.findAll();
+
+                return res.render("editProduct.ejs", 
+                {producto, talles, categorias, errors: errors.mapped(), old: req.body})
+            }
+        } catch (error) {
+            console.log(error)
+            throw new Error('Ups...Algo salió mal, no toques nada!');
         }
     },
 
-    destroy: (req, res) => {
+    destroy: async (req, res) => {
 
-        Imagenes.destroy({
-            where: {productoId:req.params.id}
-        }).then(
-            talleProducto.destroy({
+        try {
+            await Imagenes.destroy({
                 where: {productoId: req.params.id}
-            }).then(
-                Productos.destroy({
-                    where: {id: req.params.id}
-                })
-                ).then(() => {
-                    return res.redirect("/products");
-                }).catch(error => {
-                    console.log(error);
-                })
-        )
+            })
+            await talleProducto.destroy({
+                where: {productoId: req.params.id}
+            })
+            await Productos.destroy({
+                where: {id: req.params.id}
+            })
+            return res.redirect('/products/')
+        } catch (err){
+            console.log(err)
+        }
+        
+    },
+
+    showCategories: async (req,res) => {
+        Productos.findAll({
+            where: {[Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]}
+        }).then(productos => {
+            let array = [];
+            for (let i = 0; i < productos.length; i++) {
+                var productoId = productos[i].id;
+                array.push(productoId)
+            }
+            Imagenes.findAll({
+                where: { productoId : array},
+                attributes: ['productoId', 'nombre'],
+                group: ['productoId'],
+                include: [{association: "Producto"}]
+            })
+                .then(imagenes => {
+                    return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim()})
+                }) 
+        })
     }
 }

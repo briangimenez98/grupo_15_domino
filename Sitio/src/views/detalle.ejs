@@ -62,9 +62,12 @@
                             <p class="product_details__name"><%= producto.nombre %></p>
                             <span class="product__details_money">$<%= producto.precio.toFixed(2) %></span>
                             <div class="product__details__color">
-                              <% for( let i = 0; i < producto.Colores.length; i++ ) { %>
-                                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="<%= producto.Colores[i].nombre%>" title="Choose your color">
-                              <% } %>
+                              <option value="" hidden selected>Elegí algún color</option>
+                              <select name="color" id="">
+                                <% for( let i = 0; i < producto.Colores.length; i++ ) { %>
+                                  <option value="<%= producto.Colores[i].id%>"><%= producto.Colores[i].nombre%></option>
+                                <% } %>
+                              </select>
                             </div>
                         </div>
                         <div class="cuotas__totaldiv">

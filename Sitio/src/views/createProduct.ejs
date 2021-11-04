@@ -38,7 +38,10 @@
                         Debes escribir una descripción
                         </div>
                     </div>
-
+                    <div class="form">
+                        <label>Descuento</label>
+                        <input type="number" class="form-control" name="descuento" placeholder="%%%" required>
+                    </div>
                     <div class="form">
                         <label>Precio</label>
                         <input type="number" class="form-control" name="precio" placeholder="$$$" required> 
@@ -106,12 +109,6 @@
                     <div class="form">
                         <label>Imágenes</label>
                         <input type="file" class="form-control" id="" name="image" accept="image/*" multiple required>
-                        <span class="text-danger">
-                            
-                        </span>
-                        <div class="invalid-feedback">
-                            Debes subir una imagen  
-                        </div>  
                     </div>
                         
                     <div class="botones">
@@ -132,7 +129,7 @@
     <!--Scripts-->
     <%-include('./partials/scripts')%> 
     
-    <!-- <script src="/javascripts/validatorForms.js"></script> -->
+    <script src="/javascripts/validatorForms.js"></script>
     
     
 </body>

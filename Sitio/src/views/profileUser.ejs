@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <!-- Domino's Head -->
     <%-include('./partials/head')%> 
     <body class="body_profileUser">
@@ -7,6 +7,7 @@
         <%-include('./partials/header')%>
             <main>
                 <form action="/users/miperfil?_method=PUT" method="POST" enctype="multipart/form-data">
+
                     <div class="section_profileUser">
                         <h2 class="greeting_profileUser">¡Hola <%=user.nombre%> <%= user.apellido %>!</h2>
                         <section class="myinfo_profileUser">
@@ -21,24 +22,36 @@
                                 <h3>Mis datos</h3>
                                 <!-- Nombre Input -->
                                 <label>Cambiar Nombre: </label>
-                                <input type="text" name="nombre" placeholder="nombre" value="<%= user.nombre %>">
+                                <input type="text" name="nombre" placeholder="<%= user.nombre %>" value="<%= locals.old && old.nombre ? old.nombre : user.nombre %>">
+                                <span class="small text-danger">
+                                    <%= locals.errors && locals.errors.nombre ? errors.nombre.msg : null %>
+                                </span>
 
                                 <!-- Apellido Input -->
                                 <label>Cambiar Apellido: </label>
-                                <input type="text" name="apellido" value="<%= user.apellido %>">
+                                <input type="text" name="apellido" placeholder="<%= user.apellido %>" value="<%= locals.old && old.apellido ? old.apellido : user.apellido %>">
+                                <span class="small text-danger">
+                                    <%= locals.errors && locals.errors.apellido ? errors.apellido.msg : null %>
+                                </span>
 
                                 <!-- Contraseña Input -->
                                 <label>Cambiar Contraseña: </label>
-                                <input type="password" name="password" placeholder="Nueva contraseña">
+                                <input type="password" name="password" value = "<%= locals.old && old.password ? old.password : '' %>" placeholder="Contraseña Nueva">
+                                <span class="small text-danger">
+                                    <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
+                                </span>
 
                                 <!-- Email Input -->
                                 <label>Cambiar Email: </label>
-                                <input type="email" name="email" placeholder="Nuevo Email">
-
+                                <input type="email" name="email" value ="<%= locals.old && old.email ? old.email : user.email %>" placeholder="<%= user.email %>">
+                                <span class="small text-danger">
+                                    <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
+                                </span>
                                 <button type="submit" class="btn btn-dark">Guardar cambios</button>
                             </section>
                         </section>
                     </div>
+                    
                 </form>
             </main>
         

@@ -26,7 +26,7 @@ module.exports = {
                 avatar: "default-profile-image.jpg"
             })
             .then( () => {
-                res.redirect('/');
+                res.redirect('/users/login');
             })
         } else {
             res.render('register',{errors : errors.mapped(), old: req.body})
@@ -72,31 +72,32 @@ module.exports = {
     },
     profileUser : (req,res) => {
 
-        let locals = {
-            title: "Domino | Mi Perfil",
-        }
-
         Usuarios.findByPk(req.session.userLogin.id)
         .then(user => {
-            res.render("profileuser.ejs", {user, locals})
+            return res.render("profileUser.ejs", {user})
         })
     },
     profileUserChanges: (req, res) => {
         let errors = validationResult(req)       
         if(errors.isEmpty()){
             Usuarios.update({
-                nombre: req.body.nombre ? req.body.nombre : nombre,
-                apellido: req.body.apellido ? req.body.apellido : apellido,
-                password: req.body.password ? bcrypt.hashSync(req.body.password, 10) : password,
-                email:  req.body.email ? req.body.email : email,
+                nombre: req.body.nombre ? req.body.nombre : null,
+                apellido: req.body.apellido ? req.body.apellido : null,
+                password: req.body.password ? bcrypt.hashSync(req.body.password, 10) : Usuarios.password,
+                email:  req.body.email ? req.body.email : null,
                 avatar: req.file ? req.file.filename : req.session.userLogin.avatar,
             }, {
                 where: {id: req.session.userLogin.id}
             }).then( () => {
-                res.redirect('/users/miperfil')
+                return res.redirect('/users/miperfil')
             })
                 .catch(error => {
                     console.log(error);
+                })
+        } else {
+            Usuarios.findByPk(req.session.userLogin.id)
+                .then(user => {
+                    return res.render("profileUser.ejs", {user,errors: errors.mapped(), old: req.body})
                 })
         }
     }

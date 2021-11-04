@@ -23,23 +23,23 @@ module.exports = {
         });
     },
     search : (req, res) => {
-        Productos.findAll({
-            where: {[Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]}
-        }).then(productos => {
-            let array = [];
-            for (let i = 0; i < productos.length; i++) {
-                var productoId = productos[i].id;
-                array.push(productoId)
-            }
-            Imagenes.findAll({
-                where: { productoId : array},
-                attributes: ['productoId', 'nombre'],
-                group: ['productoId'],
-                include: [{association: "Producto"}]
+            Productos.findAll({
+                where: {[Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]}
+            }).then(productos => {
+                let array = [];
+                for (let i = 0; i < productos.length; i++) {
+                    var productoId = productos[i].id;
+                    array.push(productoId)
+                }
+                Imagenes.findAll({
+                    where: { productoId : array},
+                    attributes: ['productoId', 'nombre'],
+                    group: ['productoId'],
+                    include: [{association: "Producto"}]
+                })
+                    .then(imagenes => {
+                        return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim()})
+                    }) 
             })
-                .then(imagenes => {
-                    return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim()})
-                }) 
-        })
     }
 }

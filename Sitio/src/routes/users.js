@@ -6,7 +6,7 @@ var router = express.Router();
 const {login, register, processRegister, processLogin, logout, profileUser, profileUserChanges} = require('../controllers/usersController')
 const registerValidation = require('../validations/registerValidation');
 const loginValidation = require('../validations/loginValidation');
-const userValidation = require('../validations/userValidation')
+const userValidation = require('../validations/userValidation');
 const userMiddleware = require('../middlewares/userMiddleware');
 
 
@@ -29,7 +29,7 @@ let upload = multer({storage:storage})
 
 /* Esto viene como /users/... */
 
-router.get('/login', login);
+router.get('/login',login);
 router.post('/login',loginValidation, processLogin);
 router.get('/register', register);
 router.post('/register', registerValidation , processRegister);

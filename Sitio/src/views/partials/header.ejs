@@ -4,9 +4,9 @@
             <a href="/"><img src="/img/products/domino8.png" alt="Logo"></a>
         </div>
         <div class="buscador">
-            <form action="/search" method="GET">
-                <input class="buscar" type="text" name="buscador" placeholder="¿Qué estás buscando?"><button
-                type="submit"><i class="fas fa-search"></i></button>
+            <form action="/search" method="GET" id="form-search">
+                <input class="buscar" type="text" name="buscador" placeholder="¿Qué estás buscando?" id="input-search">
+                <button type="submit" onclick="event.preventDefault();document.getElementById('input-search').value && submit()"><i class="fas fa-search"></i></button>
             </form>
         </div>
         <nav class="burger-buscar">
@@ -147,10 +147,9 @@
             <% if (locals.userLogin) { %>
                 <ul class="nav2"> 
                     <li><a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a></li>
-                    <li><a href="/favorito"><i class="fas fa-heart"></i></a></li>
                     <li class="nav-item dropdown locals_image locals">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><img src="/img/users/<%= userLogin.avatar %>" alt=""></a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><img src="/img/users/<%= userLogin.avatar %>" alt="tufotodeperfil"></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="padding: 0;">
                             <li><a class="dropdown-item" style='border-right:1px solid gray' href="/users/miperfil">Mi Perfil</a></li>
                             <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
@@ -160,7 +159,6 @@
             <% } else { %>
                     <ul class="nav2">
                         <li><a href="/products/carrito"><i class="fas fa-shopping-cart"></i></a></li>
-                        <li><a href="/favorito"><i class="fas fa-heart"></i></a></li>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -192,7 +190,7 @@
                                                     href="#">Indumentaria</a></a></li>
                                         <li class="breadcrumb-item active" aria-current="page">
                                             <ul>
-                                                <li><a class="categorias" href="">Buzos</a></li>
+                                                <li><a class="categorias" href="/products/categorias?filtro=13">Buzos</a></li>
                                                 <li><a class="categorias" href="">Camperas</a></li>
                                                 <li><a class="categorias" href="">Pantalones</a></li>
                                                 <li><a class="categorias" href="">Remeras</a></li>

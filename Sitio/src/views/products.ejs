@@ -11,7 +11,7 @@
             <section>
                 <% for( let j = 0; j < imagenes.length; j++ ) { %>
                     <article>
-                        <img src="/img/products/<%= imagenes[j].nombre %>" alt="">
+                        <a href="/products/detail/<%=imagenes[j].Producto.id%>"><img src="/img/products/<%= imagenes[j].nombre %>" alt=""></a>
                             <div class="description">
                                 <div class="date">
                                     <h4>
