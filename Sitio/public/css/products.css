@@ -67,3 +67,7 @@
     background-color: rgb(255, 98, 98);
     transition: background-color, 0.2s;
 }
+
+.products .rojo{
+    color: rgb(172, 8, 8);
+}
