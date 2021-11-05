@@ -19,12 +19,14 @@ module.exports = {
             destacados : productos.filter(producto => producto.seccion === "destacado"),
             /* destacados2 : productos.filter(producto => producto.seccion === "destacado2"),
             destacados3 : productos.filter(producto => producto.seccion === "destacado3"), */
-            toThousand
+            toThousand, title: "Domino | Home"
         });
     },
     search : (req, res) => {
+            let buscador = req.query.buscador.trim();
+
             Productos.findAll({
-                where: {[Op.or] : [{nombre: {[Op.substring] : req.query.buscador.toLowerCase().trim()}}]}
+                where: {[Op.or] : [{nombre: {[Op.substring] : buscador.toLowerCase()}}]}
             }).then(productos => {
                 let array = [];
                 for (let i = 0; i < productos.length; i++) {
@@ -38,8 +40,49 @@ module.exports = {
                     include: [{association: "Producto"}]
                 })
                     .then(imagenes => {
-                        return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim()})
+                        return res.render("results.ejs", {imagenes, productos, buscador : req.query.buscador.trim(), title: "Domino | Resultados de: " + buscador})
                     }) 
             })
+    },
+    categories: (req,res) => {
+        let filtro = req.query.filtro
+        let genero = req.query.genero
+
+        Productos.findAll({
+            where: {
+                idCategoria :{
+                    [Op.eq]: [filtro]
+                },
+                idGeneros: {
+                    [Op.eq]: [genero]
+                }
+            },
+            include: [
+                {association: "Categoria"},
+                {association: "Genero"}
+            ]
+        }).then(productos => {
+            let array = [];
+            for (let i = 0; i < productos.length; i++) {
+                var productoId = productos[i].id;
+                array.push(productoId)
+            }
+            Imagenes.findAll({
+                where: { productoId : array},
+                attributes: ['productoId', 'nombre'],
+                group: ['productoId'],
+                include: [{association: "Producto"}]
+            })
+                .then(imagenes => {
+                    return res.render("categoryResults.ejs", {imagenes, productos, filtro : req.query.filtro, genero: req.query.genero ,title: "Domino | Categoria: " + filtro})
+                }) 
+        })
+    },
+    prueba: (req,res) => {
+        Productos.findAll({
+            include: [{association: "Categoria"}, {association: "Genero"}]
+        }).then(productos => {
+            return res.json(productos)
+        })
     }
 }
