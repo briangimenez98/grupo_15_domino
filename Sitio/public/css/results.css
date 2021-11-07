@@ -75,3 +75,11 @@
 .results main .error i{
     font-size: 25px;
 }
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+}
+
+.page-link{
+    color: black;
+}

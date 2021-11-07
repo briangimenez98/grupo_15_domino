@@ -18,13 +18,17 @@
                         <p class="feedback" id="error-email">
                             <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
                         </p>
-
-                        <label for="contraseña">Contraseña</label>
-                        <input type="password" class="form-control <%= locals.errors && locals.errors.password ? 'is-invalid' : null %> " id="password" name="password">
-
-                        <p class="feedback" id="error-password">
-                            <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
-                        </p>
+                        <div>
+                            <label for="contraseña">Contraseña</label>
+                            <div class="contain">
+                                <input type="password" class="passw form-control <%= locals.errors && locals.errors.password ? 'is-invalid' : null %> " id="password" name="password">
+                                <img onclick="passwordInput()" src="/img/Show.png" alt="" class="icon" id="eye">
+                            </div>
+                            <p class="feedback" id="error-password">
+                                <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
+                            </p>
+                        </div>
+                        
                     </div>
                     <div class="remember">
                         <input type="checkbox" name="recordar">
@@ -54,6 +58,24 @@
     <%- include('./partials/scripts') %> 
         <%- include('./partials/footer') %> 
 <!--Scripts & Footer-->
-    <script src="/javascripts/loginValidator.js"></script>
+    <!-- <script src="/javascripts/loginValidator.js"></script> -->
+
+    <script>
+    
+        function passwordInput(){
+            
+            var eye = document.getElementById('eye');
+            var input = document.getElementById('password');
+
+            if (input.type == "password") {
+                input.type = "text"
+                eye.style.opacity = 0.8;
+            }else{
+                input.type = "password"
+                eye.style.opacity = 0.2;
+            }
+        }
+    </script>
+
 </body>
 </html>

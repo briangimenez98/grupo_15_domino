@@ -42,6 +42,7 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/vistas', vistasRouter);
 
+app.use('/api/products',require('./routes/api/products'));
 app.use('/api/users',require('./routes/api/users'));
 
 

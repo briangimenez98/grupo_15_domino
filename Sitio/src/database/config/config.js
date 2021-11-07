@@ -2,8 +2,8 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: "",
-    password: "",
+    username: "root",
+    password: "solanazxmn",
     database: "domino1_db",
     host: "127.0.0.1",
     dialect: "mysql"

@@ -240,5 +240,6 @@ module.exports = {
 
     showCategories: async (req,res) => {
         return res.render('construction.ejs')
-    } 
+    },
+    admin : (req,res) => res.render('pruebaProducts')
 }

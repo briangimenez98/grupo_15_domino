@@ -1,7 +1,7 @@
 /* Requires */
 var express = require('express');
 var router = express.Router();
-const {index, detalle, carrito, createProduct, editProduct, destroy, edit, addProduct, showCategories} = require('../controllers/productsControllers');
+const {index, detalle, carrito, createProduct, editProduct, destroy, edit, addProduct, showCategories,admin} = require('../controllers/productsControllers');
 const path = require('path');
 const multer = require('multer');
 
@@ -32,5 +32,6 @@ router.get('/editProduct/:id',adminMiddleware,editProduct);
 router.put('/editProduct/:id',adminMiddleware,edit);
 router.delete('/delete/:id',adminMiddleware,destroy);
 router.get('/categorias/', showCategories);
+router.get('/pruebaProducts/',admin);
 
 module.exports= router;
