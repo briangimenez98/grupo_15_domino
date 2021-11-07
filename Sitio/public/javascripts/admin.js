@@ -20,7 +20,7 @@ const loadProduct = async (limit,show,current,initial,next) => {
     }
 }
 
-loadProduct(10,7,1,1,0)
+loadProduct(10,9,1,1,0)
 
 const confirmRemove = (e,form) => {
     e.preventDefault()
@@ -93,7 +93,7 @@ const goPage = async (event,current,limit,initial,next) => {
         result.data.forEach(product => {
             addItem(product)
         });
-        paginator(result.meta.total,limit,7,current,initial,next)
+        paginator(result.meta.total,limit,9,current,initial,next)
 
     } catch (error) {
         console.log(error)

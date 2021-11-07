@@ -4,7 +4,7 @@
             <a href="/"><img src="/img/products/domino8.png" alt="Logo"></a>
         </div>
         <div class="buscador">
-            <form action="/search" method="GET" id="form-search">
+            <form class="d-flex" action="/search" method="GET" id="form-search">
                 <input class="buscar" type="text" name="buscador" placeholder="¿Qué estás buscando?" id="input-search">
                 <button type="submit" onclick="event.preventDefault();document.getElementById('input-search').value && submit()"><i class="fas fa-search"></i></button>
             </form>
@@ -156,7 +156,7 @@
                     <li class="nav-item dropdown locals_image locals">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"><img src="/img/users/<%= userLogin.avatar %>" alt="tufotodeperfil"></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="padding: 0;">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" style='border-right:1px solid gray' href="/users/miperfil">Mi
                                     Perfil</a></li>
                             <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
@@ -326,7 +326,6 @@
                                 <li><a class="dropdown-item" style='border-right:1px solid gray' href="/products">Todos
                                         los productos</a></li>
                                 <li><a class="dropdown-item" href="/products/createProduct">Crear producto</a></li>
-                                <li><a class="dropdown-item" href="/products/pruebaProducts">prueba</a></li>
                             </ul>
                         </li>
                         <% } %>

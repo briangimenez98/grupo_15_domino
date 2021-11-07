@@ -10,6 +10,7 @@
     padding: 30px 60px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .results main section article{
