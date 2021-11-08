@@ -77,6 +77,12 @@
     margin: 10px 0;
     padding: 10px;
 }
+.updatePhoto img{
+    width: 100%;
+    border-radius: 25%;
+    margin: 10px 0;
+    padding: 10px;
+}
 .back-to-home{
     margin: 20px 0;
 }

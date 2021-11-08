@@ -113,7 +113,13 @@
     transition-property: background-color, color;
     transition-duration: 0.5s;
 }
-
+.previewProduct{
+    
+    padding: 10px;
+}
+.previewProduct img {
+    width: 100%;
+}
 @media (min-width: 768px){
     /*----MAIN----*/
     .carga-producto main{

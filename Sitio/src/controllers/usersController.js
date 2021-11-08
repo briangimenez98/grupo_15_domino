@@ -118,7 +118,7 @@ module.exports = {
                 apellido: req.body.apellido ? req.body.apellido : null,
                 password: req.body.password ? bcrypt.hashSync(req.body.password, 10) : Usuarios.password,
                 email:  req.body.email ? req.body.email : null,
-                avatar: req.file ? req.file.filename : req.session.userLogin.avatar,
+                avatar: req.file ? req.session.userLogin.avatar = req.file.filename : req.session.userLogin.avatar,
             }, {
                 where: {id: req.session.userLogin.id}
             }).then( () => {

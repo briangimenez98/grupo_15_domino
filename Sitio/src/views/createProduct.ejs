@@ -110,10 +110,12 @@
 
                     <div class="form">
                         <label>Imágenes</label>
-                        <div>
-                            <img src="/img/products/<% imagenes[0].nombre %>" alt="">
+                        <div id="preview" class="previewProduct">
+                            <% imagenes.forEach(i => { %>
+                                <img src="/img/products/<% i.nombre %>" alt="">
+                            <% }) %>
                         </div>
-                        <input type="file" class="form-control" id="" name="image" accept="image/*" multiple required>
+                        <input type="file" class="form-control" id="file" name="image" accept="image/*" multiple required>
                     </div>
                         
                     <div class="botones">

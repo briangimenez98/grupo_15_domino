@@ -14,8 +14,10 @@
                             <section class="myinfo_profileUser_photo">
                                 <!-- Photo input -->
                                 <h2>Tu foto de perfil</h2>
-                                <img src="/img/users/<%= user.avatar %>"  alt="foto-de-perfil" class="profilePicture_user">
-                                <input type="file" name="fotoUsuario" accept="image/*" class="uploadPhoto">
+                                <div id="preview" class="updatePhoto">
+                                    <img src="/img/users/<%= user.avatar %>"  alt="foto-de-perfil" class="profilePicture_user">
+                                </div>
+                                <input type="file" name="fotoUsuario" accept="image/*" class="uploadPhoto" id="file">
                             </section>
                             
                             <section class="myinfo_form_profileUser">
@@ -47,14 +49,41 @@
                                 <span class="small text-danger">
                                     <%= locals.errors && locals.errors.email ? errors.email.msg : null %>
                                 </span>
-                                <button type="submit" class="btn btn-dark">Guardar cambios</button>
+                                <button type="submit" class="btn btn-dark" onclick="modificarPerfil()">Guardar cambios</button>
                             </section>
                         </section>
                     </div>
                     
                 </form>
             </main>
-        
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script>
+                
+                function modificarPerfil(){
+                    event.preventDefault();
+                    var form = event.target.form;
+                    Swal.fire({
+                        title: '¿Modificar perfil?',
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'SI',
+                        cancelButtonText: 'NO',
+                        padding: '10px 15px 50px'
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            form.submit();
+                            Swal.fire(
+                            'Modificado!',
+                            '',
+                            'success',
+                            )
+                        }
+                    })
+                }
+            </script>
         <!-- Go back to Home -->
         
         <!-- Domino's Footer-->

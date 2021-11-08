@@ -40,9 +40,6 @@ module.exports = {
     },
 
     detalle: (req, res) => {
-        let relacionados = Productos.findAll({
-            limit: 3
-        })
 
         Productos.findByPk(req.params.id,{
             include: [{association: "Categoria"}, 
@@ -50,13 +47,15 @@ module.exports = {
             {association: "Genero"}, 
             {association:"Talles"}]
         }).then(producto => {
-                Imagenes.findAll({
-                    include: {association: "Producto"},
-                    where: {productoId: req.params.id}
-                }).then(imagenes => {
-                        return res.render('detalle', {relacionados,producto, imagenes, title: "Domino | " + producto.nombre})
-                    })
-                    .catch(error => console.log(error))
+            Imagenes.findAll({
+                include: {association: "Producto"},
+                where: {productoId: req.params.id}
+            }).then(imagenes => {
+                return res.render('detalle.ejs', {
+                    producto,
+                    imagenes,
+                    title: "Domino | " + producto.nombre
+                })}).catch(error => console.log(error))
         })
     },
     createProduct: (req, res) => {
