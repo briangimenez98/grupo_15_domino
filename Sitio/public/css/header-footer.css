@@ -140,7 +140,20 @@ header .li-mobile{
    font-size: 14px;
 }
 
+header .btn-cart{
+    border: 0;
+    background: none;
+    margin-right: 15px;
+    position: relative;
+    color:rgb(0, 0, 0);
+  }
 
+.bg-warning {
+    background-color: black!important;
+}
+.badge {
+    font-size: 10px
+}
 
 /*---------- footer ----------*/
 footer{
@@ -343,6 +356,7 @@ footer .redes ul li:last-child{
     header .dropdown-toggle::after{
         display: none;
     }
+    
 
     /*---------- footer ----------*/
     footer section{

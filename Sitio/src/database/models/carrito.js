@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, dataTypes) => {
     let alias = "Carrito";
     let cols = {
@@ -7,6 +8,10 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement:true,
         },
+        orderId: {
+            type: dataTypes.INTEGER.UNSIGNED,
+            allowNull: false
+        },
         usuarioId: {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false,
@@ -15,12 +20,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
-        items: {
+        quantity: {
             type: dataTypes.INTEGER,
-            allowNull: false,
-        },
-        precio: {
-            type: dataTypes.FLOAT.UNSIGNED,
             allowNull: false,
         },
         createdAt: {
@@ -30,12 +31,26 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: {
             type: dataTypes.DATE,
             allowNull: false
-        },
+        }
     };
     let config = {
         tableName: "carritos",
         timestamps: true
     };
     const Carrito = sequelize.define(alias,cols,config);
+
+    /* Relaciones */
+
+    Carrito.associate = models => {
+        Carrito.belongsTo(models.Orden, {
+            as : 'orden',
+            foreignKey : 'orderId',
+            onDelete : 'cascade'
+        })
+        Carrito.belongsTo(models.Producto,{
+            as: 'product',
+            foreignKey : 'productoId'
+          })
+    }
     return Carrito;
 }

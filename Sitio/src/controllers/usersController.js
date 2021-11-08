@@ -51,6 +51,39 @@ module.exports = {
                         avatar: usuario.avatar,
                         rol: usuario.rol
                     }
+                    req.session.cart = [];
+
+                db.Orden.findOne({
+                        where : {
+                            userId : req.session.userLogin.id,
+                            status : 'pending'
+                        },
+                        include : [
+                            {association : 'carts',
+                                include : [
+                                    {association : 'product',
+                                        include : ['Categoria']
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                    .then(order => {
+                        if(order){
+                            order.carts.forEach(item => {
+                                let product = {
+                                    id : item.productId,
+                                    nombre: item.product.nombre,
+                                    categoria : item.product.Categoria.nombre,
+                                    cantidad : item.quantity,
+                                    precio : item.product.precio,
+                                    total : item.product.precio * item.quantity,
+                                    orderId : order.id
+                                }
+                                req.session.cart.push(product)
+                            });
+                        }})
+
                     if(recordar){
                         res.cookie('dominoCookie', req.session.userLogin, {
                             maxAge: 1000*180

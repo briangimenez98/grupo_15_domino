@@ -74,15 +74,39 @@ module.exports = {
                 include: [{association: "Producto"}]
             })
                 .then(imagenes => {
-                    return res.render("categoryResults.ejs", {imagenes, productos, filtro : req.query.filtro, genero: req.query.genero ,title: "Domino | Categoria: " + filtro})
+                    return res.render("categoryResults.ejs", {imagenes, productos, filtro : req.query.filtro, genero: req.query.genero ,title: "Domino | Categoria: Resultados" })
                 }) 
         })
     },
     prueba: (req,res) => {
+        Imagenes.findAll()
+        .then(imagenes => {
+            return res.json(imagenes)
+        })
+    },
+    descuentosCategory: (req,res) => {
+
+        let descuento = req.query.descuento; 
+
         Productos.findAll({
-            include: [{association: "Categoria"}, {association: "Genero"}]
+            where: {
+                descuento : {[Op.eq]: [descuento]}
+            }
         }).then(productos => {
-            return res.json(productos)
+            let array = [];
+            for (let i = 0; i < productos.length; i++) {
+                var productoId = productos[i].id;
+                array.push(productoId)
+            }
+            Imagenes.findAll({
+                where: { productoId : array},
+                attributes: ['productoId', 'nombre'],
+                group: ['productoId'],
+                include: [{association: "Producto"}]
+            })
+                .then(imagenes => {
+                    return res.render("resultDescuentos.ejs", {imagenes, productos, descuento: req.query.descuento ,title: "Domino | Descuentos del " + descuento + "%"})
+                }) 
         })
     }
 }

@@ -28,7 +28,7 @@ router.get('/',adminMiddleware,index);
 router.get('/detail/:id',detalle);
 router.get('/createProduct',adminMiddleware,createProduct);
 router.post('/createProduct',upload.any('image',4),adminMiddleware,createValidator,addProduct);
-router.get('/editProduct/:id',adminMiddleware,editProduct);
+router.get('/editProduct/:id',adminMiddleware,createValidator,editProduct);
 router.put('/editProduct/:id',adminMiddleware,edit);
 router.delete('/delete/:id',adminMiddleware,destroy);
 
