@@ -47,9 +47,10 @@
                             </div>
                             <div class="birthday">
                                 <label for="birthday">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control <%= locals.errors && locals.errors.birthday ? 'is-invalid' : null %> " name="birthday" id="birthday">
+                                <input type="date" class="form-date__input form-control <%= locals.errors && locals.errors.birthday ? 'is-invalid' : null %> " name="birthday" id="birthday">
                                 <p class="text-danger" id="error-birthday"></p>
                             </div>
+
                         </section>
                         <div class="checkbox">
                             <p>
