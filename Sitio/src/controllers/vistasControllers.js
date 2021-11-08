@@ -1,23 +1,23 @@
 module.exports = {
     renderQuienesSomos: (req, res) => {
-        res.render('quienesSomos');
+        res.render('quienesSomos', {title: "Domino | ¿Quienes somos?"});
     },
     renderTerminos: (req, res) => {
-        res.render('terminos');
+        res.render('terminos', {title: "Domino | Terminos y Condiciones"});
     },
     renderContacto: (req, res) => {
-        res.render('contacto');
+        res.render('contacto', {title: "Domino | Contacto"});
     },
     renderPreguntas: (req, res) => {
-        res.render('preguntas');
+        res.render('preguntas', {title: "Domino | FAQ"});
     },
     renderCambios: (req, res) => {
-        res.render('cambios');
+        res.render('cambios', {title: "Domino | Sobre cambios..."});
     },
     renderCompra: (req, res) => {
-        res.render('compra');
+        res.render('compra', {title: "Domino | Como comprar"});
     },
     renderEnvios: (req, res) => {
-        res.render('envios');
+        res.render('envios', {title: "Domino | Envios"});
     }
 }

@@ -6,10 +6,10 @@ let Usuarios = db.Usuario;
 
 module.exports = {
     login : (req, res) => {
-        res.render('login.ejs');
+        res.render('login.ejs', {title: "Domino | Inicio de Sesión"});
     },
     register : (req, res) => {
-        res.render('register.ejs');
+        res.render('register.ejs', {title: "Domino | Registro"});
     },
     processRegister : (req, res) => {
         let errors = validationResult(req);
@@ -29,7 +29,7 @@ module.exports = {
                 res.redirect('/users/login');
             })
         } else {
-            res.render('register',{errors : errors.mapped(), old: req.body})
+            res.render('register',{errors : errors.mapped(), old: req.body, title: "Domino | Registro"})
         }
     },
     processLogin : (req, res) => {
@@ -62,7 +62,7 @@ module.exports = {
                 console.log(error);
             })
         } else {
-            return res.render('login.ejs', {errors: errors.mapped(), old: req.body})
+            return res.render('login.ejs', {errors: errors.mapped(), old: req.body, title: "Domino | Inicio de Sesión"})
         } 
     },
     logout : (req,res) => {
@@ -74,7 +74,7 @@ module.exports = {
 
         Usuarios.findByPk(req.session.userLogin.id)
         .then(user => {
-            return res.render("profileUser.ejs", {user})
+            return res.render("profileUser.ejs", {user, title: "Domino | Mi Perfil"})
         })
     },
     profileUserChanges: (req, res) => {
@@ -97,7 +97,7 @@ module.exports = {
         } else {
             Usuarios.findByPk(req.session.userLogin.id)
                 .then(user => {
-                    return res.render("profileUser.ejs", {user,errors: errors.mapped(), old: req.body})
+                    return res.render("profileUser.ejs", {user,errors: errors.mapped(), old: req.body, title: "Domino | Mi Perfil"})
                 })
         }
     }

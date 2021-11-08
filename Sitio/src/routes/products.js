@@ -31,7 +31,5 @@ router.post('/createProduct',upload.any('image',4),adminMiddleware,createValidat
 router.get('/editProduct/:id',adminMiddleware,editProduct);
 router.put('/editProduct/:id',adminMiddleware,edit);
 router.delete('/delete/:id',adminMiddleware,destroy);
-router.get('/categorias/', showCategories);
-router.get('/pruebaProducts/',admin);
 
 module.exports= router;

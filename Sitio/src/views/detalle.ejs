@@ -53,7 +53,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                          <li class="breadcrumb-item"><a href="#"><%=producto.Categoria.nombre%></a></li>
+                          <li class="breadcrumb-item"><a href="/categories?filtro=<%=producto.idCategoria%>&genero=<%= producto.idGeneros %>"><%=producto.Categoria.nombre%></a></li>
                           <li class="breadcrumb-item active" aria-current="page"><%= producto.nombre %> </li>
                         </ol>
                     </nav>
@@ -61,51 +61,34 @@
                         <div class="product__details">
                             <p class="product_details__name"><%= producto.nombre %></p>
                             <span class="product__details_money">$<%= producto.precio.toFixed(2) %></span>
-                            <div class="product__details__color">
-                              <option value="" hidden selected>Elegí algún color</option>
-                              <select name="color" id="">
-                                <% for( let i = 0; i < producto.Colores.length; i++ ) { %>
-                                  <option value="<%= producto.Colores[i].id%>"><%= producto.Colores[i].nombre%></option>
-                                <% } %>
-                              </select>
-                            </div>
+
                         </div>
                         <div class="cuotas__totaldiv">
                             <div class="cuotas__minidiv">
                                 <i class="far fa-credit-card"></i>
                                 <span>12 cuotas sin interés de $<%= (producto.precio/12).toFixed(2) %></span> 
                             </div>
-                            <div class="cuotas__minidiv">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>XX% de descuento pagando a convenir.</span> 
-                            </div>
-                            <span class="cuotas__span"><a href="">Ver más detalles</a></span>
+                            <% if (producto.descuento) { %>
+                              <div class="cuotas__minidiv">
+                                  <span><%= producto.descuento %>% de descuento pagando a convenir.</span> 
+                              </div>
+                              <span class="cuotas__span"><a href="">Ver más detalles</a></span>
+                            <% } %> 
                         </div>
                     </section>
                     <section class="talle__div">
 
                           <span class="talle__div__titular">Talles disponibles</span>
                           <div class="talle__div__size">
-                          
-                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected>Abrir...</option>
                               <% for( let i = 0; i < producto.Talles.length; i++ ) { %>
-                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="btnradio1"><%= producto.Talles[i].talle %></label>
-                              <% } %>
-
-                            </div>
+                                  <option value="1"><%= producto.Talles[i].talle %></option>
+                                  <% } %>
+                              </select>     
                           </div>
                         
                         <article class="talle__div__cantidad-box">
-                            <select name="cantidad" class="talle__div__cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="morethan"> más de 6 unidades</option>
-                            </select>
                             <button type="button" class="btn btn-dark">Agregar al carrito</button>
                         </article>
                     </section>

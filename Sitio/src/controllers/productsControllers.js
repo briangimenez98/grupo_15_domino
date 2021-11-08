@@ -27,7 +27,8 @@ module.exports = {
                         return res.render('products', {
                             productos,
                             toThousand,
-                            imagenes
+                            imagenes,
+                            title: "Domino | Listado de Productos"
                     }).catch(error => {
                         console.log(error);
                     })
@@ -50,7 +51,7 @@ module.exports = {
                 include: {association: "Producto"},
                 where: {productoId: req.params.id}
             }).then(imagenes => {
-                    return res.render('detalle', {producto, imagenes})
+                    return res.render('detalle', {producto, imagenes, title: "Domino | " + producto.nombre})
                 })
                 .catch(error => console.log(error))
             })
@@ -63,7 +64,7 @@ module.exports = {
                         Categoria.findAll()
                             .then(categorias => {
                                 /* return res.render("construction.ejs") */
-                                return res.render("createProduct.ejs", {productos, talles, categorias})
+                                return res.render("createProduct.ejs", {productos, talles, categorias, title: "Domino | Creación de Producto"})
                             })
                     })
             })
@@ -82,12 +83,12 @@ module.exports = {
                 idGeneros: req.body.genero
                 });
 
-                if(req.body.talle.length < 2){ //Si lo que me viene por body es una sola cosa...
+                if(typeof req.body.talle == "string"){ //Si lo que me viene por body es una sola cosa...
                     await talleProducto.create({ //Creame un solo registro de eso...
                         productoId: producto.id,
                         talleId: req.body.talle
                     })
-                } else if (req.body.talle.length >= 2){ //Si lo que me viene por body es + de una cosa...
+                } else if (typeof req.body.talle == "object"){ //Si lo que me viene por body es + de una cosa...
                     let reqBodyArray = []; //Array vacío...
                     req.body.talle.forEach(t => { //Recorremos lo que viene por body
                         let talles = { //Asignamos una estructura de dato...
@@ -128,7 +129,7 @@ module.exports = {
                         Categoria.findAll()
                             .then(categorias => {
                                 /* return res.render("construction.ejs") */
-                                return res.render("createProduct.ejs", {productos, talles, categorias, errors: errors.mapped(), old: req.body})
+                                return res.render("createProduct.ejs", {productos, talles, categorias, errors: errors.mapped(), old: req.body, title: "Domino | Creación de Producto"})
                             })
                     })
             })
@@ -153,7 +154,7 @@ module.exports = {
                                 Imagenes.findAll({
                                     where: {productoId: req.params.id}
                                 }).then(imagenes => {
-                                    return res.render("editProduct.ejs", {producto, talles, categorias, imagenes})
+                                    return res.render("editProduct.ejs", {producto, talles, categorias, imagenes, title: "Domino | Edición de Producto"})
                                 })
                             })
                     })
@@ -211,7 +212,7 @@ module.exports = {
                 let categorias = await Categoria.findAll();
 
                 return res.render("editProduct.ejs", 
-                {producto, talles, categorias, errors: errors.mapped(), old: req.body})
+                {producto, talles, categorias, errors: errors.mapped(), old: req.body, title: "Domino | Edición de Producto"})
             }
         } catch (error) {
             console.log(error)
@@ -238,8 +239,4 @@ module.exports = {
         
     },
 
-    showCategories: async (req,res) => {
-        return res.render('construction.ejs')
-    },
-    admin : (req,res) => res.render('pruebaProducts')
 }
