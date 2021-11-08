@@ -43,6 +43,7 @@ app.use('/users', usersRouter);
 app.use('/vistas', vistasRouter);
 app.use('/api/carts',require('./routes/api/carts'));
 
+app.use('/api/products',require('./routes/api/products'));
 app.use('/api/users',require('./routes/api/users'));
 
 

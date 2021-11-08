@@ -1,7 +1,7 @@
 /* Requires */
 var express = require('express');
 var router = express.Router();
-const {index, detalle, carrito, createProduct, editProduct, destroy, edit, addProduct, showCategories} = require('../controllers/productsControllers');
+const {index, detalle, carrito, createProduct, editProduct, destroy, edit, addProduct, showCategories,admin} = require('../controllers/productsControllers');
 const path = require('path');
 const multer = require('multer');
 

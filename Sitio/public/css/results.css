@@ -10,6 +10,7 @@
     padding: 30px 60px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .results main section article{
@@ -74,4 +75,12 @@
 }
 .results main .error i{
     font-size: 25px;
+}
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+}
+
+.page-link{
+    color: black;
 }

@@ -28,6 +28,7 @@
     background-color: white;
     border-bottom: solid 1px rgb(167, 165, 165);
     text-transform: uppercase;
+    border-radius: .25rem;
 }
 
 .home .primero section article img{
@@ -123,6 +124,7 @@
     margin-top: 20px;
     background-color: white;
     text-transform: uppercase;
+    border-radius: .25rem;
 }
 
 .home .segundo section p{
@@ -427,6 +429,9 @@
         width: 100%;
         margin-top: 40px;
         justify-content:space-between;
+    }
+    .home .primero, .home .segundo{
+        padding: 0 50px;
     }
     .home .primero section{
         flex-direction: column;

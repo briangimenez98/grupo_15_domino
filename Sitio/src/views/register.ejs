@@ -37,16 +37,20 @@
                             </div>
                             <div>
                                 <label for="contraseña">Contraseña</label>
-                                <input type="password" class="form-control <%= locals.errors && locals.errors.password ? 'is-invalid' : null %> " id="contraseña" name="password">
+                                <div class="contain">
+                                    <input type="password" class="passw form-control <%= locals.errors && locals.errors.password ? 'is-invalid' : null %> " id="contraseña" name="password">
+                                    <img onclick="passwordInput()" src="/img/Show.png" alt="" class="icon" id="eye">
+                                </div>
                                 <p class="text-danger" id="error-contraseña">
                                     <%= locals.errors && locals.errors.password ? errors.password.msg : null %>
                                 </p>
                             </div>
                             <div class="birthday">
                                 <label for="birthday">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control <%= locals.errors && locals.errors.birthday ? 'is-invalid' : null %> " name="birthday" id="birthday">
+                                <input type="date" class="form-date__input form-control <%= locals.errors && locals.errors.birthday ? 'is-invalid' : null %> " name="birthday" id="birthday">
                                 <p class="text-danger" id="error-birthday"></p>
                             </div>
+
                         </section>
                         <div class="checkbox">
                             <p>
@@ -115,5 +119,21 @@
     <%- include('./partials/footer') %> 
 <!--Scripts & Footer-->
         <script src="/javascripts/registerValidator.js"></script>
+        <script>
+    
+            function passwordInput(){
+                
+                var eye = document.getElementById('eye');
+                var input = document.getElementById('contraseña');
+    
+                if (input.type == "password") {
+                    input.type = "text"
+                    eye.style.opacity = 0.8;
+                }else{
+                    input.type = "password"
+                    eye.style.opacity = 0.2;
+                }
+            }
+        </script>
     </body>
 </html>

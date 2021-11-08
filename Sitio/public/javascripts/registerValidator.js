@@ -100,7 +100,7 @@ window.addEventListener('load', () => {
     $('contraseña').addEventListener('blur', () => {
         if(!regExPass.test($('contraseña').value)){
             $('contraseña').classList.add('is-invalid')
-            $('error-contraseña').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner una contraseña</span>"
+            $('error-contraseña').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes poner una contraseña válida</span>"
         }else{
             $('contraseña').classList.remove('is-invalid')
             $('contraseña').classList.add('is-valid')
